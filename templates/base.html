@@ -9,8 +9,13 @@
 </head>
 
 <body>
+    {% include 'components/header.html' %}
+
+    <main class="l-main-wrapper">
     {% block content %}
     {% endblock content %}
+    </main>
+    
     {% include 'components/scripts.html' %}
 </body>
 </html>
