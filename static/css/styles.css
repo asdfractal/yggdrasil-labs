@@ -25,6 +25,16 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 h1 {
   font-family: "elianto";
+  color: #1F1F1F;
+}
+
+body {
+  height: 100%;
+  background: url("/media/images/background-01_grey.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */
