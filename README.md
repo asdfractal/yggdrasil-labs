@@ -10,6 +10,7 @@ This is a full stack website developed for Code Institute milestone project 4.
     * User Stories
     * Requirements
     * Expectations
+* Design Choices
 
 ## User Experience
 
@@ -22,6 +23,7 @@ To offer users a service for purchasing and installing cybernetic implants. User
 * Book appointments and receive technical support
 * Post reviews and feedback about the products and the service
 * Intuitive and visually appealing website design
+
 * Website can be used on all devices
 
 ### Site Owner Goals
@@ -53,4 +55,11 @@ To offer users a service for purchasing and installing cybernetic implants. User
 * Personal information will be stored securely
 
 ## Design Choices
-Due to the nature of this business' products, I have taken inspiration from the cyberpunk sci-fi culture. However since it is a business providing a service, clients need to feel they are safe to proceed with the installation. The desired impression is to be reliable and professional, and to still stand out and make an im To achieve this I have chosen a colour and font theme with this in mind.
+Due to the nature of this business' products, I have taken inspiration from the cyberpunk sci-fi culture, with a bit of influence from synthwave and vaporwave. However since it is a business providing a service, clients need to feel they are safe to proceed with the installation. The desired impression is to be reliable and professional, and to still stand out and make an impression. To achieve this I have chosen a colour and font theme with this in mind.
+
+### Colours
+The overwhelming colour aesthetic in the aformentioned inspirations are blues, purples and pinks on a dark backdrop. There is also an emphasis on neon style colours. With this in mind I have created this colour palette.
+
+---
+
+### Fonts
