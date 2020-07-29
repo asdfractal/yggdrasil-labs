@@ -1,1 +1,4 @@
 .vscode
+.editorconfig
+.dev_files
+*.sqlite3
