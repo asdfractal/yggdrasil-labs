@@ -8,10 +8,10 @@
     <title>Document</title>
 </head>
 
-<body>
+<body {% if request.path == '/' %}class="body-index"{% endif %}>
     {% include 'components/header.html' %}
 
-    <main class="l-main-wrapper">
+    <main class="container-fluid l-main-wrapper h-100">
     {% block content %}
     {% endblock content %}
     </main>
