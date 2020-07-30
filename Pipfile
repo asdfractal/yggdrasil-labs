@@ -10,6 +10,7 @@ django = "*"
 black = "==19.10b0"
 pylint = "*"
 pylint-django = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
