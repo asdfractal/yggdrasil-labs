@@ -58,7 +58,7 @@ To offer users a service for purchasing and installing cybernetic implants. User
 Due to the nature of this business' products, I have taken inspiration from the cyberpunk sci-fi culture, with a bit of influence from synthwave and vaporwave. However since it is a business providing a service, clients need to feel they are safe to proceed with the installation. The desired impression is to be reliable and professional, and to still stand out and make an impression. To achieve this I have chosen a colour and font theme with this in mind.
 
 ### Colours
-The overwhelming colour aesthetic in the aformentioned inspirations are blues, purples and pinks on a dark backdrop. There is also an emphasis on neon style colours. With this in mind I have created this colour scheme. A palette of the scheme can be viewed [here](/wireframes/colour-palette.png)
+The overwhelming colour aesthetic in the aformentioned inspirations are blues, purples and pinks on a dark backdrop. There is also an emphasis on neon style colours. With this in mind I have created this colour scheme. A palette of the scheme can be viewed [here](/wireframes/colour-palette.png).
 
 * Primary colour - #00C2CE - This blue/green brings a nice contrast to the overall dark theme of the website, drawing attention where it is present
 * Secondary colour - #D76EE5 - A slightly toned down neon pink/purple, complimenting the primary colour and highlighting elements
@@ -75,3 +75,6 @@ _Font awesome(expand)_
 
 ### Styles
 I have wanted to use scss for some time and this project I have decided to implement it for the first time. I have used [this](https://matthewelsom.com/blog/simple-scss-playbook.html) resource as a guide for the architechture.
+
+### Wireframes
+Using the program Pencil I designed wireframes for desktop and mobile/tablet. The mobile/tablet are combined because there will be minimal differences in the design. The wireframes can be viewed [here](/wireframes/).
