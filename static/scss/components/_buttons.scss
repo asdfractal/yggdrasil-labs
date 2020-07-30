@@ -1,0 +1,30 @@
+%btn {
+  width: 150px;
+  height: 40px;
+  color: $white;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+
+  @media only screen and (min-width: 992px) {
+    width: 180px;
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  background-color: $primary-color;
+}
+
+.btn-secondary {
+  @extend %btn;
+  background-color: $secondary-color;
+}
+
+.btn-secondary-outline {
+  @extend %btn;
+  background-color: $darkgrey;
+  border: 1px solid $secondary-color;
+  &:hover {
+    color: $secondary-color;
+  }
+}
