@@ -1,4 +1,15 @@
-body {
-  height: 100%;
-  background: url('/media/images/background-01_grey.jpg') no-repeat center center fixed;
+.body-index {
+  background: url('/media/images/background.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.index-title-img {
+  content: url('/media/images/mobile/index-title.png');
+
+  @media only screen and (min-width: 992px) {
+    content: url('/media/images/desktop/index-title.png');
+  }
 }
