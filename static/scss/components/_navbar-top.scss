@@ -1,0 +1,11 @@
+.navbar-top__wrapper {
+  background: $grey-alpha-half;
+}
+
+.nav-logo {
+  content: url('/media/images/mobile/nav-logo.png');
+
+  @media only screen and (min-width: 992px) {
+    content: url('/media/images/desktop/nav-logo.png');
+  }
+}
