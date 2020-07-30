@@ -46,6 +46,35 @@ h1 {
   }
 }
 
+.btn-secondary-outline, .btn-secondary, .btn-primary {
+  width: 150px;
+  height: 40px;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 992px) {
+  .btn-secondary-outline, .btn-secondary, .btn-primary {
+    width: 180px;
+  }
+}
+
+.btn-primary {
+  background-color: #00C2CE;
+}
+
+.btn-secondary {
+  background-color: #D76EE5;
+}
+
+.btn-secondary-outline {
+  background-color: #1F1F1F;
+  border: 1px solid #D76EE5;
+}
+.btn-secondary-outline:hover {
+  color: #D76EE5;
+}
+
 .body-index {
   background: url("/media/images/background.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
