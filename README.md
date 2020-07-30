@@ -58,8 +58,20 @@ To offer users a service for purchasing and installing cybernetic implants. User
 Due to the nature of this business' products, I have taken inspiration from the cyberpunk sci-fi culture, with a bit of influence from synthwave and vaporwave. However since it is a business providing a service, clients need to feel they are safe to proceed with the installation. The desired impression is to be reliable and professional, and to still stand out and make an impression. To achieve this I have chosen a colour and font theme with this in mind.
 
 ### Colours
-The overwhelming colour aesthetic in the aformentioned inspirations are blues, purples and pinks on a dark backdrop. There is also an emphasis on neon style colours. With this in mind I have created this colour palette.
+The overwhelming colour aesthetic in the aformentioned inspirations are blues, purples and pinks on a dark backdrop. There is also an emphasis on neon style colours. With this in mind I have created this colour scheme. A palette of the scheme can be viewed [here](/wireframes/colour-palette.png)
 
----
+* Primary colour - #00C2CE - This blue/green brings a nice contrast to the overall dark theme of the website, drawing attention where it is present
+* Secondary colour - #D76EE5 - A slightly toned down neon pink/purple, complimenting the primary colour and highlighting elements
+* Tertiary colour - #F22CA6 - A vibrant flower pink, to be used sparingly to add extra highlights
+* Dark Grey - #1F1F1F - A dark grey not far off black
+* Grey - #3D3D3D - A lighter shade of the dark grey
 
 ### Fonts
+* Display font - [Elianto](https://www.behance.net/gallery/33808280/Elianto-Free-Font) - This font is perfect for the desired feel of the website. Bold, solid, and professional with a unique character
+* Body font - [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans) - Easy to read and well spaced, compliments the display font
+
+### Icons
+_Font awesome(expand)_
+
+### Styles
+I have wanted to use scss for some time and this project I have decided to implement it for the first time. I have used [this](https://matthewelsom.com/blog/simple-scss-playbook.html) resource as a guide for the architechture.
