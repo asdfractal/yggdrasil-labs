@@ -87,7 +87,7 @@ Using the program Pencil I designed wireframes for desktop and mobile/tablet. Th
 ### Data models
 
 #### User
-I am using the [default django user model](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/#user-model).
+I am using the [default django user model](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/#user-model). Additionally I have decided to use allauth for this project as it seems to be the best option to allow users to login with their email instead of a username, which is what I want. For refernece I am using the allauth docs and [this](https://www.mattlayman.com/building-saas/user-accounts-django-allauth/) page.
 
 #### User Profile
 Name|Key in db|Field Type|Arguments
