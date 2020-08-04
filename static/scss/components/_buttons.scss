@@ -1,4 +1,4 @@
-%btn {
+%button {
   width: 150px;
   height: 40px;
   color: $white;
@@ -10,7 +10,7 @@
 }
 
 .button-primary {
-  @extend %btn;
+  @extend %button;
   background-color: $primary-color;
   &:hover,
   &:focus,
@@ -20,16 +20,30 @@
   }
 }
 
+.button-primary-outline {
+  @extend %button;
+  background-color: $darkgrey;
+  border: 1px solid $primary-color;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
 .button-secondary {
-  @extend %btn;
+  @extend %button;
   background-color: $secondary-color;
 }
 
 .button-secondary-outline {
-  @extend %btn;
+  @extend %button;
   background-color: $darkgrey;
   border: 1px solid $secondary-color;
   &:hover {
     color: $secondary-color;
   }
+}
+
+.button-form__small {
+  width: 130px;
+  height: 35px;
 }
