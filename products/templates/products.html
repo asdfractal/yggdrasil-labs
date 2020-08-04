@@ -2,9 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <section class="content__wrapper">
+    <section class="h-100">
         <div class="row h-50 bg-primary">
-
+            {% for product in products %}
+            <h1>
+                {{ product.name }}
+            </h1>
+            {% endfor %}
         </div>
     </section>
     
