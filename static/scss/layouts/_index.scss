@@ -8,8 +8,7 @@
 
 .index-title-img {
   content: url('/media/images/mobile/index-title.png');
-
-  @media only screen and (min-width: 992px) {
+  @include breakpoint(lg) {
     content: url('/media/images/desktop/index-title.png');
   }
 }
