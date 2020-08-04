@@ -13,6 +13,7 @@ pylint-django = "*"
 gunicorn = "*"
 django-allauth = "*"
 django-crispy-forms = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
