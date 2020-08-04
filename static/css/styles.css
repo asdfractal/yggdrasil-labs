@@ -29,6 +29,13 @@ h1, h2, h3, h4, h5, h6, p, a {
 a {
   color: #00C2CE;
 }
+a:hover {
+  color: #00929b;
+}
+
+.btn {
+  border-radius: 0 !important;
+}
 
 h1 {
   font-family: "elianto";
@@ -48,6 +55,15 @@ h1 {
   }
 }
 
+.navbar-toggler {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+}
+
+.nav-link {
+  font-size: 2rem;
+}
+
 .btn-secondary-outline, .btn-secondary, .btn-primary {
   width: 150px;
   height: 40px;
@@ -63,6 +79,10 @@ h1 {
 
 .btn-primary {
   background-color: #00C2CE;
+  border-color: #00C2CE;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: #00929b;
 }
 
 .btn-secondary {

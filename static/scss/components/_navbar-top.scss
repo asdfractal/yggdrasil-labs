@@ -8,3 +8,12 @@
     content: url('/media/images/desktop/nav-logo.png');
   }
 }
+
+.navbar-toggler {
+  color: $white;
+  font-size: 3.5rem;
+}
+
+.nav-link {
+  font-size: 2rem;
+}
