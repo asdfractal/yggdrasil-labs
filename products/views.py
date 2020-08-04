@@ -5,4 +5,4 @@ def products(request):
     """
     Returns a view with all products displayed.
     """
-    return render(request, 'products.html')
+    return render(request, "products.html")
