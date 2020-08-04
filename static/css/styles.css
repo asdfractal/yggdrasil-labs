@@ -74,7 +74,7 @@ h1 {
   font-size: 1.6rem;
   text-transform: uppercase;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   .button-secondary-outline, .button-secondary, .button-primary {
     width: 180px;
   }

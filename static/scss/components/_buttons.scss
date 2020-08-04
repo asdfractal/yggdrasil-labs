@@ -4,8 +4,7 @@
   color: $white;
   font-size: 1.6rem;
   text-transform: uppercase;
-
-  @media only screen and (min-width: 992px) {
+  @include breakpoint(md) {
     width: 180px;
   }
 }
