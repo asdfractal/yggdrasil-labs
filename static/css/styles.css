@@ -30,10 +30,10 @@ h1, h2, h3, h4, h5, h6, p, a {
 }
 
 a {
-  color: #00C2CE;
+  color: #00C2CE !important;
 }
 a:hover {
-  color: #00929b;
+  color: #00929b !important;
 }
 
 .btn {
@@ -45,8 +45,13 @@ h1 {
   color: #FFFFFF;
 }
 
-.navbar-top__wrapper {
+.navbar-top__wrapper,
+.dropdown-menu {
   background: rgba(61, 61, 61, 0.5);
+}
+
+.dropdown-item:hover {
+  background: rgba(87, 87, 87, 0.5);
 }
 
 .nav-logo {
@@ -63,7 +68,8 @@ h1 {
   font-size: 3.5rem;
 }
 
-.nav-link {
+.nav-link,
+.dropdown-item {
   font-size: 2rem;
 }
 

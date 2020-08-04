@@ -1,5 +1,10 @@
-.navbar-top__wrapper {
+.navbar-top__wrapper,
+.dropdown-menu, {
   background: $grey-alpha-half;
+}
+
+.dropdown-item:hover {
+  background: lighten($grey-alpha-half, 10%);
 }
 
 .nav-logo {
@@ -14,6 +19,7 @@
   font-size: 3.5rem;
 }
 
-.nav-link {
+.nav-link,
+.dropdown-item {
   font-size: 2rem;
 }
