@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-top__wrapper">
+    <nav class="navbar navbar-expand-lg fixed-top bg-grey-alpha-half">
         <a class="navbar-brand" href="#">
             <img class="nav-logo" alt="Yggdrasil">
         </a>
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="navbarToggler">
             <ul class="navbar-nav text-center text-uppercase">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home{% if request.path == '/' %}<span
+                    <a class="nav-link" href="{% url 'index' %}">Home{% if request.path == '/' %}<span
                             class="sr-only">(current)</span>{% endif %}</a>
                 </li>
                 <li class="nav-item">
@@ -25,27 +25,31 @@
                     <a class="nav-link" href="#">Contact{% if request.path == '/contact/' %}<span
                             class="sr-only">(current)</span>{% endif %}</a>
                 </li>
-                <div class="">
-                    <li class="nav-item dropdown d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {% if request.path == '/profile/' %}<span
-                            class="sr-only">(current)</span>{% endif %}Account
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">Logout</a>
-                        </div>
-                    </li>
-                </div>
-                <div class="">
-                    <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="#">Profile{% if request.path == '/profile/' %}<span class="sr-only">(current)</span>{% endif %}</a>
-                    </li>
-                    <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                </div>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown d-none d-lg-block">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if request.path == '/profile/' %}<span class="sr-only">(current)</span>{% endif %}Account
+                    </a>
+                    <div class="dropdown-menu bg-grey-alpha-half" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    </div>
+                </li>
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="#">Profile{% if request.path == '/profile/' %}<span
+                            class="sr-only">(current)</span>{% endif %}</a>
+                </li>
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_login' %}">Login{% if request.path == '/accounts/login/' %}<span
+                            class="sr-only">(current)</span>{% endif %}</a>
+                </li>
+                {% endif %}
+
             </ul>
         </div>
     </nav>

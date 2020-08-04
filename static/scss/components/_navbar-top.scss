@@ -1,10 +1,8 @@
-.navbar-top__wrapper,
-.dropdown-menu, {
-  background: $grey-alpha-half;
-}
-
-.dropdown-item:hover {
-  background: lighten($grey-alpha-half, 10%);
+.dropdown-item {
+  font-weight: 300;
+  &:hover {
+    background: lighten($grey-alpha-half, 10%);
+  }
 }
 
 .nav-logo {
