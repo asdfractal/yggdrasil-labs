@@ -22,6 +22,7 @@ body {
 button {
   outline: none !important;
   box-shadow: none !important;
+  border: none;
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
@@ -45,11 +46,13 @@ h1 {
   color: #FFFFFF;
 }
 
-.navbar-top__wrapper,
-.dropdown-menu {
-  background: rgba(61, 61, 61, 0.5);
+.bg-grey-alpha-half {
+  background-color: rgba(61, 61, 61, 0.5);
 }
 
+.dropdown-item {
+  font-weight: 300;
+}
 .dropdown-item:hover {
   background: rgba(87, 87, 87, 0.5);
 }
@@ -73,7 +76,7 @@ h1 {
   font-size: 2rem;
 }
 
-.button-secondary-outline, .button-secondary, .button-primary {
+.button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
   width: 150px;
   height: 40px;
   color: #FFFFFF;
@@ -81,7 +84,7 @@ h1 {
   text-transform: uppercase;
 }
 @media only screen and (min-width: 768px) {
-  .button-secondary-outline, .button-secondary, .button-primary {
+  .button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
     width: 180px;
   }
 }
@@ -94,6 +97,14 @@ h1 {
   color: #FFFFFF;
 }
 
+.button-primary-outline {
+  background-color: #1F1F1F;
+  border: 1px solid #00C2CE;
+}
+.button-primary-outline:hover {
+  color: #00C2CE;
+}
+
 .button-secondary {
   background-color: #D76EE5;
 }
@@ -104,6 +115,27 @@ h1 {
 }
 .button-secondary-outline:hover {
   color: #D76EE5;
+}
+
+.button-form__small {
+  width: 130px;
+  height: 35px;
+}
+
+.form__wrapper h1 {
+  text-transform: uppercase;
+}
+.form__wrapper h2 {
+  margin-top: 1rem;
+}
+.form__wrapper p {
+  margin-top: 0.5rem;
+}
+.form__wrapper input {
+  border-radius: 0;
+  box-sizing: unset;
+  border: 0;
+  font-size: 1.4rem;
 }
 
 .body-index {
