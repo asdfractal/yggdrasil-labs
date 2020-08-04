@@ -21,5 +21,11 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 a {
   color: $primary-color;
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
 }
 
+.btn {
+  border-radius: 0 !important;
+}

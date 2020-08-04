@@ -10,17 +10,23 @@
   }
 }
 
-.btn-primary {
+.button-primary {
   @extend %btn;
   background-color: $primary-color;
+  &:hover,
+  &:focus,
+  &:active  {
+    background-color: darken($primary-color, 10%);
+    color: $white;
+  }
 }
 
-.btn-secondary {
+.button-secondary {
   @extend %btn;
   background-color: $secondary-color;
 }
 
-.btn-secondary-outline {
+.button-secondary-outline {
   @extend %btn;
   background-color: $darkgrey;
   border: 1px solid $secondary-color;
