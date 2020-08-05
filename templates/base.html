@@ -11,7 +11,7 @@
 <body {% if request.path == '/' %}class="body-index"{% endif %}>
     {% include 'components/header.html' %}
 
-    <main class="container-fluid h-100 {% if request.path != '/' %}main__wrapper{% endif %}">
+    <main class="container-fluid {% if request.path != '/' %}main__wrapper{% endif %}">
     {% block content %}
     {% endblock content %}
     </main>

@@ -6,9 +6,12 @@
   background-size: cover;
 }
 
-.index-title-img {
-  content: url('/media/images/mobile/index-title.png');
-  @include breakpoint(lg) {
-    content: url('/media/images/desktop/index-title.png');
+.index-title__wrapper {
+  height: 50vh;
+  img {
+    content: url('/media/images/mobile/index-title.png');
+    @include breakpoint(lg) {
+      content: url('/media/images/desktop/index-title.png');
+    }
   }
 }
