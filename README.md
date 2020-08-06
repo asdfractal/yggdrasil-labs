@@ -87,7 +87,7 @@ Using the program Pencil I designed wireframes for desktop and mobile/tablet. Th
 ### Data models
 
 #### User
-I am using the [default django user model](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/#user-model). Additionally I have decided to use allauth for this project as it seems to be the best option to allow users to login with their email instead of a username, which is what I want. For refernece I am using the allauth docs and [this](https://www.mattlayman.com/building-saas/user-accounts-django-allauth/) page.
+I am using the [default django user model](https://docs.djangoproject.com/en/3.0/ref/contrib/auth/#user-model). Additionally I have decided to use allauth for this project as it seems to be the best option to allow users to login with their email instead of a username, which is what I want. For reference I am using the allauth docs and [this](https://www.mattlayman.com/building-saas/user-accounts-django-allauth/) page.
 
 #### User Profile
 Name|Key in db|Field Type|Arguments
@@ -106,14 +106,19 @@ Country|default_country|CountryField|blank_label='Country', null=True, blank=Tru
 #### Product
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Name|name|CharField|max_length=50, null=True, blank=True
-SKU|sku|CharField|max_length=50, null=True, blank=True
+Name|name|CharField|max_length=50, null=False, blank=False
+SKU|sku|CharField|max_length=50, null=False, blank=False
 Description|description|TextField|null=False, blank=False, default=''
 Booking required|booking_required|BooleanField|default=False, null=False, blank=False
 Shipping required|shipping_required|BooleanField|default=False, null=False, blank=False
 Price|price|DecimalField|max_digits=6, decimal_places=2
 Image URL|image_url|URLField|max_length=1024, null=True, blank=True
 Image|image|ImageField|null=True, blank=True
+
+#### Categories
+Name|Key in db|Field Type|Arguments
+:-----:|:-----:|:-----:|:-----:
+Name|name|CharField|max_length=20
 
 #### Order
 Name|Key in db|Field Type|Arguments
