@@ -6,10 +6,10 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         "sku",
         "name",
+        "category",
         "booking_required",
         "shipping_required",
         "price",
-        "image",
     )
     ordering = ["sku"]
 
