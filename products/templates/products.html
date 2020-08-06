@@ -2,11 +2,26 @@
 {% load static %}
 
 {% block content %}
-	<div class="row">
-		{% for product in products %}
-		<div class="col-12 col-lg-6">
-			{% include 'components/product-card.html' %}
-		</div>
-		{% endfor %}
+<div class="row d-md-none">
+	<div class="col-4 text-right">
+		<a href="#implant">Implants</a>
 	</div>
+	<div class="col-4 text-center">
+		<a href="#app">Apps</a>
+	</div>
+	<div class="col-4">
+		<a href="#upgrade">Upgrades</a>
+	</div>
+</div>
+{% for category in categories %}
+<div class="row" id="{{ category.name }}">
+	{% for product in products %}
+	{% if product.category.name == category.name %}
+	<div class="col-12 col-lg-6">
+		{% include 'components/product-card.html' %}
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>
+{% endfor %}
 {% endblock content %}
