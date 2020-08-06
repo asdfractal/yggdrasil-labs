@@ -107,6 +107,7 @@ Country|default_country|CountryField|blank_label='Country', null=True, blank=Tru
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Name|name|CharField|max_length=50, null=False, blank=False
+Category|category|ForeignKey|'Category', null=False, blank=False, on_delete=SET_NULL
 SKU|sku|CharField|max_length=50, null=False, blank=False
 Description|description|TextField|null=False, blank=False, default=''
 Booking required|booking_required|BooleanField|default=False, null=False, blank=False
