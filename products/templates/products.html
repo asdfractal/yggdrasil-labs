@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block content %}
-    <section class="h-100">
-        <div class="row h-50 bg-primary">
-            {% for product in products %}
-            <h1>
-                {{ product.name }}
-            </h1>
-            {% endfor %}
-        </div>
-    </section>
-    
+<section class="products__wrapper">
+	<div class="row">
+		{% for product in products %}
+		<div class="col-12 col-lg-6">
+			{% include 'components/product-card.html' %}
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
 
 {% endblock content %}
