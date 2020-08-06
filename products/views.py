@@ -8,7 +8,7 @@ def products(request):
     """
     products = Product.objects.all()
     context = {
-        'products': products,
+        "products": products,
     }
 
     return render(request, "products.html", context)
