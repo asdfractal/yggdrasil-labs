@@ -6,12 +6,10 @@
   font-style: normal;
 }
 html {
-  height: 100%;
   font-size: 62.5%;
 }
 
 body {
-  height: 100%;
   font-size: 1.6rem;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
@@ -41,9 +39,45 @@ a:hover {
   border-radius: 0 !important;
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: "elianto";
-  color: #FFFFFF;
+}
+
+h1 {
+  font-size: 3rem;
+}
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+@media only screen and (min-width: 768px) {
+  h3 {
+    font-size: 4rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  h4 {
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  h4 {
+    font-size: 3rem;
+  }
 }
 
 .bg-grey-alpha-half {
@@ -76,23 +110,27 @@ h1 {
   font-size: 2rem;
 }
 
+.footer {
+  background: #3D3D3D;
+}
+
 .button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
-  width: 150px;
-  height: 40px;
+  width: 200px;
+  height: 50px;
   color: #FFFFFF;
-  font-size: 1.6rem;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 @media only screen and (min-width: 768px) {
   .button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
-    width: 180px;
+    width: 220px;
   }
 }
 
 .button-primary {
   background-color: #00C2CE;
 }
-.button-primary:hover, .button-primary:focus, .button-primary:active {
+.button-primary:hover {
   background-color: #00929b;
   color: #FFFFFF;
 }
@@ -108,6 +146,10 @@ h1 {
 .button-secondary {
   background-color: #D76EE5;
 }
+.button-secondary:hover {
+  background-color: #cb43dd;
+  color: #FFFFFF;
+}
 
 .button-secondary-outline {
   background-color: #1F1F1F;
@@ -117,9 +159,10 @@ h1 {
   color: #D76EE5;
 }
 
-.button-form__small {
-  width: 130px;
-  height: 35px;
+.button__small {
+  width: 120px;
+  height: 40px;
+  font-size: 1.6rem;
 }
 
 .form__wrapper h1 {
@@ -138,6 +181,20 @@ h1 {
   font-size: 1.4rem;
 }
 
+.card {
+  background: #474747;
+  margin-bottom: 3rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.main__wrapper {
+  padding-top: 13vh;
+  min-height: 95vh;
+}
+
 .body-index {
   background: url("/media/images/background.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
@@ -146,11 +203,14 @@ h1 {
   background-size: cover;
 }
 
-.index-title-img {
+.index-title__wrapper {
+  height: 50vh;
+}
+.index-title__wrapper img {
   content: url("/media/images/mobile/index-title.png");
 }
 @media only screen and (min-width: 992px) {
-  .index-title-img {
+  .index-title__wrapper img {
     content: url("/media/images/desktop/index-title.png");
   }
 }
