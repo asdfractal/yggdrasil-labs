@@ -2,11 +2,34 @@
 {% load static %}
 
 {% block content %}
-	<div class="row">
-		<div class="col-12 col-md-6">
-			{{ product.name }}
+
+
+<div class="card">
+	<img class="card-img-top" src="{{ product.image_url }}" class="mx-auto d-block img-fluid" alt="{{ product.name }}">
+	<div class="card-body">
+		<div class="col-12 col-md-6 order-md-first pb-3">
+			<h3 class="card-title text-center text-uppercase">{{ product.name }}</h3>
+			<p>{{ product.description }}</p>
 		</div>
-		<div class="col-12 col-md-6">
+		<div>
+			<img class="img-fluid" src="/media/images/border-circuit03.png" alt="">
+			<div class="row">
+				<p class="col-6 text-capitalize">Type: {{ product.category }}</p>
+				<p class="col-6 text-right">Price: {{ product.price }}</p>
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-6 col-md-4">
+					<button class="btn button-primary-outline button__small"><a
+							href="{% url 'products' %}">Back</a></button>
+				</div>
+				<div class="col-6 col-md-4 text-right">
+					<button class="btn button-secondary-outline button__small"><a href="">Buy</a></button>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
+
+
+
 {% endblock content %}
