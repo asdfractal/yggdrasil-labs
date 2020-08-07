@@ -1,4 +1,8 @@
 .main__wrapper {
-  padding-top: 13vh;
+  padding: 13vh 15px 0;
   min-height: 95vh;
+
+  @include breakpoint(sm) {
+    padding: 13vh 10vw 0;
+  }
 }

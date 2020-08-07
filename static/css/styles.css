@@ -22,17 +22,28 @@ button {
   box-shadow: none !important;
   border: none;
 }
+button > a {
+  color: #FFFFFF !important;
+}
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
   margin: 0;
   padding: 0;
 }
 
 a {
-  color: #00C2CE !important;
+  color: #00C2CE;
 }
 a:hover {
   color: #00929b !important;
+  text-decoration: none;
 }
 
 .btn {
@@ -82,6 +93,10 @@ h4 {
 
 .bg-grey-alpha-half {
   background-color: rgba(61, 61, 61, 0.5);
+}
+
+.bgc-light {
+  background-color: #474747;
 }
 
 .dropdown-item {
@@ -160,9 +175,14 @@ h4 {
 }
 
 .button__small {
-  width: 120px;
+  width: 100px;
   height: 40px;
   font-size: 1.6rem;
+}
+@media only screen and (min-width: 576px) {
+  .button__small {
+    width: 150px;
+  }
 }
 
 .form__wrapper h1 {
@@ -191,8 +211,13 @@ h4 {
 }
 
 .main__wrapper {
-  padding-top: 13vh;
+  padding: 13vh 15px 0;
   min-height: 95vh;
+}
+@media only screen and (min-width: 576px) {
+  .main__wrapper {
+    padding: 13vh 10vw 0;
+  }
 }
 
 .body-index {

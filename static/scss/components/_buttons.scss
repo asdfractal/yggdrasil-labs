@@ -4,6 +4,7 @@
   color: $white;
   font-size: 2rem;
   text-transform: uppercase;
+
   @include breakpoint(md) {
     width: 220px;
   }
@@ -12,6 +13,7 @@
 .button-primary {
   @extend %button;
   background-color: $primary-color;
+
   &:hover {
     background-color: darken($primary-color, 10%);
     color: $white;
@@ -22,6 +24,7 @@
   @extend %button;
   background-color: $darkgrey;
   border: 1px solid $primary-color;
+
   &:hover {
     color: $primary-color;
   }
@@ -30,6 +33,7 @@
 .button-secondary {
   @extend %button;
   background-color: $secondary-color;
+
   &:hover {
     background-color: darken($secondary-color, 10%);
     color: $white;
@@ -40,13 +44,18 @@
   @extend %button;
   background-color: $darkgrey;
   border: 1px solid $secondary-color;
+
   &:hover {
     color: $secondary-color;
   }
 }
 
 .button__small {
-  width: 120px;
+  width: 100px;
   height: 40px;
   font-size: 1.6rem;
+
+  @include breakpoint(sm) {
+    width: 150px;
+  }
 }
