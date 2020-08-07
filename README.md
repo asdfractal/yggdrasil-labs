@@ -94,7 +94,6 @@ Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 User|user|OneToOneField|django.contrib.auth.get_user_model(), on_delete.models.CASCADE
 Full Name|default_full_name|CharField|max_length=100, null=True, blank=True
-Email|default_email|EmailField|max_length=254, null=False, blank=False
 Phone Number|default_phone_number|CharField|max_length=20, null=True, blank=True
 Street 1|default_street_address_1|CharField|max_length=100, null=True, blank=True
 Street 2|default_street_address_2|CharField|max_length=100, null=True, blank=True
@@ -102,12 +101,13 @@ City|default_city|CharField|max_length=50, null=True, blank=True
 Postcode|default_postcode|CharField|max_length=20, null=True, blank=True
 State|default_state|CharField|max_length=20, null=True, blank=True
 Country|default_country|CountryField|blank_label='Country', null=True, blank=True
+Client check|is_client|BooleanField|default=False
 
 #### Product
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Name|name|CharField|max_length=50, null=False, blank=False
-Category|category|ForeignKey|'Category', null=False, blank=False, on_delete=SET_NULL
+Category|category|ForeignKey|'Category', null=True, blank=True, on_delete=models.SET_NULL
 SKU|sku|CharField|max_length=50, null=False, blank=False
 Description|description|TextField|null=False, blank=False, default=''
 Booking required|booking_required|BooleanField|default=False, null=False, blank=False
