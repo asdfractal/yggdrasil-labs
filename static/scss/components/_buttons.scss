@@ -1,13 +1,24 @@
 %button {
-  width: 200px;
-  height: 50px;
+  width: 90%;
+  height: 40px;
   color: $white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
+}
 
-  @include breakpoint(md) {
-    width: 220px;
+.button__large {
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+
+  @include breakpoint(lg) {
+    width: 80%;
   }
+}
+
+.button__small {
+  width: 75%;
+  height: 35px;
 }
 
 .button-primary {
@@ -26,6 +37,7 @@
   border: 1px solid $primary-color;
 
   &:hover {
+    background-color: lighten($darkgrey, 5%);
     color: $primary-color;
   }
 }
@@ -46,16 +58,7 @@
   border: 1px solid $secondary-color;
 
   &:hover {
+    background-color: lighten($darkgrey, 5%);
     color: $secondary-color;
-  }
-}
-
-.button__small {
-  width: 100px;
-  height: 40px;
-  font-size: 1.6rem;
-
-  @include breakpoint(sm) {
-    width: 150px;
   }
 }
