@@ -22,10 +22,24 @@ def product_detail(request, product_id):
     Returns a view with individual product details.
     """
     product = get_object_or_404(Product, pk=product_id)
-    review = get_object_or_404(Review, pk=product_id)
+    reviews = Review.objects.filter(product=product_id)
     context = {
         "product": product,
-        "review": review,
+        "reviews": reviews,
     }
 
     return render(request, "product_detail.html", context)
+
+
+def product_reviews(request, product_id):
+    """
+    Returns a view with all the reviews for a specific product.
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product_id)
+    context = {
+        "product": product,
+        "reviews": reviews,
+    }
+
+    return render(request, "product_reviews.html", context)

@@ -10,7 +10,13 @@
 		<div class="col-12 col-md-6 order-md-first pb-3">
 			<h3 class="card-title text-center text-uppercase">{{ product.name }}</h3>
 			<p>{{ product.description }}</p>
-			<p>{{review.user_profile}} says: {{ review.review_content }}</p>
+			{% if reviews|length == 0 %}
+			<p>no reviews - create one</p>
+			{% else %}
+			<p>{{ reviews.0.user_profile }} says {{ reviews.0.review_content }}</p>
+			<a href="{% url 'product_reviews' product.id %}">All reviews</a>
+			{% endif %}
+
 		</div>
 		<div>
 			<img class="img-fluid" src="/media/images/border-circuit03.png" alt="">
@@ -20,10 +26,10 @@
 			</div>
 			<div class="row justify-content-between">
 				<div class="col-6 col-md-4">
-					<button class="btn button-primary-outline "><a href="{% url 'products' %}">Back</a></button>
+					<a href="{% url 'products' %}"><button class="btn button-primary-outline ">Back</button></a>
 				</div>
 				<div class="col-6 col-md-4 text-right">
-					<button class="btn button-secondary-outline"><a href="">Buy</a></button>
+					<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
 				</div>
 			</div>
 		</div>
