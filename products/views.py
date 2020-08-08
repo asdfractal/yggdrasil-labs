@@ -28,7 +28,7 @@ def product_detail(request, product_id):
         "reviews": reviews,
     }
 
-    return render(request, "product_detail.html", context)
+    return render(request, "product-detail.html", context)
 
 
 def product_reviews(request, product_id):
@@ -42,4 +42,4 @@ def product_reviews(request, product_id):
         "reviews": reviews,
     }
 
-    return render(request, "product_reviews.html", context)
+    return render(request, "product-reviews.html", context)
