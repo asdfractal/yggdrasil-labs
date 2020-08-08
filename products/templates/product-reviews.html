@@ -5,17 +5,19 @@
 
 
 <div class="card">
-
 	<div class="card-body">
 		<div class="col-12 col-md-6 order-md-first pb-3">
-			<h3 class="card-title text-center text-uppercase">{{ product.name }}</h3>
+			<h4 class="card-title text-uppercase">{{ product.name }}</h4>
 		</div>
-		<div class="col-12">
-			{% for review in reviews %}
-			<p>{{ review.user_profile }}</p>
-			<p>{{ review.review_content }}</p>
-			{% endfor %}
+		{% for review in reviews %}
+		<div class="row pb-3">
+			<div class="col-12">
+				<p>{{ review.user_profile|capfirst }} -</p>
+				<p class="font-italic">"{{ review.review_content }}"</p>
+			</div>
 		</div>
+		{% endfor %}
+
 		<div class="row justify-content-between">
 			<div class="col-6 col-md-4">
 				<a href="{% url 'product_detail' product.id %}"><button

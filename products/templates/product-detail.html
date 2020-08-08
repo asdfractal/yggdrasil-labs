@@ -8,15 +8,8 @@
 	<img class="card-img-top" src="{{ product.image_url }}" class="mx-auto d-block img-fluid" alt="{{ product.name }}">
 	<div class="card-body">
 		<div class="col-12 col-md-6 order-md-first pb-3">
-			<h3 class="card-title text-center text-uppercase">{{ product.name }}</h3>
+			<h4 class="card-title text-uppercase">{{ product.name }}</h4>
 			<p>{{ product.description }}</p>
-			{% if reviews|length == 0 %}
-			<p>no reviews - create one</p>
-			{% else %}
-			<p>{{ reviews.0.user_profile }} says {{ reviews.0.review_content }}</p>
-			<a href="{% url 'product_reviews' product.id %}">All reviews</a>
-			{% endif %}
-
 		</div>
 		<div>
 			<img class="img-fluid" src="/media/images/border-circuit03.png" alt="">
@@ -30,6 +23,17 @@
 				</div>
 				<div class="col-6 col-md-4 text-right">
 					<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
+				</div>
+			</div>
+			<div class="row pt-3">
+				<div class="col-12">
+					{% if reviews|length == 0 %}
+					<p>No reviews - <a href="">create one</a></p>
+					{% else %}
+					<p>{{ reviews.0.user_profile|capfirst }} says -</p>
+					<p class="font-italic">"{{ reviews.0.review_content }}"</p>
+					<a href="{% url 'product_reviews' product.id %}">All reviews</a>
+					{% endif %}
 				</div>
 			</div>
 		</div>
