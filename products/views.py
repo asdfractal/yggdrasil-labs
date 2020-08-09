@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from reviews.models import Review
 from reviews.forms import ReviewForm
 from profiles.models import UserProfile
@@ -52,6 +54,7 @@ def product_reviews(request, product_id):
             review.user_profile = user_profile
             review.product = product
             review.save()
+            return HttpResponseRedirect(reverse("product_reviews", args=(product_id,)))
 
     context = {
         "product": product,
