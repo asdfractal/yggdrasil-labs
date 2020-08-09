@@ -17,7 +17,7 @@
 				<p class="col-6 text-capitalize">Type: {{ product.category }}</p>
 				<p class="col-6 text-right">Price: {{ product.price }}</p>
 			</div>
-			<div class="row justify-content-between">
+			<div class="row justify-content-between mb-4">
 				<div class="col-6 col-md-4">
 					<a href="{% url 'products' %}"><button class="btn button-primary-outline ">Back</button></a>
 				</div>
@@ -25,17 +25,20 @@
 					<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
 				</div>
 			</div>
-			<div class="row pt-3">
-				<div class="col-12">
-					{% if reviews|length == 0 %}
-					<p>No reviews - <a href="">create one</a></p>
-					{% else %}
-					<p>{{ reviews.0.user_profile|capfirst }} says -</p>
-					<p class="font-italic">"{{ reviews.0.review_content }}"</p>
+			{% if review != "" %}
+			{% include 'components/review-body.html' %}
+			<div class="row mb-4">
+				<div class="col-10 offset-1">
 					<a href="{% url 'product_reviews' product.id %}">All reviews</a>
-					{% endif %}
 				</div>
 			</div>
+			{% else %}
+			<div class="row mb-4">
+				<div class="col-10 offset-1">
+					<p>No reviews - <a href="">create one</a></p>
+				</div>
+			</div>
+			{% endif %}
 		</div>
 	</div>
 </div>

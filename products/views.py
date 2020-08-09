@@ -1,3 +1,4 @@
+from random import randint
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from reviews.models import Review
@@ -22,13 +23,18 @@ def products(request):
 
 def product_detail(request, product_id):
     """
-    Returns a view with individual product details.
+    Returns a view with individual product details and a random review to display.
     """
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
+    review = ""
+    if len(reviews) > 0:
+        pks = reviews.values_list("pk", flat=True)
+        random = randint(0, len(pks) - 1)
+        review = Review.objects.get(pk=pks[random])
     context = {
         "product": product,
-        "reviews": reviews,
+        "review": review,
     }
 
     return render(request, "product-detail.html", context)
