@@ -49,7 +49,6 @@ def product_reviews(request, product_id):
         if review.user_profile == user_profile:
             user_review = review
             form = ReviewForm(instance=user_review)
-            print(form)
 
     if request.method == "POST":
         if user_review != "":
@@ -70,6 +69,7 @@ def product_reviews(request, product_id):
         "product": product,
         "reviews": reviews,
         "form": form,
+        "user_review": user_review,
     }
 
     return render(request, "product-reviews.html", context)

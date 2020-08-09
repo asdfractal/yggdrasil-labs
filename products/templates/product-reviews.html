@@ -2,38 +2,51 @@
 {% load static %}
 
 {% block content %}
-
-
 <div class="card">
+	<div class="card-header">
+		<h4 class="text-uppercase">{{ product.name }} reviews</h4>
+	</div>
 	<div class="card-body">
-		<div class="col-12 col-md-6 order-md-first pb-3">
-			<h4 class="card-title text-uppercase">{{ product.name }}</h4>
-		</div>
 		{% for review in reviews %}
-		<div class="row pb-3">
-			<div class="col-12">
-				<p>
-					{% if review.user_profile.default_full_name|length > 0 %}
-					{{ review.user_profile.default_full_name|capfirst }}
-					{% else %}
-					{{ review.user_profile|capfirst }}
-					{% endif %}
-					-</p>
-				<p class="font-italic">"{{ review.review_content }}"</p>
-				<p class="font-italic">"{{ review.product }}"</p>
-			</div>
-		</div>
-		{% endfor %}
-		<div class="row">
-			<div class="col-10 offset-1">
-				<form action="{% url 'product_reviews' product.id %}" method="POST">
+		{% if review.user_profile.user == request.user %}
+		<div class="row pb-3 review-form__wrapper" id="currentUserReview">
+			<form action="{% url 'product_reviews' product.id %}" method="POST">
+				<div class="col-12">
 					{% csrf_token %}
 					{{ form|crispy }}
-					<button class="btn button-secondary-outline">Submit</button>
-				</form>
+				</div>
+				<div class="col-4 offset-8 text-right">
+					<button class="btn button-secondary button__small">Submit</button>
+				</div>
+			</form>
+		</div>
+		{% else %}
+		<div class="row pb-3 review__wrapper">
+			<div class="col-12">
+				{% if review.user_profile.default_full_name|length > 0 %}
+				<p>{{ review.user_profile.default_full_name|capfirst }} -</p>
+				{% else %}
+				<p>{{ review.user_profile|capfirst }} -</p>
+				{% endif %}
+
+				<p class="font-italic">"{{ review.review_content }}"</p>
 			</div>
 		</div>
-
+		{% endif %}
+		{% endfor %}
+		{% if user_review == "" %}
+		<div class="row review-form__wrapper" id="newUserReview">
+			<form action="{% url 'product_reviews' product.id %}" method="POST">
+				<div class="col-12">
+					{% csrf_token %}
+					{{ form|crispy }}
+				</div>
+				<div class="col-3 offset-9">
+					<button class="btn button-secondary-outline">Submit</button>
+				</div>
+			</form>
+		</div>
+		{% endif %}
 		<div class="row justify-content-between">
 			<div class="col-6 col-md-4">
 				<a href="{% url 'product_detail' product.id %}"><button
@@ -45,7 +58,4 @@
 		</div>
 	</div>
 </div>
-
-
-
 {% endblock content %}
