@@ -8,3 +8,7 @@ class ReviewForm(forms.ModelForm):
         fields = [
             "review_content",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["review_content"].label = "Write your review"
