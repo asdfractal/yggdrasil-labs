@@ -21,9 +21,32 @@
 
 .review-form__wrapper {
 
-  &>form {
+  >form {
     width: 100%;
+  }
+
+  label {
+    display: none;
+  }
+
+  i {
+    font-size: 2.5rem;
   }
 }
 
-.review-form-textarea {}
+.review-form-textarea {
+  border: 0;
+  border-radius: 0;
+
+  &.form-control {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  &:disabled {
+    background-color: $lightgrey;
+    color: $white;
+    font-style: italic;
+    resize: none;
+  }
+}

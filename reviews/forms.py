@@ -8,7 +8,7 @@ class ReviewForm(forms.ModelForm):
         fields = ["review_content"]
         widgets = {
             "review_content": forms.Textarea(
-                attrs={"disabled": True, "class": "review-form-textarea", "rows": 5,}
+                attrs={"disabled": True, "class": "review-form-textarea", "rows": 10,}
             ),
         }
 

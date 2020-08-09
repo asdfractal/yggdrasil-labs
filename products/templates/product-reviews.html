@@ -4,31 +4,33 @@
 {% block content %}
 <div class="card">
 	<div class="card-header">
-		<h4 class="text-uppercase">{{ product.name }} reviews</h4>
+		<h4 class="text-uppercase text-center">{{ product.name }} reviews</h4>
 	</div>
 	<div class="card-body">
 		{% for review in reviews %}
 		{% if review.user_profile.user == request.user %}
-		<div class="row pb-3 review-form__wrapper" id="currentUserReview">
+		<div class="row mb-3 review-form__wrapper" id="currentUserReview">
+			<div class="col-10 offset-1">
+				<p>Your review <i class="far fa-edit" id="editReview"></i></p>
+			</div>
 			<form action="{% url 'product_reviews' product.id %}" method="POST">
-				<div class="col-12">
+				<div class="col-10 offset-1">
 					{% csrf_token %}
 					{{ form|crispy }}
 				</div>
-				<div class="col-4 offset-8 text-right">
-					<button class="btn button-secondary button__small">Submit</button>
+				<div class="col-4 offset-8 text-right d-none">
+					<button class="btn button-secondary button__small" id="reviewSubmitButton">Submit</button>
 				</div>
 			</form>
 		</div>
 		{% else %}
-		<div class="row pb-3 review__wrapper">
-			<div class="col-12">
+		<div class="row mb-4 review__wrapper">
+			<div class="col-10 offset-1">
 				{% if review.user_profile.default_full_name|length > 0 %}
 				<p>{{ review.user_profile.default_full_name|capfirst }} -</p>
 				{% else %}
 				<p>{{ review.user_profile|capfirst }} -</p>
 				{% endif %}
-
 				<p class="font-italic">"{{ review.review_content }}"</p>
 			</div>
 		</div>

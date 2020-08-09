@@ -13,6 +13,12 @@ $error-color: #FF0033;
 $success-color: #00FF00;
 $info-color: #F2EA02;
 
+$box-shadow-black: rgba(13, 22, 24, 0.15) 0px 1px 1px,
+rgba(13, 22, 24, 0.15) 0px 2px 2px,
+rgba(13, 22, 24, 0.15) 0px 4px 4px,
+rgba(13, 22, 24, 0.15) 0px 8px 8px,
+rgba(13, 22, 24, 0.15) 0px 16px 16px;
+
 // breakpoints
 $bp-xs: 321px;
 $bp-sm: 576px;
