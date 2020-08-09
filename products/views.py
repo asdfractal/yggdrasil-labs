@@ -37,7 +37,8 @@ def product_detail(request, product_id):
 
 def product_reviews(request, product_id):
     """
-    Returns a view with all the reviews for a specific product.
+    Returns a view with all the reviews for a specific product. If current user
+    has a review, get that and allow them to update.
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
