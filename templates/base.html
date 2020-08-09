@@ -4,21 +4,24 @@
 <html lang="en">
 
 <head>
-    {% include 'components/head.html' %}
-    <title>Document</title>
+	{% include 'components/head.html' %}
+	<title>Document</title>
 </head>
 
-<body {% if request.path == '/' %}class="body-index"{% endif %}>
-    {% include 'components/header.html' %}
+<body {% if request.path == '/' %}class="body-index" {% endif %}>
+	{% include 'components/header.html' %}
 
-    <main class="container-fluid {% if request.path != '/' %}main__wrapper{% endif %}">
-    {% block content %}
-    {% endblock content %}
-    </main>
+	<main class="container-fluid {% if request.path != '/' %}main__wrapper{% endif %}">
+		{% block content %}
+		{% endblock content %}
+	</main>
 
-    {% if request.path != '/' %}
-    {% include 'components/footer.html' %}
-    {% endif %}
-    {% include 'components/scripts.html' %}
+	{% if request.path != '/' %}
+	{% include 'components/footer.html' %}
+	{% endif %}
+	{% include 'components/scripts.html' %}
+	{% block extra_scripts %}
+	{% endblock extra_scripts %}
 </body>
+
 </html>
