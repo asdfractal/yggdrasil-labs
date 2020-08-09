@@ -42,13 +42,22 @@ def product_reviews(request, product_id):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
-    form = ReviewForm()
+    form = ReviewForm
+    user_review = ""
+    for review in reviews:
+        if review.user_profile == user_profile:
+            user_review = review
+            form = ReviewForm(instance=user_review)
+            print(form)
+
     if request.method == "POST":
-        form_data = {
-            "product": product,
-            "review_content": request.POST["review_content"],
-        }
-        form = ReviewForm(form_data)
+        if user_review != "":
+            form = ReviewForm(request.POST, instance=user_review)
+        else:
+            form_data = {
+                "review_content": request.POST["review_content"],
+            }
+            form = ReviewForm(form_data)
         if form.is_valid():
             review = form.save(commit=False)
             review.user_profile = user_profile
