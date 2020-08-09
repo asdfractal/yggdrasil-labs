@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from reviews.models import Review
 from reviews.forms import ReviewForm
 from profiles.models import UserProfile
@@ -54,6 +53,12 @@ def product_reviews(request, product_id):
         if user_review != "":
             form = ReviewForm(request.POST, instance=user_review)
         else:
+            if len(request.POST["review_content"]) <= 10:
+                messages.error(
+                    request,
+                    "Review not long enough, please write a review longer than 15 characters.",
+                )
+                return redirect(reverse("product_reviews", args=(product_id,)))
             form_data = {
                 "review_content": request.POST["review_content"],
             }
@@ -63,7 +68,7 @@ def product_reviews(request, product_id):
             review.user_profile = user_profile
             review.product = product
             review.save()
-            return HttpResponseRedirect(reverse("product_reviews", args=(product_id,)))
+            return redirect(reverse("product_reviews", args=(product_id,)))
 
     context = {
         "product": product,

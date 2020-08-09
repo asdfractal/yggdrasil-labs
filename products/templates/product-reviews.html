@@ -18,7 +18,7 @@
 					{% csrf_token %}
 					{{ form|crispy }}
 				</div>
-				<div class="col-3 offset-8 text-right d-none">
+				<div class="col-8 offset-3 col-md-3 offset-md-8 text-right d-none">
 					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
 				</div>
 			</form>
@@ -46,12 +46,19 @@
 					{% csrf_token %}
 					{{ form|crispy }}
 				</div>
-				<div class="col-3 offset-8 text-right">
+				<div class="col-8 offset-3 col-md-3 offset-md-8 text-right">
 					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
 				</div>
 			</form>
 		</div>
 		{% endif %}
+		<div class="row">
+			<div class="col-12">
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+			</div>
+		</div>
 		<div class="row mt-5">
 			<div class="col-6 col-md-3 offset-md-1">
 				<a href="{% url 'product_detail' product.id %}"><button
