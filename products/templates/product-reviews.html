@@ -9,49 +9,13 @@
 	<div class="card-body">
 		{% for review in reviews %}
 		{% if review.user_profile.user == request.user %}
-		<div class="row mb-3 review-form__wrapper" id="currentUserReview">
-			<div class="col-10 offset-1">
-				<p>Your review <i class="far fa-edit" id="editReview"></i><a
-						href="{% url 'delete_review' product.id %}"><i class="far fa-trash-alt pl-3"></i></a></p>
-			</div>
-			<form action="{% url 'product_reviews' product.id %}" method="POST">
-				<div class="col-10 offset-1">
-					{% csrf_token %}
-					{{ form|crispy }}
-				</div>
-				<div class="col-8 offset-3 col-md-3 offset-md-8 text-right d-none">
-					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
-				</div>
-			</form>
-		</div>
+		{% include 'components/review-form.html' with edit='True' %}
 		{% else %}
-		<div class="row mb-4 review__wrapper">
-			<div class="col-10 offset-1 review-body__shadow">
-				{% if review.user_profile.default_full_name|length > 0 %}
-				<p>{{ review.user_profile.default_full_name|capfirst }} -</p>
-				{% else %}
-				<p>{{ review.user_profile|capfirst }} -</p>
-				{% endif %}
-				<p class="font-italic">"{{ review.review_content }}"</p>
-			</div>
-		</div>
+		{% include 'components/review-body.html' %}
 		{% endif %}
 		{% endfor %}
 		{% if user_review == "" %}
-		<div class="row review-form__wrapper" id="newUserReview">
-			<div class="col-10 offset-1">
-				<p>Create a review <i class="far fa-edit" id="editReview"></i></p>
-			</div>
-			<form action="{% url 'product_reviews' product.id %}" method="POST" class="d-none">
-				<div class="col-10 offset-1">
-					{% csrf_token %}
-					{{ form|crispy }}
-				</div>
-				<div class="col-8 offset-3 col-md-3 offset-md-8 text-right">
-					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
-				</div>
-			</form>
-		</div>
+		{% include 'components/review-form.html' with new='True' %}
 		{% endif %}
 		<div class="row mt-5">
 			<div class="col-6 col-md-3 offset-md-1">
