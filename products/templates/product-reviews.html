@@ -11,7 +11,8 @@
 		{% if review.user_profile.user == request.user %}
 		<div class="row mb-3 review-form__wrapper" id="currentUserReview">
 			<div class="col-10 offset-1">
-				<p>Your review <i class="far fa-edit" id="editReview"></i></p>
+				<p>Your review <i class="far fa-edit" id="editReview"></i><a
+						href="{% url 'delete_review' product.id %}"><i class="far fa-trash-alt pl-3"></i></a></p>
 			</div>
 			<form action="{% url 'product_reviews' product.id %}" method="POST">
 				<div class="col-10 offset-1">
@@ -52,13 +53,6 @@
 			</form>
 		</div>
 		{% endif %}
-		<div class="row">
-			<div class="col-12">
-				{% for message in messages %}
-				<p>{{ message }}</p>
-				{% endfor %}
-			</div>
-		</div>
 		<div class="row mt-5">
 			<div class="col-6 col-md-3 offset-md-1">
 				<a href="{% url 'product_detail' product.id %}"><button

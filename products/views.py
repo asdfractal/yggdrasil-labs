@@ -78,3 +78,14 @@ def product_reviews(request, product_id):
     }
 
     return render(request, "product-reviews.html", context)
+
+
+def delete_review(request, product_id):
+    """
+    Give user ability to delete their review.
+    """
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    review = get_object_or_404(Review, user_profile=user_profile, product=product_id)
+    review.delete()
+    messages.success(request, "Review deleted.")
+    return redirect(reverse("product_reviews", args=(product_id,)))
