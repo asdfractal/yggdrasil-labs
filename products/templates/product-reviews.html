@@ -18,14 +18,14 @@
 					{% csrf_token %}
 					{{ form|crispy }}
 				</div>
-				<div class="col-4 offset-8 text-right d-none">
-					<button class="btn button-secondary button__small" id="reviewSubmitButton">Submit</button>
+				<div class="col-3 offset-8 text-right d-none">
+					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
 				</div>
 			</form>
 		</div>
 		{% else %}
 		<div class="row mb-4 review__wrapper">
-			<div class="col-10 offset-1">
+			<div class="col-10 offset-1 review-body__shadow">
 				{% if review.user_profile.default_full_name|length > 0 %}
 				<p>{{ review.user_profile.default_full_name|capfirst }} -</p>
 				{% else %}
@@ -38,23 +38,26 @@
 		{% endfor %}
 		{% if user_review == "" %}
 		<div class="row review-form__wrapper" id="newUserReview">
-			<form action="{% url 'product_reviews' product.id %}" method="POST">
-				<div class="col-12">
+			<div class="col-10 offset-1">
+				<p>Create a review <i class="far fa-edit" id="editReview"></i></p>
+			</div>
+			<form action="{% url 'product_reviews' product.id %}" method="POST" class="d-none">
+				<div class="col-10 offset-1">
 					{% csrf_token %}
 					{{ form|crispy }}
 				</div>
-				<div class="col-3 offset-9">
-					<button class="btn button-secondary-outline">Submit</button>
+				<div class="col-3 offset-8 text-right">
+					<button class="btn button-primary button__small" id="reviewSubmitButton">Submit</button>
 				</div>
 			</form>
 		</div>
 		{% endif %}
-		<div class="row justify-content-between">
-			<div class="col-6 col-md-4">
+		<div class="row mt-5">
+			<div class="col-6 col-md-3 offset-md-1">
 				<a href="{% url 'product_detail' product.id %}"><button
 						class="btn button-primary-outline ">Back</button></a>
 			</div>
-			<div class="col-6 col-md-4 text-right">
+			<div class="col-6 col-md-3 offset-md-4 text-right">
 				<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
 			</div>
 		</div>
