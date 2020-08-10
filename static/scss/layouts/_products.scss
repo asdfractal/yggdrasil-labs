@@ -1,4 +1,52 @@
+.product-filter {
+  .col-4 {
+    padding: 0 5px;
+  }
+}
+
+.product-filter-button {
+  width: 90%;
+  height: 30px;
+  font-size: 1.4rem;
+}
+
 .review-body__shadow {
   border-radius: 0.25rem;
   box-shadow: $box-shadow-black;
+}
+
+.review-form__wrapper {
+
+  >form {
+    width: 100%;
+  }
+
+  label {
+    display: none;
+  }
+
+  i {
+    font-size: 2.5rem;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.review-form-textarea {
+  border: 0;
+  border-radius: 0;
+
+  &.form-control {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  &:disabled {
+    background-color: $lightgrey;
+    color: $white;
+    font-style: italic;
+    resize: none;
+  }
 }

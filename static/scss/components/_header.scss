@@ -1,5 +1,11 @@
+.navbar-top__wrapper {
+  background: $grey;
+}
+
 .dropdown-item {
   font-weight: 300;
+  color: $primary-color;
+
   &:hover {
     background: lighten($grey-alpha-half, 10%);
   }
@@ -7,6 +13,7 @@
 
 .nav-logo {
   content: url('/media/images/mobile/nav-logo.png');
+
   @include breakpoint(lg) {
     content: url('/media/images/desktop/nav-logo.png');
   }
@@ -15,6 +22,7 @@
 .navbar-toggler {
   color: $white;
   font-size: 3.5rem;
+  box-shadow: none;
 }
 
 .nav-link,
