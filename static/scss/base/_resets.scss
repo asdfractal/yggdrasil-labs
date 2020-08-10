@@ -8,11 +8,15 @@ body {
   font-weight: 300;
   color: $white;
   background-color: $darkgrey;
+
+  @include breakpoint(md) {
+    font-size: 1.8rem;
+  }
 }
 
 button {
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: $box-shadow-black;
   border: none;
 
   &>a {
