@@ -1,5 +1,5 @@
 <header>
-	<nav class="navbar navbar-expand-lg fixed-top bg-grey-alpha-half navbar-top__wrapper">
+	<nav class="navbar navbar-expand-lg fixed-top navbar-top__wrapper">
 		<a class="navbar-brand" href="#">
 			<img class="nav-logo" alt="Yggdrasil">
 		</a>
@@ -9,26 +9,27 @@
 		</button>
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarToggler">
 			<ul class="navbar-nav text-center text-uppercase">
-				<li class="nav-item active">
+				<li class="nav-item {% if request.path == '/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="{% url 'index' %}">Home{% if request.path == '/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item {% if request.path == '/products/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="{% url 'products' %}">Products{% if request.path == '/products/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item {% if request.path == '/about/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="#">About{% if request.path == '/about/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item {% if request.path == '/contact/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="#">Contact{% if request.path == '/contact/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% if request.user.is_authenticated %}
 				<li class="nav-item dropdown d-none d-lg-block">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle {% if request.path == '/' %}nav-link-active{% endif %}"
+						href="{% url 'profile' %}" id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
 						{% if request.path == '/profile/' %}<span class="sr-only">(current)</span>{% endif %}Account
 					</a>
 					<div class="dropdown-menu bg-grey-alpha-half" aria-labelledby="navbarDropdown">
