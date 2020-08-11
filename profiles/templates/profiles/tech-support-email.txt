@@ -1,0 +1,9 @@
+Email:
+{{ user_email }}
+
+Subject:
+
+{{ subject }}
+
+Content:
+{{ content|safe|striptags }}

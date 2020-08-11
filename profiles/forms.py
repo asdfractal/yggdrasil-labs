@@ -18,6 +18,7 @@ class UserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.prefix = "form_profile"
         placeholders = {
             "default_full_name": "Full name",
             "default_phone_number": "Phone number",
@@ -30,5 +31,23 @@ class UserProfileForm(forms.ModelForm):
         for field in self.fields:
             if field != "default_country":
                 placeholder = placeholders[field]
+                self.fields[field].widget.attrs["placeholder"] = placeholder
+            self.fields[field].label = False
+
+
+class TechSupportForm(forms.Form):
+    subject = forms.CharField(max_length=100, required=True)
+    content = forms.CharField(required=True, widget=forms.Textarea)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.prefix = "form_tech"
+        placeholders = {
+            "subject": "Subject",
+            "content": "How can we help you?",
+        }
+        for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f"{placeholders[field]} (required)"
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].label = False
