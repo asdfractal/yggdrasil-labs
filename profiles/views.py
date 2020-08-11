@@ -11,7 +11,12 @@ def profile(request):
     """
     user_profile = get_object_or_404(UserProfile, user=request.user)
 
-    form = UserProfileForm(instance=user_profile)
+    if request.method == "POST":
+        form = UserProfileForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserProfileForm(instance=user_profile)
     context = {
         "profile": user_profile,
         "form": form,
