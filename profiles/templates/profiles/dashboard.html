@@ -11,16 +11,19 @@
 			<div class="profile-section__wrapper" id="profilePersonalInfo">
 				{% include 'profiles/components/personal-info.html' %}
 			</div>
-			<div class="profile-section__wrapper" id="profileTechSupport">
+			<div class="profile-section__wrapper d-none" id="profileTechSupport">
 				{% include 'profiles/components/tech-support.html' %}
 			</div>
-			<div class="profile-section__wrapper" id="profileBookings">
+			<div class="profile-section__wrapper d-none" id="profileBookings">
 				{% include 'profiles/components/bookings.html' %}
 			</div>
-			<div class="profile-section__wrapper" id="profileOrderHistory">
+			<div class="profile-section__wrapper d-none" id="profileOrderHistory">
 				{% include 'profiles/components/order-history.html' %}
 			</div>
 		</div>
 	</div>
 </div>
 {% endblock content %}
+{% block extra_scripts %}
+<script src="{% static 'profiles/js/scripts.js' %}"></script>
+{% endblock extra_scripts %}
