@@ -14,8 +14,7 @@ const profileNavItems = {
  */
 const checkNavClicked = () => {
 	for (const [key, value] of Object.entries(profileNavItems)) {
-		if (_this.text() === value) {
-			console.log(key);
+		if (_this.children().text() === value) {
 			return key
 		}
 	}
@@ -49,6 +48,8 @@ document.querySelectorAll('.profile-nav-link').forEach(element => {
 		e.preventDefault()
 		_this = $(this)
 		navId = checkNavClicked()
+		_this.addClass('nav-link-active')
+		_this.siblings().removeClass('nav-link-active')
 		showPage(navId)
 		hidePages(navId)
 	})
