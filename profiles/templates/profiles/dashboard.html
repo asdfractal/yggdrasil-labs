@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile__wrapper position-relative">
+	<div class="card">
+		<div class="card-header profiles-card-header position-absolute w-100">
+			{% include 'profiles/components/navbar.html' %}
+		</div>
+		<div class="card-body">
+			<div class="profile-section__wrapper" id="profilePersonalInfo">
+				{% include 'profiles/components/personal-info.html' %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+.profile__wrapper {
+  .card-body {
+    margin-top: 8vh;
+  }
+}
+
+.profiles-card-header {
+  padding: .25rem;
+  height: 8vh;
+
+
+  .navbar {
+    padding-right: .25rem;
+    padding-top: .5rem;
+    background: lighten($darkgrey, 5%);
+    z-index: 10;
+  }
+
+  button {
+    font-size: 3rem;
+  }
+}
+
+.profiles-card-title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding-top: 0.3rem;
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+}

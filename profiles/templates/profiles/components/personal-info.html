@@ -1,0 +1,7 @@
+<div class="row">
+	<form class="mt-3 col-12" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button class="btn button-primary-outline button__small col-6 float-right">Update</button>
+	</form>
+</div>
