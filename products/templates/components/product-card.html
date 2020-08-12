@@ -1,13 +1,13 @@
 <div class="card">
 	<img class="card-img-top" src="{{ product.image_url }}" class="mx-auto d-block img-fluid" alt="{{ product.name }}">
 	<div class="card-body">
-		<h4 class="card-title text-uppercase product__title">{{ product.name }}</h4>
-		<div class="row">
+		<h4 class="card-title product__title">{{ product.name }}</h4>
+		<div class="row mb-2">
 			<div class="col-6">
-				<p class="card-text text-left text-capitalize">Type: {{ product.category }}</p>
+				<p class="card-text text-left text-capitalize ml-1">Type: {{ product.category }}</p>
 			</div>
 			<div class="col-6">
-				<p class="card-text text-right">${{ product.price }}</p>
+				<p class="card-text text-right mr-3">${{ product.price }}</p>
 			</div>
 		</div>
 		<div class="row justify-content-between">
