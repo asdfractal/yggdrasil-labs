@@ -31,7 +31,8 @@
 							class="fas fa-angle-double-left"></i></button></a>
 			</div>
 			<div class="col-6 col-lg-4 offset-lg-3 pr-lg-0 text-right">
-				<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
+				<a href="{% url 'add_to_cart' product.id %}"><button
+						class="btn button-secondary-outline">Buy</button></a>
 			</div>
 		</div>
 		{% if review != "" %}

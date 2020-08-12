@@ -16,7 +16,8 @@
 						class="btn button-primary-outline">Details</button></a>
 			</div>
 			<div class="col-6 text-right">
-				<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
+				<a href="{% url 'add_to_cart' product.id %}"><button
+						class="btn button-secondary-outline">Buy</button></a>
 			</div>
 		</div>
 	</div>
