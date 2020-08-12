@@ -12,7 +12,7 @@ const profileNavItems = {
  * Check the value of the clicked nav item and return a matching ID
  * @returns {string} matches id of html element
  */
-const checkNavClicked = () => {
+const getNavId = () => {
 	for (const [key, value] of Object.entries(profileNavItems)) {
 		if (_this.children().text() === value) {
 			return key
@@ -47,7 +47,7 @@ document.querySelectorAll('.profile-nav-link').forEach(element => {
 	element.addEventListener('click', function (e) {
 		e.preventDefault()
 		_this = $(this)
-		navId = checkNavClicked()
+		navId = getNavId()
 		_this.addClass('nav-link-active')
 		_this.siblings().removeClass('nav-link-active')
 		showPage(navId)
