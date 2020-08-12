@@ -2,6 +2,11 @@
   background: $grey;
 }
 
+.dropdown-menu {
+  border-radius: 0;
+  background-color: $grey;
+}
+
 .dropdown-item {
   font-weight: 300;
   color: $primary-color;
