@@ -20,7 +20,6 @@ def view_cart(request):
         cart_items.append(
             {"product": product,}
         )
-    print(cart_items)
     context = {
         "cart_items": cart_items,
     }
@@ -36,14 +35,17 @@ def add_to_cart(request, product_id):
 
     if product_id in list(cart.keys()):
         messages.info(request, "That item is already in your cart.")
-        print("already in cart")
         return redirect("product_detail", product_id)
 
-    cart[product_id] = 1
-    messages.success(request, f"Added {product.name} to your cart.")
-    print("added to cart")
-    request.session["cart"] = cart
-    return redirect("product_detail", product_id)
+    try:
+        cart[product_id] = 1
+        messages.success(request, f"Added {product.name} to your cart.")
+        request.session["cart"] = cart
+        return redirect("product_detail", product_id)
+
+    except Exception as e:
+        messages.error(request, f"Error removing item: {e}")
+        return HttpResponse(status=500)
 
 
 def remove_from_cart(request, product_id):
@@ -56,7 +58,6 @@ def remove_from_cart(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         cart.pop(product_id)
         messages.success(request, f"Removed {product.name} from your cart.")
-        print("removed")
         request.session["cart"] = cart
         return redirect("view_cart")
 
