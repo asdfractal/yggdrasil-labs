@@ -1,13 +1,42 @@
 .product-filter {
-  .col-4 {
-    padding: 0 5px;
+  margin: 0 auto;
+
+  .col-3 {
+    margin: 0 2rem 0 0;
+    padding: 0;
   }
 }
 
 .product-filter-button {
-  width: 90%;
+  width: 100%;
   height: 30px;
   font-size: 1.4rem;
+  color: $white;
+  border: 1px solid $white;
+
+  &:active,
+  &:focus {
+    color: $black;
+    background: $white;
+    border: 1px solid $white;
+  }
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.js-product-filter-button__active {
+  color: $black;
+  background: $white;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+#clearFilter {
+  font-size: 3.2rem;
 }
 
 .review-body__shadow {
@@ -35,11 +64,8 @@
 }
 
 .review-form-textarea {
-  border: 0;
-  border-radius: 0;
 
   &.form-control {
-    font-size: 1.6rem;
     font-weight: 300;
   }
 
