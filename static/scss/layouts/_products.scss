@@ -43,6 +43,23 @@
   font-size: 3.2rem;
 }
 
+.product-details-specs__box {
+  text-align: right;
+  border: 1px solid $primary-color;
+  padding: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: $box-shadow-black;
+  height: 100px;
+
+  p {
+    &:first-child {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+  }
+}
+
 .review-body__shadow {
   border-radius: 0.25rem;
   box-shadow: $box-shadow-black;

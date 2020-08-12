@@ -7,39 +7,47 @@
 <div class="card">
 	<img class="card-img-top" src="{{ product.image_url }}" class="mx-auto d-block img-fluid" alt="{{ product.name }}">
 	<div class="card-body">
-		<div class="col-12 col-md-6 order-md-first pb-3">
-			<h4 class="card-title text-uppercase">{{ product.name }}</h4>
-			<p>{{ product.description }}</p>
+		<div class="row mb-4">
+			<div class="col-12 pb-3">
+				<h4 class="card-title text-uppercase">{{ product.name }}</h4>
+			</div>
+			<div class="col-12 col-lg-6">
+				<p>{{ product.description }}</p>
+			</div>
+			<div class="col-6 text-capitalize d-lg-none mt-3">
+				<p class="card-text text-left text-capitalize ml-1">Type: {{ product.category }}</p>
+			</div>
+			<div class="col-6 text-capitalize d-lg-none mt-3">
+				<p class="card-text text-right mr-3">${{ product.price }}</p>
+			</div>
+			<div class="col-lg-4 offset-1 d-none d-lg-block product-details-specs__box">
+				<p class="card-text text-capitalize ">Type: {{ product.category }}</p>
+				<p class="card-text">${{ product.price }}</p>
+			</div>
 		</div>
-		<div>
-			<img class="img-fluid" src="/media/images/border-circuit03.png" alt="">
-			<div class="row">
-				<p class="col-6 text-capitalize">Type: {{ product.category }}</p>
-				<p class="col-6 text-right">Price: {{ product.price }}</p>
+		<div class="row mb-4">
+			<div class="col-6 col-lg-4">
+				<a href="{% url 'products' %}"><button class="btn button-primary-outline "><i
+							class="fas fa-angle-double-left"></i></button></a>
 			</div>
-			<div class="row justify-content-between mb-4">
-				<div class="col-6 col-md-4">
-					<a href="{% url 'products' %}"><button class="btn button-primary-outline ">Back</button></a>
-				</div>
-				<div class="col-6 col-md-4 text-right">
-					<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
-				</div>
+			<div class="col-6 col-lg-4 offset-lg-3 pr-lg-0 text-right">
+				<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
 			</div>
-			{% if review != "" %}
-			{% include 'components/review-body.html' %}
-			<div class="row mb-4">
-				<div class="col-10 offset-1">
-					<a href="{% url 'product_reviews' product.id %}">All reviews</a>
-				</div>
-			</div>
-			{% else %}
-			<div class="row mb-4">
-				<div class="col-10 offset-1">
-					<p>No reviews - <a href="">create one</a></p>
-				</div>
-			</div>
-			{% endif %}
 		</div>
+		{% if review != "" %}
+		{% include 'components/review-body.html' %}
+		<div class="row mb-4">
+			<div class="col-11 text-right">
+				<a href="{% url 'product_reviews' product.id %}">All reviews</a>
+			</div>
+		</div>
+		{% else %}
+		<div class="row mb-4">
+			<div class="col-10 offset-1">
+				<p>No reviews - <a href="">create one</a></p>
+			</div>
+		</div>
+		{% endif %}
 	</div>
 </div>
 
