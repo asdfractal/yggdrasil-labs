@@ -34,3 +34,21 @@
 .dropdown-item {
   font-size: 2rem;
 }
+
+.nav-icon-cart {
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  padding-top: 0.3rem;
+
+  @include breakpoint(lg) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+
+    .nav-link {
+      font-size: 3rem;
+      color: $white;
+    }
+  }
+}

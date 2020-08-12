@@ -1,8 +1,10 @@
 <header>
 	<nav class="navbar navbar-expand-lg fixed-top navbar-top__wrapper">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="{% url 'index' %}">
 			<img class="nav-logo" alt="Yggdrasil">
 		</a>
+		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i></a>
+		</div>
 		<button class="navbar-toggler mt-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
 			aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fas fa-bars"></i>
@@ -51,6 +53,11 @@
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% endif %}
+				<li class="nav-item">
+					<div class="nav-icon-cart"><a class="nav-link" href="{% url 'view_cart' %}"><i
+								class="fas fa-shopping-cart"></i></a>
+					</div>
+				</li>
 
 			</ul>
 		</div>
