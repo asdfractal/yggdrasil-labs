@@ -9,13 +9,13 @@
 	<div class="card-body">
 		{% for review in reviews %}
 		{% if review.user_profile.user == request.user %}
-		{% include 'components/review-form.html' with edit='True' %}
+		{% include 'products/components/review-form.html' with edit='True' %}
 		{% else %}
-		{% include 'components/review-body.html' %}
+		{% include 'products/components/review-body.html' %}
 		{% endif %}
 		{% endfor %}
 		{% if user_review == "" %}
-		{% include 'components/review-form.html' with new='True' %}
+		{% include 'products/components/review-form.html' with new='True' %}
 		{% endif %}
 		<div class="row mt-5">
 			<div class="col-6 col-md-3 offset-md-1">
