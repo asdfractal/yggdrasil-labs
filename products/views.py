@@ -59,7 +59,7 @@ def product_reviews(request, product_id):
         if user_review != "":
             form = ReviewForm(request.POST, instance=user_review)
         else:
-            if len(request.POST["review_content"]) <= 10:
+            if len(request.POST["review_content"]) <= 15:
                 messages.error(
                     request,
                     "Review not long enough, please write a review longer than 15 characters.",
@@ -74,7 +74,11 @@ def product_reviews(request, product_id):
             review.user_profile = user_profile
             review.product = product
             review.save()
+            messages.success(request, "Review added.")
             return redirect(reverse("product_reviews", args=(product_id,)))
+
+        messages.error(request, "Error adding review.")
+        return redirect(reverse("product_reviews", args=(product_id,)))
 
     context = {
         "product": product,
@@ -93,5 +97,5 @@ def delete_review(request, product_id):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     review = get_object_or_404(Review, user_profile=user_profile, product=product_id)
     review.delete()
-    messages.success(request, "Review deleted.")
+    messages.info(request, "Review deleted.")
     return redirect(reverse("product_reviews", args=(product_id,)))
