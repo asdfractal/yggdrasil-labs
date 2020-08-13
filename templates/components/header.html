@@ -3,7 +3,9 @@
 		<a class="navbar-brand" href="{% url 'index' %}">
 			<img class="nav-logo" alt="Yggdrasil">
 		</a>
-		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i></a>
+		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}"><i
+					class="fas fa-shopping-cart position-relative"><span
+						class="badge-custom {% if cart_number == 0 %}d-none{% endif %}">{% if cart_number > 0 %}{{ cart_number }}{% endif %}</span></i></a>
 		</div>
 		<button class="navbar-toggler mt-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
 			aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,12 +55,12 @@
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% endif %}
-				<li class="nav-item">
+				<li class="nav-item d-none d-lg-flex">
 					<div class="nav-icon-cart"><a class="nav-link" href="{% url 'view_cart' %}"><i
-								class="fas fa-shopping-cart"></i></a>
+								class="fas fa-shopping-cart position-relative"><span
+									class="badge-custom {% if cart_number == 0 %}d-none{% endif %}">{% if cart_number > 0 %}{{ cart_number }}{% endif %}</span></i></a>
 					</div>
 				</li>
-
 			</ul>
 		</div>
 	</nav>
