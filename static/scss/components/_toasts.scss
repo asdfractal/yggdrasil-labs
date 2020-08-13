@@ -6,6 +6,9 @@
   top: 65px;
   right: 5px;
 
+  @include breakpoint(lg) {
+    top: 100px;
+  }
 }
 
 .toast-close {
