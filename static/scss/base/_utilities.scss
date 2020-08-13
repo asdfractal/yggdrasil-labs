@@ -18,12 +18,20 @@
   background: $warning-color;
 }
 
+.warning-border {
+  border: 1px solid $warning-color;
+}
+
 .error-color {
   color: $error-color;
 }
 
 .error-bg {
   background: $error-color;
+}
+
+.error-border {
+  border: 1px solid $error-color;
 }
 
 .success-color {
@@ -44,6 +52,10 @@
 
 .info-bg {
   background: $info-color
+}
+
+.info-border {
+  border: 1px solid $info-color;
 }
 
 .border-bottom-after::after {
