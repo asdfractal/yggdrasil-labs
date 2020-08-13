@@ -5,6 +5,7 @@ from django.shortcuts import (
     HttpResponse,
 )
 from django.contrib import messages
+from django.utils.safestring import mark_safe
 
 from products.models import Product
 
@@ -39,7 +40,12 @@ def add_to_cart(request, product_id):
 
     try:
         cart[product_id] = 1
-        messages.success(request, f"Added {product.name} to your cart.")
+        messages.success(
+            request,
+            mark_safe(
+                f"Added {product.name} to your cart. <a href='/cart/'>View cart.</a>"
+            ),
+        )
         request.session["cart"] = cart
         return redirect("product_detail", product_id)
 
@@ -57,7 +63,7 @@ def remove_from_cart(request, product_id):
         cart = request.session.get("cart", {})
         product = get_object_or_404(Product, pk=product_id)
         cart.pop(product_id)
-        messages.success(request, f"Removed {product.name} from your cart.")
+        messages.info(request, f"Removed {product.name} from your cart.")
         request.session["cart"] = cart
         return redirect("view_cart")
 
