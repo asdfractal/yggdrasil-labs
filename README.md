@@ -125,17 +125,17 @@ Name|name|CharField|max_length=20
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Order Number|order_number|CharField|max_length=32, null=False, editable=False
-Booking Number|booking_number|ForeignKey|Booking, null=True, Blank=True, on_delete=models.SET_NULL
+Booking|booking|OneToOneField|Booking, null=True, Blank=True, on_delete=models.SET_NULL, related_name='order'
 Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='orders'
 Full Name|full_name|CharField|max_length=100, null=False, blank=False
 Email|email|EmailField|max_length=254, null=False, blank=False
-Phone Number|phone_number|CharField|max_length=20, null=False, blank=False
-Street 1|street_address_1|CharField|max_length=100, null=False, blank=False
+Phone Number|phone_number|CharField|max_length=20, null=True, blank=True
+Street 1|street_address_1|CharField|max_length=100, null=True, blank=True
 Street 2|street_address_2|CharField|max_length=100, null=True, blank=True
-City|city|CharField|max_length=50, null=False, blank=False
-Postcode|postcode|CharField|max_length=20, null=False, blank=False
-State|state|CharField|max_length=20, null=False, blank=False
-Country|country|CountryField|blank_label='Country', null=False, blank=False
+City|city|CharField|max_length=50, null=True, blank=True
+Postcode|postcode|CharField|max_length=20, null=True, blank=True
+State|state|CharField|max_length=20, null=True, blank=True
+Country|country|CountryField|blank_label='Country', null=True, blank=True
 Date|date|DateTimeField|auto_now_add=True
 Total Price|total_price|DecimalField|max_digits=10, decimal_places=2
 Original bag|original_bag|TextField|null=False, blank=False, default=''
@@ -146,19 +146,18 @@ Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Order|order|ForeignKey|Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'
 Product|product|ForeignKey|Product, null=False, blank=False, on_delete=models.CASCADE
-Cost of product|lineitem_total|DecimalField|max_digits=6, decimal_places=2, null=False, blank=False, editable=False
 
 #### Booking
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='user_booking'
-Associated Order|order|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='order_booking'
+Booking Number|booking_number|CharField|max_length=32, null=False, editable=False
+Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='bookings'
 Booking Time|booking_time|DateTimeField|auto_now_add=False
 
 #### Review
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='user_review'
-Associated Product|product|ForeignKey|Product, blank=False, Null=False, related_name='product_review'
+Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='reviews'
+Associated Product|product|ForeignKey|Product, blank=False, Null=False, related_name='reviews'
 Review content|review_content|TextField|null=False, blank=False, default=''
 
