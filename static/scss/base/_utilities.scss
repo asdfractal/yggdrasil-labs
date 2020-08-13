@@ -5,3 +5,52 @@
 .bgc-light {
   background-color: $lightgrey;
 }
+
+.bgc-grey {
+  background-color: $grey;
+}
+
+.warning-color {
+  color: $warning-color;
+}
+
+.warning-bg {
+  background: $warning-color;
+}
+
+.error-color {
+  color: $error-color;
+}
+
+.error-bg {
+  background: $error-color;
+}
+
+.success-color {
+  color: $success-color;
+}
+
+.success-bg {
+  background: $success-color;
+}
+
+.success-border {
+  border: 1px solid $success-color;
+}
+
+.info-color {
+  color: $info-color
+}
+
+.info-bg {
+  background: $info-color
+}
+
+.border-bottom-after::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 1rem;
+  border-bottom: 1px solid $primary-color;
+}
