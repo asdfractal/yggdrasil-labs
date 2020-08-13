@@ -1,0 +1,23 @@
+.toast {
+  z-index: 1020;
+  border: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 65px;
+  right: 5px;
+
+}
+
+.toast-close {
+  font-size: 2.3rem;
+}
+
+.toast-body {
+  background-color: $lightgrey;
+  padding: .6rem;
+  font-size: 1.6rem;
+
+  @include breakpoint(lg) {
+    font-size: 2rem;
+  }
+}

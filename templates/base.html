@@ -16,6 +16,12 @@
 		{% endblock content %}
 	</main>
 
+	{% if messages %}
+	{% for message in messages %}
+	{% include 'components/toasts/toast_success.html' %}
+	{% endfor %}
+	{% endif %}
+
 	{% if request.path != '/' %}
 	{% include 'components/footer.html' %}
 	{% endif %}
