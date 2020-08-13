@@ -34,6 +34,10 @@
 			</div>
 		</div>
 		{% endfor %}
+		{% if cart_items|length == 0 %}
+		<p>Your cart is empty! Please visit our <a href="{% url 'products' %}">products</a> page to view our selection.
+		</p>
+		{% endif %}
 	</div>
 </div>
 {% endblock content %}
