@@ -19,9 +19,6 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from pages.views import index
 
-# from products.views import products
-
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
@@ -29,4 +26,5 @@ urlpatterns = [
     path("products/", include("products.urls")),
     path("profile/", include("profiles.urls")),
     path("cart/", include("cart.urls")),
+    path("checkout/", include("checkout.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
