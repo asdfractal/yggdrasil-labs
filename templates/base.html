@@ -18,7 +18,18 @@
 
 	{% if messages %}
 	{% for message in messages %}
+	{% with message.level as level %}
+	{% if level == 40 %}
+	{% include 'components/toasts/toast-error.html' %}
+	{% elif level == 30 %}
+	{% include 'components/toasts/toast-warning.html' %}
+	{% elif level == 25 %}
 	{% include 'components/toasts/toast-success.html' %}
+	{% else %}
+	{% include 'components/toasts/toast-info.html' %}
+	{% endif %}
+	{% endwith %}
+
 	{% endfor %}
 	{% endif %}
 
