@@ -14,17 +14,7 @@ def view_cart(request):
     """
     Display users shopping cart.
     """
-    cart = request.session.get("cart", {})
-    cart_items = []
-    for key in list(cart.keys()):
-        product = get_object_or_404(Product, pk=key)
-        cart_items.append(
-            {"product": product,}
-        )
-    context = {
-        "cart_items": cart_items,
-    }
-    return render(request, "cart/cart.html", context)
+    return render(request, "cart/cart.html")
 
 
 def add_to_cart(request, product_id):
