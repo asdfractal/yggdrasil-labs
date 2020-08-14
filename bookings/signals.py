@@ -11,4 +11,5 @@ def create_booking(sender, instance, created, **kwargs):
     Create new booking when new order created.
     """
     if created:
-        Booking.objects.create(order=instance)
+        if instance.booking_required:
+            Booking.objects.create(order=instance, user_profile=instance.user_profile)
