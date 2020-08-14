@@ -80,7 +80,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",
-                "cart.contexts.cart_item_count",
+                "cart.contexts.get_cart_items",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
