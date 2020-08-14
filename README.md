@@ -125,7 +125,6 @@ Name|name|CharField|max_length=20
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Order Number|order_number|CharField|max_length=32, null=False, editable=False
-Booking|booking|OneToOneField|Booking, null=True, Blank=True, on_delete=models.SET_NULL, related_name='order'
 Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='orders'
 Full Name|full_name|CharField|max_length=100, null=False, blank=False
 Email|email|EmailField|max_length=254, null=False, blank=False
@@ -138,7 +137,7 @@ State|state|CharField|max_length=20, null=True, blank=True
 Country|country|CountryField|blank_label='Country', null=True, blank=True
 Date|date|DateTimeField|auto_now_add=True
 Total Price|total_price|DecimalField|max_digits=10, decimal_places=2
-Original bag|original_bag|TextField|null=False, blank=False, default=''
+Original cart|original_cart|TextField|null=False, blank=False, default=''
 Stripe PID|stripe_pid|CharField|max_length=254, null=False, blank=False, default=''
 
 #### OrderLineItem
@@ -150,7 +149,8 @@ Product|product|ForeignKey|Product, null=False, blank=False, on_delete=models.CA
 #### Booking
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Booking Number|booking_number|CharField|max_length=32, null=False, editable=False
+Associated Order|order|OneToOneField|
+Order, on_delete=models.SET_NULL, null=True, blank=True, related_name="booking"
 Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='bookings'
 Booking Time|booking_time|DateTimeField|auto_now_add=False
 
