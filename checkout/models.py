@@ -30,6 +30,8 @@ class Order(models.Model):
     total_price = models.DecimalField(
         max_digits=10, decimal_places=2, null=False, default=0
     )
+    booking_required = models.BooleanField(default=False)
+    shipping_required = models.BooleanField(default=False)
     original_cart = models.TextField(null=False, blank=False, default="")
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
 
@@ -47,6 +49,26 @@ class Order(models.Model):
         """
         self.total_price = self.lineitems.aggregate(Sum("total"))["total__sum"] or 0
         self.save()
+
+    def set_booking_required(self):
+        for item in self.lineitems.all():
+            if item.product.booking_required:
+                self.booking_required = True
+                self.save()
+                break
+
+            self.booking_required = False
+            self.save()
+
+    def set_shipping_required(self):
+        for item in self.lineitems.all():
+            if item.product.shipping_required:
+                self.shipping_required = True
+                self.save()
+                break
+
+            self.shipping_required = False
+            self.save()
 
     def save(self, *args, **kwargs):
         """
