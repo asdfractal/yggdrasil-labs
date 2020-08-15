@@ -18,4 +18,4 @@ class Booking(models.Model):
     booking_time = models.DateTimeField(auto_now_add=False, null=True, blank=True)
 
     def __str__(self):
-        return self.order.order_number
+        return f"Booking for {self.user_profile.default_full_name}"
