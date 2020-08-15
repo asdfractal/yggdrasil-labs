@@ -17,15 +17,15 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get("cart", {})
+    user_profile = get_object_or_404(UserProfile, user=request.user)
     form = OrderForm()
 
     if request.method == "POST":
-        order_form = OrderForm(request.POST)
-        if order_form.is_valid():
-            order = order_form.save(commit=False)
-            pid = request.POST.get("client_secret").split("_secret")[0]
-            order.stripe_pid = pid
-            order.user_profile = get_object_or_404(UserProfile, user=request.user)
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.stripe_pid = request.POST.get("client_secret").split("_secret")[0]
+            order.user_profile = user_profile
             order.save()
             for key in list(cart.keys()):
                 try:
@@ -37,10 +37,32 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse("view_cart"))
             return redirect(reverse("checkout_success", args=[order.order_number]))
+        messages.error(
+            request,
+            "There is a problem with your form. Please confirm details and submit again.",
+        )
+        return redirect(reverse("checkout"))
 
     if not cart:
         messages.error(request, "Your cart is empty.")
         return redirect(reverse("products"))
+    if request.user.is_authenticated:
+        try:
+            form = OrderForm(
+                initial={
+                    "full_name": user_profile.default_full_name,
+                    "email": user_profile.user.email,
+                    "phone_number": user_profile.default_phone_number,
+                    "street_address1": user_profile.default_street_address1,
+                    "street_address2": user_profile.default_street_address2,
+                    "city": user_profile.default_city,
+                    "postcode": user_profile.default_postcode,
+                    "state": user_profile.default_state,
+                    "country": user_profile.default_country,
+                }
+            )
+        except UserProfile.DoesNotExist:
+            form = OrderForm()
 
     current_cart = get_cart_items(request)
     current_total = current_cart["cart_total"]
