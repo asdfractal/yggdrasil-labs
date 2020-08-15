@@ -15,6 +15,7 @@ django-allauth = "*"
 django-crispy-forms = "*"
 pillow = "*"
 django-countries = "*"
+stripe = "*"
 
 [requires]
 python_version = "3.8"
