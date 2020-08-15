@@ -22,3 +22,18 @@ const style = {
 }
 const card = elements.create('card', { style: style })
 card.mount('#cardElement')
+
+card.addEventListener('change', (e) => {
+	const errorElement = document.getElementById('cardErrors')
+	if (e.error) {
+		let html = `
+                <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                </span>
+                <span>${e.error.message}</span>
+            `
+		$(errorElement).html(html)
+	} else {
+		errorElement.textContent = ''
+	}
+})
