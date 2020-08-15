@@ -70,6 +70,13 @@ class Order(models.Model):
             self.shipping_required = False
             self.save()
 
+    def check_complete_create_booking(self, *args, **kwargs):
+        if self.stripe_pid:
+            if self.booking_required:
+                from bookings.models import Booking
+
+                Booking.objects.create(*args, **kwargs)
+
     def save(self, *args, **kwargs):
         """
         Set the order number if it hasn't been set already.

@@ -36,6 +36,7 @@ def checkout(request):
                     messages.error(request, f"{product} not found.")
                     order.delete()
                     return redirect(reverse("view_cart"))
+            order.check_complete_create_booking(order=order, user_profile=user_profile)
             return redirect(reverse("checkout_success", args=[order.order_number]))
         messages.error(
             request,
