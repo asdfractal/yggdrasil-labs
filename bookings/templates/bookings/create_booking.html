@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+	<div class="card-header">
+		<h3>Confirm booking details</h3>
+	</div>
+	<div class="card-body">
+		<input type="text" class="datepicker">
+		<input type="text" class="timepicker">
+	</div>
+</div>
+{% endblock content %}
+{% block extra_scripts %}
+<script src="{% static 'bookings/js/materialize/materialize.min.js' %}"></script>
+<script src="{% static 'bookings/js/materialize/datepicker.js' %}"></script>
+<script src="{% static 'bookings/js/scripts.js' %}"></script>
+{% endblock extra_scripts %}
