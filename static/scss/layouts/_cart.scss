@@ -6,4 +6,11 @@
   margin-bottom: auto;
   box-shadow: $box-shadow-black;
   height: 160px;
+  position: relative;
+
+  a {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
 }
