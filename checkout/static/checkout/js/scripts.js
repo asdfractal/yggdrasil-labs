@@ -23,10 +23,11 @@ const style = {
 const card = elements.create('card', { style: style })
 card.mount('#cardElement')
 
+// Handle and display card form error
 card.addEventListener('change', (e) => {
 	const errorElement = document.getElementById('cardErrors')
 	if (e.error) {
-		let html = `
+		const html = `
                 <span class="icon" role="alert">
                     <i class="fas fa-times"></i>
                 </span>
@@ -36,4 +37,36 @@ card.addEventListener('change', (e) => {
 	} else {
 		errorElement.textContent = ''
 	}
+})
+
+// handle form submit
+const form = document.getElementById('paymentForm');
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	card.update({ 'disabled': true })
+	$('#paymentSubmit').attr('disabled', true)
+
+	stripe.confirmCardPayment(clientSecret, {
+		payment_method: {
+			card: card,
+		}
+	}).then((result) => {
+		if (result.error) {
+			const errorElement = document.getElementById('card-errors')
+			const html = `
+					<span class="icon" role="alert">
+						<i class="fas fa-times"></i>
+					</span>
+					<span>${result.error.message}</span>
+				`
+			$(errorElement).html(html)
+			card.update({ 'disabled': false })
+			$('#paymentSubmit').attr('disabled', false)
+		} else {
+			if (result.paymentIntent.status === 'succeeded') {
+				form.submit()
+			}
+		}
+	})
 })

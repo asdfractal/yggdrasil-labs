@@ -17,3 +17,7 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+#cardErrors {
+  color: $error-color;
+}

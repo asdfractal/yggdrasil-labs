@@ -7,7 +7,7 @@
 		<h3>Checkout</h3>
 	</div>
 	<div class="card-body">
-		<form action="{% url 'checkout' %}" method="POST">
+		<form action="{% url 'checkout' %}" method="POST" id="paymentForm">
 			{% csrf_token %}
 			{{ form|crispy }}
 			<fieldset>
@@ -17,7 +17,7 @@
 				<input type="hidden" name="client_secret" value="{{  client_secret }}">
 			</fieldset>
 			<button class="btn button-primary-outline button__small col-6 float-right" name="{{ form.prefix }}"
-				type="submit">Checkout</button>
+				type="submit" id="paymentSubmit">Checkout</button>
 			<div class="">
 				{% if form.errors %}
 				{% for field in form %}
