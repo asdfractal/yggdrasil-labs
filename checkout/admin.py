@@ -31,6 +31,8 @@ class OrderAdmin(admin.ModelAdmin):
         "postcode",
         "state",
         "country",
+        "booking_required",
+        "shipping_required",
         "total_price",
         "original_cart",
         "stripe_pid",
