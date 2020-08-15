@@ -36,6 +36,7 @@ def checkout(request):
                     messages.error(request, f"{product} not found.")
                     order.delete()
                     return redirect(reverse("view_cart"))
+            return redirect(reverse("checkout_success", args=[order.order_number]))
 
     if not cart:
         messages.error(request, "Your cart is empty.")
@@ -56,3 +57,13 @@ def checkout(request):
     }
 
     return render(request, "checkout/checkout.html", context)
+
+
+def checkout_success(request, order_number):
+    """
+    A view confirming successful checkout.
+    """
+    context = {
+        "order_number": order_number,
+    }
+    return render(request, "checkout/checkout_success.html", context)
