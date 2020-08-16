@@ -18,4 +18,6 @@ class Booking(models.Model):
     booking_time = models.DateTimeField(auto_now_add=False, null=True, blank=True)
 
     def __str__(self):
-        return f"Booking for {self.user_profile.default_full_name}"
+        if self.user_profile:
+            return f"Booking for {self.user_profile.default_full_name}"
+        return ""
