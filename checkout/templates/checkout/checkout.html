@@ -7,34 +7,58 @@
 		<h3>Checkout</h3>
 	</div>
 	<div class="card-body">
-		<form action="{% url 'checkout' %}" method="POST" id="paymentForm">
-			{% csrf_token %}
-			{{ form|crispy }}
-			<fieldset>
-				<legend>Payment Info</legend>
-				<div id="cardElement"></div>
-				<div id="cardErrors" role="alert"></div>
-				<input type="hidden" name="client_secret" value="{{  client_secret }}">
-			</fieldset>
-			<button class="btn button-primary-outline button__small col-6 float-right" name="{{ form.prefix }}"
-				type="submit" id="paymentSubmit">Checkout</button>
-			<div class="">
-				{% if form.errors %}
-				{% for field in form %}
-				{% for error in field.errors %}
-				<div class="alert alert-danger">
-					<strong>{{ error|escape }}</strong>
+		<div class="row">
+			<div class="col-12 col-lg-6 order-lg-last mt-lg-5">
+				<div class="border-dark p-2 mb-3 border">
+					<h5>Cart summary</h5>
+					<table class="w-100 mt-3">
+						{% for item in cart_items %}
+						<tr>
+							<td>{{ item.product.name }}</td>
+							<td>${{ item.product.price }}</td>
+						</tr>
+						{% endfor %}
+						<tr class="border-top border-dark">
+							<td><strong>Total</strong></td>
+							<td><strong>${{ cart_total }}</strong></td>
+						</tr>
+					</table>
 				</div>
-				{% endfor %}
-				{% endfor %}
-				{% for error in form.non_field_errors %}
-				<div class="alert alert-danger">
-					<strong>{{ error|escape }}</strong>
-				</div>
-				{% endfor %}
-				{% endif %}
 			</div>
-		</form>
+			<div class="col-12 col-lg-6">
+				<form action="{% url 'checkout' %}" method="POST" id="paymentForm">
+					{% csrf_token %}
+					<fieldset>
+						<legend>Personal Details</legend>
+						{{ form|crispy }}
+					</fieldset>
+					<fieldset class="mt-4">
+						<legend>Payment Info</legend>
+						<div class="row">
+							<div class="col-12 mb-2">
+								<div id="cardElement"></div>
+							</div>
+							<div class="col-12">
+								<div id="cardErrors" role="alert"></div>
+							</div>
+						</div>
+						<input type="hidden" name="client_secret" value="{{  client_secret }}">
+					</fieldset>
+					<div class="row mt-4">
+						<div class="col-4">
+							<a href="{% url 'view_cart' %}"><button class="btn button-primary-outline"><i
+										class="fas fa-angle-double-left"></i></button></a>
+						</div>
+						<div class="col-8 text-right">
+							<button class="btn button-secondary" type="submit" id="paymentSubmit">Submit</button>
+						</div>
+						<div class="col-12 text-right warning-color mt-3">
+							<p>Your card will be charged ${{ cart_total }}</p>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 {% endblock content %}

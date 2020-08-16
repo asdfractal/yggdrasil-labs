@@ -9,8 +9,9 @@ const style = {
 	base: {
 		color: '#1F1F1F',
 		fontFamily: '"Josefin-sans", sans-serif',
+		fontWeight: 300,
 		fontSmoothing: 'antialiased',
-		fontSize: '1.6rem',
+		fontSize: '1.2rem',
 		'::placeholder': {
 			color: '#aab7c4'
 		}
@@ -20,6 +21,7 @@ const style = {
 		iconColor: '#FF0033'
 	}
 }
+
 const card = elements.create('card', { style: style })
 card.mount('#cardElement')
 
@@ -39,11 +41,12 @@ card.addEventListener('change', (e) => {
 	}
 })
 
+
 // handle form submit
-const form = document.getElementById('paymentForm');
+const form = document.getElementById('paymentForm')
 
 form.addEventListener('submit', (e) => {
-	e.preventDefault();
+	e.preventDefault()
 	card.update({ 'disabled': true })
 	$('#paymentSubmit').attr('disabled', true)
 
