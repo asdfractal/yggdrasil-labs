@@ -1,0 +1,42 @@
+// customize date/time pickers using materialize classes
+.datepicker-modal {
+  &.open {
+    z-index: 1050 !important;
+    top: 15% !important;
+  }
+}
+
+.select-wrapper {
+  input {
+    display: none !important;
+  }
+}
+
+.datepicker-day-button {
+  border-radius: 0 !important;
+  font-size: 1.8rem !important;
+  font-family: "Josefin-sans", sans-serif !important;
+}
+
+.datepicker-cancel,
+.datepicker-done,
+.timepicker-close {
+  width: 100px !important;
+  margin: 1.5rem 0 0 .5rem !important;
+  background: $darkgrey !important;
+  color: $white !important;
+  border: 1px solid $primary-color !important;
+}
+
+.datepicker-date-display,
+.timepicker-digital-display {
+  background: lighten($lightgrey, 20%) !important;
+}
+
+.timepicker-text-container {
+  color: $white !important;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}

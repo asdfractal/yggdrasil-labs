@@ -1,6 +1,7 @@
 /*jshint esversion: 10 */
 /*jshint -W033 */
 
+
 (function ($) {
 	'use strict';
 
@@ -20,7 +21,7 @@
 		// Make the `defaultDate` the initial selected value
 		setDefaultDate: false,
 
-		disableWeekends: false,
+		disableWeekends: true,
 
 		disableDayFn: null,
 
@@ -28,12 +29,12 @@
 		firstDay: 0,
 
 		// The earliest date that can be selected
-		minDate: null,
+		minDate: new Date(),
 		// Thelatest date that can be selected
-		maxDate: null,
+		maxDate: new Date(Date.now() + 5.256e+9),
 
 		// Number of years either side, or array of upper/lower range
-		yearRange: 10,
+		yearRange: 1,
 
 		// used internally (don't config outside)
 		minYear: 0,
