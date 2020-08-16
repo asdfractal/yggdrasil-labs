@@ -137,7 +137,6 @@ State|state|CharField|max_length=20, null=True, blank=True
 Country|country|CountryField|blank_label='Country', null=True, blank=True
 Date|date|DateTimeField|auto_now_add=True
 Total Price|total_price|DecimalField|max_digits=10, decimal_places=2
-Original cart|original_cart|TextField|null=False, blank=False, default=''
 Stripe PID|stripe_pid|CharField|max_length=254, null=False, blank=False, default=''
 
 #### OrderLineItem

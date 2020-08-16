@@ -14,7 +14,6 @@ class OrderAdmin(admin.ModelAdmin):
         "order_number",
         "date",
         "total_price",
-        "original_cart",
         "stripe_pid",
     )
 
@@ -34,7 +33,6 @@ class OrderAdmin(admin.ModelAdmin):
         "booking_required",
         "shipping_required",
         "total_price",
-        "original_cart",
         "stripe_pid",
     )
 

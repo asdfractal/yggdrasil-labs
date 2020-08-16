@@ -32,7 +32,6 @@ class Order(models.Model):
     )
     booking_required = models.BooleanField(default=False)
     shipping_required = models.BooleanField(default=False)
-    original_cart = models.TextField(null=False, blank=False, default="")
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
 
     @staticmethod
