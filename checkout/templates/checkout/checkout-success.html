@@ -21,10 +21,10 @@
 								Booking</button></a>
 					</div>
 				</div>
-				{% else %}
+				{% elif order.booking.time_in_future == True %}
 				<div class="row mb-4">
-					<div class="col-12 col-lg-6 mb-1">
-						<p>Your booking is at {{ order.booking.booking_time }}</p>
+					<div class="col-12 mb-1">
+						<p>Your booking is on {{ order.booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
 					</div>
 					<div class="col-10 offset-2 text-right">
 						<a href="{% url 'create_booking' order.order_number %}"><button
@@ -32,10 +32,16 @@
 								Booking</button></a>
 					</div>
 				</div>
+				{% elif order.booking.time_in_future == False %}
+				<div class="row mb-4">
+					<div class="col-12 mb-1">
+						<p>Your booking was completed on {{ order.booking.booking_time }}</p>
+					</div>
+				</div>
 				{% endif %}
 				{% endif %}
 			</div>
-			<div class="col-lg-6">
+			<div class="mb-3 mb-lg-0 col-lg-6">
 				<h4>Thank you for your order</h4>
 			</div>
 		</div>

@@ -11,7 +11,7 @@
 			<div class="col-12">
 				<h4 class="mb-3">Booking for {{ booking_item }}</h4>
 				{% if booking.booking_time %}
-				<p>Your booking is at {{ booking.booking_time }}</p>
+				<p>Your booking is at {{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
 				{% else %}
 				<p>Please make a selection</p>
 				{% endif %}
