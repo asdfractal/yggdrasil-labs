@@ -1,5 +1,34 @@
 <div class="row">
-	<div class="col-12 col-lg-8 offset-lg-2">
-		<p>Bookings</p>
+	<div class="col-12 col-lg-11 offset-lg-1">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<h5>Upcoming Bookings</h5>
+				{% for booking in bookings %}
+				{% if booking.time_in_future == True %}
+				<p class="my-1">{{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
+				{% endif %}
+				{% endfor %}
+				{% for booking in bookings %}
+				{% if booking.time_in_future == None %}
+				<p class="my-1">You have not made a booking for product</p>
+				<a href="{% url 'create_booking' booking.order %}"><button
+						class="btn button-secondary-outline button__small my-1">Make
+						Booking</button></a>
+				{% endif %}
+				{% endfor %}
+			</div>
+			<div class="col-12 col-lg-6">
+				<h5>Past Bookings</h5>
+				{% for booking in bookings %}
+				{% if booking.time_in_future == False %}
+				<p>{{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
+				{% endif %}
+				{% endfor %}
+			</div>
+
+		</div>
+		<div class="">
+
+		</div>
 	</div>
 </div>
