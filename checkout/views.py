@@ -1,13 +1,36 @@
+import json
 import stripe
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
 from django.contrib import messages
 from django.conf import settings
+from django.views.decorators.http import require_POST
 
 from cart.contexts import get_cart_items
 from products.models import Product
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 from .forms import OrderForm
+
+
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get("client_secret").split("_secret")[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(
+            pid,
+            metadata={
+                "cart": json.dumps(request.session.get("cart", {})),
+                "username": request.user,
+            },
+        )
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(
+            request,
+            "Sorry, your payment cannot be processed right now. Please try again later.",
+        )
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -42,7 +65,7 @@ def checkout(request):
             request,
             "There is a problem with your form. Please confirm details and submit again.",
         )
-        return redirect(reverse("checkout"))
+        return redirect(reverse("checkout_success", args=[order.order_number]))
 
     if not cart:
         messages.error(request, "Your cart is empty.")
@@ -86,7 +109,8 @@ def checkout_success(request, order_number):
     """
     A view confirming successful checkout.
     """
+    order = get_object_or_404(Order, order_number=order_number)
     context = {
-        "order_number": order_number,
+        "order": order,
     }
-    return render(request, "checkout/checkout_success.html", context)
+    return render(request, "checkout/checkout-success.html", context)

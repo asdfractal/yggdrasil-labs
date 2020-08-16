@@ -47,26 +47,61 @@ form.addEventListener('submit', (e) => {
 	card.update({ 'disabled': true })
 	$('#paymentSubmit').attr('disabled', true)
 
-	stripe.confirmCardPayment(clientSecret, {
-		payment_method: {
-			card: card,
-		}
-	}).then((result) => {
-		if (result.error) {
-			const errorElement = document.getElementById('card-errors')
-			const html = `
-					<span class="icon" role="alert">
-						<i class="fas fa-times"></i>
-					</span>
-					<span>${result.error.message}</span>
-				`
-			$(errorElement).html(html)
-			card.update({ 'disabled': false })
-			$('#paymentSubmit').attr('disabled', false)
-		} else {
-			if (result.paymentIntent.status === 'succeeded') {
-				form.submit()
+	const csrfToken = $('input[name="csrfmiddlewaretoken"]').val()
+	const postData = {
+		'csrfmiddlewaretoken': csrfToken,
+		'client_secret': clientSecret,
+	}
+	const url = '/checkout/cache_checkout_data/'
+
+	$.post(url, postData).done(() => {
+		stripe.confirmCardPayment(clientSecret, {
+			payment_method: {
+				card: card,
+				billing_details: {
+					name: $.trim(form.full_name.value),
+					phone: $.trim(form.phone_number.value),
+					email: $.trim(form.email.value),
+					address: {
+						line1: $.trim(form.street_address1.value),
+						line2: $.trim(form.street_address2.value),
+						city: $.trim(form.city.value),
+						state: $.trim(form.state.value),
+						country: $.trim(form.country.value),
+					}
+				}
+			},
+			shipping: {
+				name: $.trim(form.full_name.value),
+				phone: $.trim(form.phone_number.value),
+				address: {
+					line1: $.trim(form.street_address1.value),
+					line2: $.trim(form.street_address2.value),
+					city: $.trim(form.city.value),
+					postal_code: $.trim(form.postcode.value),
+					state: $.trim(form.state.value),
+					country: $.trim(form.country.value),
+				}
+			},
+		}).then((result) => {
+			if (result.error) {
+				const errorElement = document.getElementById('card-errors')
+				const html = `
+						<span class="icon" role="alert">
+							<i class="fas fa-times"></i>
+						</span>
+						<span>${result.error.message}</span>
+					`
+				$(errorElement).html(html)
+				card.update({ 'disabled': false })
+				$('#paymentSubmit').attr('disabled', false)
+			} else {
+				if (result.paymentIntent.status === 'succeeded') {
+					form.submit()
+				}
 			}
-		}
+		})
+	}).fail(function () {
+		location.reload()
 	})
 })
