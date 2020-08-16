@@ -17,10 +17,10 @@
 }
 
 .nav-logo {
-  content: url('/media/images/mobile/nav-logo.png');
+  content: url('/static/images/mobile/nav-logo.png');
 
   @include breakpoint(lg) {
-    content: url('/media/images/desktop/nav-logo.png');
+    content: url('/static/images/desktop/nav-logo.png');
   }
 }
 

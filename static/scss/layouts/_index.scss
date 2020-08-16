@@ -1,5 +1,5 @@
 .body-index {
-  background: url('/media/images/background.jpg') no-repeat center center fixed;
+  background: url('/static/images/background.jpg') no-repeat center center fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -8,10 +8,12 @@
 
 .index-title__wrapper {
   height: 50vh;
+
   img {
-    content: url('/media/images/mobile/index-title.png');
+    content: url('/static/images/mobile/index-title.png');
+
     @include breakpoint(lg) {
-      content: url('/media/images/desktop/index-title.png');
+      content: url('/static/images/desktop/index-title.png');
     }
   }
 }
