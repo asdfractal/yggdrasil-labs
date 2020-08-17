@@ -41,7 +41,7 @@ class StripeWebhookHandler:
             for key, value in shipping_details.address.items():
                 if value == "":
                     shipping_details.address[key] = None
-
+        print("before while loop handler")
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -97,7 +97,7 @@ class StripeWebhookHandler:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | Error: {e}', status=500,
             )
-
+        print("created order and booking")
         return HttpResponse(
             content=f'Webhook received: {event["type"]}. Created order in webhook',
             status=200,
