@@ -2,7 +2,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'elianto';
+  font-family: 'Orbitron';
+  font-weight: 700;
 }
 
 h1 {
@@ -17,26 +18,43 @@ h1 {
   }
 }
 
-h3 {
-  font-size: 2.5rem;
+h2 {
+  font-size: 2.8rem;
+
+  @include breakpoint(sm) {
+    font-size: 3.5rem;
+  }
 
   @include breakpoint(md) {
     font-size: 4rem;
   }
+
+  @include breakpoint(lg) {
+    font-size: 4.5rem;
+  }
 }
 
-h4 {
-  font-size: 2rem;
+h3 {
+  font-size: 2.5rem;
 
   @include breakpoint(sm) {
-    font-size: 2.5rem;
+    font-size: 3.3rem;
   }
 
   @include breakpoint(md) {
-    font-size: 3rem;
+    font-size: 3.8rem;
   }
+}
 
-  @include breakpoint(lg) {
-    font-size: 3.5rem;
+h4 {
+  font-weight: 500;
+  font-size: 1.8rem;
+
+  @include breakpoint(sm) {
+    font-size: 2.2rem;
   }
+}
+
+h5 {
+  font-size: 2rem;
 }
