@@ -45,3 +45,9 @@
     display: none;
   }
 }
+
+.profile-nav-link {
+  &:hover {
+    cursor: pointer;
+  }
+}

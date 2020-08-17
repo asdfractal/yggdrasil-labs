@@ -7,6 +7,7 @@ const profileNavItems = {
 	'profileBookings': 'Bookings',
 	'profileOrderHistory': 'Order History'
 }
+const profileTitle = $('.profiles-card-title')
 
 /**
  * Check the value of the clicked nav item and return a matching ID
@@ -24,8 +25,9 @@ const getNavId = () => {
  * Shows the page matching the clicked element
  * @param {string} navId takes the value returned from checkNavClicked
  */
-const showPage = (navId) => {
+const showPage = (navId, titleText) => {
 	$(`#${navId}`).removeClass('d-none').addClass('d-block')
+	profileTitle.text(titleText)
 }
 
 /**
@@ -48,9 +50,11 @@ document.querySelectorAll('.profile-nav-link').forEach(element => {
 		e.preventDefault()
 		_this = $(this)
 		navId = getNavId()
+		title = _this.text()
 		_this.addClass('nav-link-active')
 		_this.siblings().removeClass('nav-link-active')
-		showPage(navId)
+		showPage(navId, title)
 		hidePages(navId)
+		$('#dashboardNavbarToggler').collapse('hide')
 	})
 })
