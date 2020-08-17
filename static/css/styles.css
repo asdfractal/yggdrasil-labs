@@ -1,25 +1,389 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
+/*
+Files in this folder have no output, they provide variables, mixins, etc.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Orbitron:wght@500;700&display=swap");
 @font-face {
   font-family: "elianto";
   src: url("/static/fonts/elianto-regular-webfont.woff2") format("woff2"), url("/static/fonts/elianto-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+/* Modal */
+.datepicker-modal {
+  max-width: 325px;
+  min-width: 300px;
+  max-height: none;
+}
+
+.datepicker-container.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.datepicker-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  margin: 0 auto;
+}
+.datepicker-controls .selects-container {
+  display: flex;
+}
+.datepicker-controls .select-wrapper input {
+  border-bottom: none;
+  text-align: center;
+  margin: 0;
+}
+.datepicker-controls .select-wrapper input:focus {
+  border-bottom: none;
+}
+.datepicker-controls .select-wrapper .caret {
+  display: none;
+}
+.datepicker-controls .select-year input {
+  width: 50px;
+}
+.datepicker-controls .select-month input {
+  width: 70px;
+}
+
+.month-prev,
+.month-next {
+  margin-top: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* Date Display */
+.datepicker-date-display {
+  flex: 1 auto;
+  background-color: #D76EE5;
+  color: #fff;
+  padding: 20px 22px;
+  font-weight: 500;
+}
+.datepicker-date-display .year-text {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 25px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.datepicker-date-display .date-text {
+  display: block;
+  font-size: 2.8rem;
+  line-height: 47px;
+  font-weight: 500;
+}
+
+/* Calendar */
+.datepicker-calendar-container {
+  flex: 2.5 auto;
+}
+
+.datepicker-table {
+  width: 280px;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+.datepicker-table thead {
+  border-bottom: none;
+}
+.datepicker-table th {
+  padding: 10px 5px;
+  text-align: center;
+}
+.datepicker-table tr {
+  border: none;
+}
+.datepicker-table abbr {
+  text-decoration: none;
+  color: #999;
+}
+.datepicker-table td {
+  border-radius: 50%;
+  padding: 0;
+}
+.datepicker-table td.is-today {
+  color: #D76EE5;
+}
+.datepicker-table td.is-selected {
+  background-color: #D76EE5;
+  color: #fff;
+}
+.datepicker-table td.is-outside-current-month, .datepicker-table td.is-disabled {
+  color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.datepicker-day-button {
+  background-color: transparent;
+  border: none;
+  line-height: 38px;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  padding: 0 5px;
+  cursor: pointer;
+  color: inherit;
+}
+.datepicker-day-button:focus {
+  background-color: rgba(212, 114, 225, 0.25);
+}
+
+/* Footer */
+.datepicker-footer {
+  width: 280px;
+  margin: 0 auto;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+  color: #D76EE5;
+  padding: 0 1rem;
+}
+
+.datepicker-clear {
+  color: #FF0033;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  .datepicker-modal {
+    max-width: 625px;
+  }
+
+  .datepicker-container.modal-content {
+    flex-direction: row;
+  }
+
+  .datepicker-date-display {
+    flex: 0 1 270px;
+  }
+
+  .datepicker-controls,
+.datepicker-table,
+.datepicker-footer {
+    width: 320px;
+  }
+
+  .datepicker-day-button {
+    line-height: 44px;
+  }
+}
+/* Timepicker Containers */
+.timepicker-modal {
+  max-width: 325px;
+  max-height: none;
+}
+
+.timepicker-container.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.text-primary {
+  color: white;
+}
+
+/* Clock Digital Display */
+.timepicker-digital-display {
+  flex: 1 auto;
+  background-color: #D76EE5;
+  padding: 10px;
+  font-weight: 300;
+}
+
+.timepicker-text-container {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  position: relative;
+  user-select: none;
+}
+
+.timepicker-span-hours,
+.timepicker-span-minutes,
+.timepicker-span-am-pm div {
+  cursor: pointer;
+}
+
+.timepicker-span-hours {
+  margin-right: 3px;
+}
+
+.timepicker-span-minutes {
+  margin-left: 3px;
+}
+
+.timepicker-display-am-pm {
+  font-size: 1.3rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-weight: 400;
+}
+
+/* Analog Clock Display */
+.timepicker-analog-display {
+  flex: 2.5 auto;
+}
+
+.timepicker-plate {
+  background-color: #eee;
+  border-radius: 50%;
+  width: 270px;
+  height: 270px;
+  overflow: visible;
+  position: relative;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.timepicker-canvas,
+.timepicker-dial {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.timepicker-minutes {
+  visibility: hidden;
+}
+
+.timepicker-tick {
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.timepicker-tick.active,
+.timepicker-tick:hover {
+  background-color: rgba(215, 110, 229, 0.25);
+}
+
+.timepicker-dial {
+  transition: transform 350ms, opacity 350ms;
+}
+
+.timepicker-dial-out {
+  opacity: 0;
+}
+.timepicker-dial-out.timepicker-hours {
+  transform: scale(1.1, 1.1);
+}
+.timepicker-dial-out.timepicker-minutes {
+  transform: scale(0.8, 0.8);
+}
+
+.timepicker-canvas {
+  transition: opacity 175ms;
+}
+.timepicker-canvas line {
+  stroke: #D76EE5;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.timepicker-canvas-out {
+  opacity: 0.25;
+}
+
+.timepicker-canvas-bearing {
+  stroke: none;
+  fill: #D76EE5;
+}
+
+.timepicker-canvas-bg {
+  stroke: none;
+  fill: #D76EE5;
+}
+
+/* Footer */
+.timepicker-footer {
+  margin: 0 auto;
+  padding: 5px 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timepicker-clear {
+  color: #FF0033;
+}
+
+.timepicker-close {
+  color: #D76EE5;
+}
+
+.timepicker-clear,
+.timepicker-close {
+  padding: 0 20px;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  .timepicker-modal {
+    max-width: 600px;
+  }
+
+  .timepicker-container.modal-content {
+    flex-direction: row;
+  }
+
+  .timepicker-text-container {
+    top: 32%;
+  }
+
+  .timepicker-display-am-pm {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+}
+/*
+Files in this folder have the global base settings and utility classes for the project.
+*/
 html {
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
   color: #FFFFFF;
   background-color: #1F1F1F;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 1.8rem;
+  }
 }
 
 button {
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
   border: none;
 }
 button > a {
@@ -45,13 +409,24 @@ a:hover {
   color: #00929b !important;
   text-decoration: none;
 }
+a:not([href]) {
+  color: #00C2CE;
+}
 
 .btn {
   border-radius: 0 !important;
 }
 
-h1, h2, h3, h4 {
-  font-family: "elianto";
+.asteriskField {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Orbitron";
+  font-weight: 700;
 }
 
 h1 {
@@ -68,27 +443,51 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 2.8rem;
+}
+@media only screen and (min-width: 576px) {
+  h2 {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 4rem;
+  }
+}
+@media only screen and (min-width: 992px) {
+  h2 {
+    font-size: 4.5rem;
+  }
+}
+
 h3 {
   font-size: 2.5rem;
 }
+@media only screen and (min-width: 576px) {
+  h3 {
+    font-size: 3.3rem;
+  }
+}
 @media only screen and (min-width: 768px) {
   h3 {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
 }
 
 h4 {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+@media only screen and (min-width: 576px) {
+  h4 {
+    font-size: 2.2rem;
+  }
+}
+
+h5 {
   font-size: 2rem;
-}
-@media only screen and (min-width: 768px) {
-  h4 {
-    font-size: 2.5rem;
-  }
-}
-@media only screen and (min-width: 992px) {
-  h4 {
-    font-size: 3rem;
-  }
 }
 
 .bg-grey-alpha-half {
@@ -99,25 +498,103 @@ h4 {
   background-color: #474747;
 }
 
+.bgc-grey {
+  background-color: #3D3D3D;
+}
+
+.warning-color {
+  color: #FC440F;
+}
+
+.warning-bg {
+  background: #FC440F;
+}
+
+.warning-border {
+  border: 1px solid #FC440F;
+}
+
+.error-color {
+  color: #FF0033;
+}
+
+.error-bg {
+  background: #FF0033;
+}
+
+.error-border {
+  border: 1px solid #FF0033;
+}
+
+.success-color {
+  color: #00FF00;
+}
+
+.success-bg {
+  background: #00FF00;
+}
+
+.success-border {
+  border: 1px solid #00FF00;
+}
+
+.info-color {
+  color: #F2EA02;
+}
+
+.info-bg {
+  background: #F2EA02;
+}
+
+.info-border {
+  border: 1px solid #F2EA02;
+}
+
+.border-bottom-after::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 1rem;
+  border-bottom: 1px solid #00C2CE;
+}
+
+.icon-size {
+  font-size: 3.5rem;
+}
+
+/*
+Files in this folder have base styles for resuable components.
+*/
+.navbar-top__wrapper {
+  background: #3D3D3D;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  background-color: #3D3D3D;
+}
+
 .dropdown-item {
-  font-weight: 300;
+  color: #00C2CE;
 }
 .dropdown-item:hover {
   background: rgba(87, 87, 87, 0.5);
 }
 
 .nav-logo {
-  content: url("/media/images/mobile/nav-logo.png");
+  content: url("/static/images/mobile/nav-logo.png");
 }
 @media only screen and (min-width: 992px) {
   .nav-logo {
-    content: url("/media/images/desktop/nav-logo.png");
+    content: url("/static/images/desktop/nav-logo.png");
   }
 }
 
 .navbar-toggler {
   color: #FFFFFF;
   font-size: 3.5rem;
+  box-shadow: none;
 }
 
 .nav-link,
@@ -125,21 +602,114 @@ h4 {
   font-size: 2rem;
 }
 
+.nav-icon-cart {
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  padding-top: 0.3rem;
+}
+@media only screen and (min-width: 992px) {
+  .nav-icon-cart {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+  }
+  .nav-icon-cart .nav-link {
+    font-size: 3rem;
+    color: #FFFFFF;
+  }
+}
+
+.badge-custom {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: white;
+  background: #FC440F;
+  border-radius: 50%;
+  position: absolute;
+  left: 2.3rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
 .footer {
   background: #3D3D3D;
+  min-height: 10vh;
+}
+.footer a {
+  color: #FFFFFF;
+}
+.footer a:hover {
+  color: #FFFFFF !important;
+}
+.footer .position-absolute {
+  right: 1.2rem;
+  bottom: 0.3rem;
+}
+
+.toast {
+  z-index: 1020;
+  border: 0;
+  border-radius: 0;
+  position: fixed;
+  top: 65px;
+  right: 5px;
+}
+@media only screen and (min-width: 992px) {
+  .toast {
+    top: 100px;
+  }
+}
+
+.toast-close {
+  font-size: 2.3rem;
+}
+
+.toast-body {
+  background-color: #474747;
+  padding: 0.6rem;
+  font-size: 1.6rem;
+}
+@media only screen and (min-width: 992px) {
+  .toast-body {
+    font-size: 2rem;
+  }
+}
+
+.modal-content {
+  background-color: #474747;
 }
 
 .button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
-  width: 200px;
-  height: 50px;
+  width: 90%;
+  height: 40px;
   color: #FFFFFF;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
 }
-@media only screen and (min-width: 768px) {
-  .button-secondary-outline, .button-secondary, .button-primary-outline, .button-primary {
-    width: 220px;
+
+.button__large {
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 992px) {
+  .button__large {
+    width: 80%;
   }
+}
+
+.button__small {
+  width: 75%;
+  height: 35px;
+  font-size: 1.4rem;
 }
 
 .button-primary {
@@ -155,6 +725,7 @@ h4 {
   border: 1px solid #00C2CE;
 }
 .button-primary-outline:hover {
+  background-color: #2c2c2c;
   color: #00C2CE;
 }
 
@@ -171,57 +742,73 @@ h4 {
   border: 1px solid #D76EE5;
 }
 .button-secondary-outline:hover {
+  background-color: #2c2c2c;
   color: #D76EE5;
 }
 
-.button__small {
-  width: 100px;
-  height: 40px;
-  font-size: 1.6rem;
-}
-@media only screen and (min-width: 576px) {
-  .button__small {
-    width: 150px;
-  }
-}
-
-.form__wrapper h1 {
-  text-transform: uppercase;
-}
-.form__wrapper h2 {
-  margin-top: 1rem;
-}
-.form__wrapper p {
-  margin-top: 0.5rem;
-}
-.form__wrapper input {
+.form-control {
   border-radius: 0;
-  box-sizing: unset;
   border: 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .card {
   background: #474747;
   margin-bottom: 3rem;
+  min-height: 40vh;
 }
 
 .card-body {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
+/*
+Files in this folder have specific styles for the layout and styling of the site,
+including additional styling for components. They are generally related to the
+django module templates and pages the user will view.
+*/
 .main__wrapper {
-  padding: 13vh 15px 0;
-  min-height: 95vh;
+  padding: 15vh 15px 0;
+  min-height: 92vh;
+}
+@media only screen and (min-width: 321px) {
+  .main__wrapper {
+    padding: 13vh 7vw 0;
+  }
 }
 @media only screen and (min-width: 576px) {
   .main__wrapper {
-    padding: 13vh 10vw 0;
+    padding: 13vh 15vw 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .main__wrapper {
+    padding: 13vh 20vw 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .main__wrapper {
+    padding: 18vh 10vw 0;
+  }
+}
+
+.nav-item {
+  margin: 0 0.5rem;
+}
+
+.nav-link-active {
+  color: #00d0dd;
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 992px) {
+  .img-fluid {
+    max-width: 80%;
   }
 }
 
 .body-index {
-  background: url("/media/images/background.jpg") no-repeat center center fixed;
+  background: url("/static/images/background.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -232,12 +819,213 @@ h4 {
   height: 50vh;
 }
 .index-title__wrapper img {
-  content: url("/media/images/mobile/index-title.png");
+  content: url("/static/images/mobile/index-title.png");
 }
 @media only screen and (min-width: 992px) {
   .index-title__wrapper img {
-    content: url("/media/images/desktop/index-title.png");
+    content: url("/static/images/desktop/index-title.png");
   }
+}
+
+.product-filter {
+  margin: 0 auto;
+}
+.product-filter .col-3 {
+  margin: 0 0.7rem 0 0;
+  padding: 0;
+}
+@media only screen and (min-width: 768px) {
+  .product-filter .col-3 {
+    margin: 0 2rem 0 0;
+  }
+}
+
+.product-filter-button {
+  width: 100%;
+  height: 30px;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+.product-filter-button:active, .product-filter-button:focus {
+  color: #000000;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+.product-filter-button:hover {
+  color: #FFFFFF;
+}
+
+.js-product-filter-button__active {
+  color: #000000;
+  background: #FFFFFF;
+}
+.js-product-filter-button__active:hover {
+  color: #000000;
+}
+
+#clearFilter {
+  font-size: 3.2rem;
+}
+
+.product-details-specs__box {
+  text-align: right;
+  border: 1px solid #00C2CE;
+  padding: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
+  height: 100px;
+}
+.product-details-specs__box p:first-child {
+  font-size: 2rem;
+}
+
+.review-body__shadow {
+  border-radius: 0.25rem;
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
+}
+
+.review-form__wrapper > form {
+  width: 100%;
+}
+.review-form__wrapper label {
+  display: none;
+}
+.review-form__wrapper a {
+  color: #FFFFFF;
+}
+
+.review-form-textarea:disabled {
+  background-color: #474747;
+  color: #FFFFFF;
+  font-style: italic;
+  resize: none;
+}
+
+.profile__wrapper .card {
+  min-height: 400px;
+}
+.profile__wrapper .card-body {
+  margin-top: 8vh;
+}
+
+.profiles-card-header {
+  padding: 0.25rem;
+  height: 8vh;
+  background-color: inherit;
+  border: 0;
+}
+.profiles-card-header .navbar {
+  padding-right: 0.25rem;
+  padding-top: 0.5rem;
+  background: #2c2c2c;
+  z-index: 10;
+}
+.profiles-card-header .navbar .navbar-collapse {
+  flex-direction: row-reverse;
+}
+@media only screen and (min-width: 992px) {
+  .profiles-card-header .navbar .navbar-collapse {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.profiles-card-header button {
+  font-size: 3rem;
+}
+
+.profiles-card-title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding-top: 0.3rem;
+}
+@media only screen and (min-width: 992px) {
+  .profiles-card-title {
+    display: none;
+  }
+}
+
+.profile-nav-link:hover {
+  cursor: pointer;
+}
+
+.cart-specs__box {
+  text-align: right;
+  border: 1px solid #00C2CE;
+  padding: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
+  height: 160px;
+  position: relative;
+}
+.cart-specs__box a {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.StripeElement {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#cardErrors {
+  color: #FF0033;
+}
+
+.datepicker-modal.open {
+  z-index: 1050 !important;
+  top: 15% !important;
+}
+
+.select-wrapper input {
+  display: none !important;
+}
+
+.datepicker-day-button {
+  border-radius: 0 !important;
+  font-size: 1.8rem !important;
+  font-family: "Raleway", sans-serif !important;
+}
+
+.datepicker-cancel,
+.datepicker-done,
+.timepicker-close {
+  width: 100px !important;
+  margin: 1.5rem 0 0 0.5rem !important;
+  background: #1F1F1F !important;
+  color: #FFFFFF !important;
+  border: 1px solid #00C2CE !important;
+}
+
+.datepicker-date-display,
+.timepicker-digital-display {
+  background: #7a7a7a !important;
+}
+
+.timepicker-text-container {
+  color: #FFFFFF !important;
+}
+
+.text-primary {
+  color: #00C2CE !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
