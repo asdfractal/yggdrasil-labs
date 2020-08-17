@@ -24,17 +24,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = False
 
 ALLOWED_HOSTS = ["yggdrasil-labs.herokuapp.com"]
-if "DEVELOPMENT" in os.environ:
-    ALLOWED_HOSTS = [
-        "e05acded369f.ngrok.io",
-        "127.0.0.1",
-        "127.0.0.1:8000",
-        "localhost",
-        "localhost:8000",
-    ]
+# ALLOWED_HOSTS = [
+#     "e05acded369f.ngrok.io",
+#     "127.0.0.1",
+#     "127.0.0.1:8000",
+#     "localhost",
+#     "localhost:8000",
+# ]
 
 
 # Application definition
