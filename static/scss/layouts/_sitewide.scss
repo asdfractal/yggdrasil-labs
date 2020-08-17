@@ -15,7 +15,7 @@
   }
 
   @include breakpoint(lg) {
-    padding: 20vh 10vw 0;
+    padding: 18vh 10vw 0;
   }
 }
 
@@ -25,5 +25,5 @@
 
 .nav-link-active {
   color: lighten($primary-color, 3%);
-  font-weight: 400;
+  font-weight: 500;
 }

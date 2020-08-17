@@ -55,7 +55,6 @@
   p {
     &:first-child {
       font-size: 2rem;
-      font-weight: 400;
     }
   }
 }
@@ -81,10 +80,6 @@
 }
 
 .review-form-textarea {
-
-  &.form-control {
-    font-weight: 300;
-  }
 
   &:disabled {
     background-color: $lightgrey;
