@@ -15,7 +15,8 @@ def check_booking_status(request):
         notification_expired = False
 
     if notification_expired:
-        del request.session["booking_notification"]
+        if check_session:
+            del request.session["booking_notification"]
         for booking in bookings:
             if not booking.booking_time:
                 messages.info(
