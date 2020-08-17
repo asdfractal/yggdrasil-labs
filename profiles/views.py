@@ -4,7 +4,6 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 
 from checkout.models import Order
-from bookings.models import Booking
 from .models import UserProfile
 from .forms import UserProfileForm, TechSupportForm
 
@@ -17,7 +16,6 @@ def profile(request):
     user = request.user
     user_profile = get_object_or_404(UserProfile, user=user)
     form_profile = UserProfileForm(instance=user_profile)
-    bookings = Booking.objects.filter(user_profile=user_profile)
     orders = Order.objects.filter(user_profile=user_profile)
     form_tech = TechSupportForm()
     is_client = user_profile.is_client
@@ -66,8 +64,8 @@ def profile(request):
         "form_profile": form_profile,
         "is_client": is_client,
         "form_tech": form_tech,
-        "bookings": bookings,
         "orders": orders,
+        "page_title": "Dashboard",
     }
 
     return render(request, "profiles/dashboard.html", context)

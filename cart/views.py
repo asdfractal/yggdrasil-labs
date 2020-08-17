@@ -14,7 +14,10 @@ def view_cart(request):
     """
     Display users shopping cart.
     """
-    return render(request, "cart/cart.html")
+    context = {
+        "page_title": "Cart",
+    }
+    return render(request, "cart/cart.html", context)
 
 
 def add_to_cart(request, product_id):

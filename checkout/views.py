@@ -100,6 +100,7 @@ def checkout(request):
         "form": form,
         "stripe_public_key": stripe_public_key,
         "client_secret": stripe_intent.client_secret,
+        "page_title": "Checkout",
     }
 
     return render(request, "checkout/checkout.html", context)
@@ -112,5 +113,6 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     context = {
         "order": order,
+        "page_title": "Success",
     }
     return render(request, "checkout/checkout-success.html", context)

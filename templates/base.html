@@ -5,7 +5,7 @@
 
 <head>
 	{% include 'components/head.html' %}
-	<title>Document</title>
+	<title>{% if request.path != '/' %}{{ page_title }} | {% endif %}Yggdrasil Labs</title>
 </head>
 
 <body {% if request.path == '/' %}class="body-index" {% endif %}>

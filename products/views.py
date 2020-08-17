@@ -16,6 +16,7 @@ def products(request):
     context = {
         "products": all_products,
         "categories": categories,
+        "page_title": "Products",
     }
 
     return render(request, "products/products.html", context)
@@ -35,6 +36,7 @@ def product_detail(request, product_id):
     context = {
         "product": product,
         "review": review,
+        "page_title": product.name,
     }
 
     return render(request, "products/product-detail.html", context)
@@ -85,6 +87,7 @@ def product_reviews(request, product_id):
         "reviews": reviews,
         "form": form,
         "user_review": user_review,
+        "page_title": f"{product.name} reviews",
     }
 
     return render(request, "products/product-reviews.html", context)

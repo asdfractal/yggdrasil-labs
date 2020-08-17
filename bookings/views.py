@@ -52,5 +52,6 @@ def create_booking(request, order_number):
         "booking": booking,
         "booking_item": booking_item,
         "form": form,
+        "page_title": "Booking",
     }
     return render(request, "bookings/create_booking.html", context)
