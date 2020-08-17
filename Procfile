@@ -1,1 +1,1 @@
-web: gunicorn yggdrasil_labs.wsgi:application
+web: gunicorn yggdrasil_labs.wsgi
