@@ -26,8 +26,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "d7b85dd84353.ngrok.io",
+    "e05acded369f.ngrok.io",
     "127.0.0.1",
+    "127.0.0.1:8000",
+    "localhost",
+    "localhost:8000",
 ]
 
 
@@ -84,6 +87,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",
                 "cart.contexts.get_cart_items",
+                "bookings.contexts.check_booking_status",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
@@ -172,4 +176,3 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 STRIPE_CURRENCY = "usd"
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
-
