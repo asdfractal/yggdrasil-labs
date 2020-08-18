@@ -470,11 +470,6 @@ h3 {
     font-size: 3.3rem;
   }
 }
-@media only screen and (min-width: 768px) {
-  h3 {
-    font-size: 3.8rem;
-  }
-}
 
 h4 {
   font-weight: 500;
@@ -868,6 +863,17 @@ django module templates and pages the user will view.
   font-size: 3.2rem;
 }
 
+@media only screen and (min-width: 768px) {
+  .product-card-img {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .product-card-img {
+    width: 100%;
+  }
+}
+
 .product-details-specs__box {
   text-align: right;
   border: 1px solid #00C2CE;
@@ -875,7 +881,7 @@ django module templates and pages the user will view.
   margin-top: auto;
   margin-bottom: auto;
   box-shadow: rgba(13, 22, 24, 0.15) 0px 1px 1px, rgba(13, 22, 24, 0.15) 0px 2px 2px, rgba(13, 22, 24, 0.15) 0px 4px 4px, rgba(13, 22, 24, 0.15) 0px 8px 8px, rgba(13, 22, 24, 0.15) 0px 16px 16px;
-  height: 100px;
+  height: 160px;
 }
 .product-details-specs__box p:first-child {
   font-size: 2rem;
