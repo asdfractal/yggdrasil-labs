@@ -60,6 +60,8 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse("view_cart"))
             order.check_complete_create_booking(order=order, user_profile=user_profile)
+            user_profile.is_client = True
+            user_profile.check_personal_key()
             return redirect(reverse("checkout_success", args=[order.order_number]))
         messages.error(
             request,
@@ -111,6 +113,10 @@ def checkout_success(request, order_number):
     A view confirming successful checkout.
     """
     order = get_object_or_404(Order, order_number=order_number)
+
+    if "cart" in request.session:
+        del request.session["cart"]
+
     context = {
         "order": order,
         "page_title": "Success",
