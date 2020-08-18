@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import get_template
+from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 from django.contrib import messages
 
@@ -8,6 +9,18 @@ from .models import UserProfile
 from .forms import UserProfileForm, TechSupportForm
 
 
+def profile_login_check(request):
+    """
+    Checks if the user is authenticated before rendering the profile view in order
+    to display a message informing them that login is required and utilize allauth
+    next url parameter.
+    """
+    if not request.user.is_authenticated:
+        messages.warning(request, "You must login to view account dashboard.")
+    return profile(request)
+
+
+@login_required
 def profile(request):
     """
     Display the users profile, bookings and order history. Processes updates to
