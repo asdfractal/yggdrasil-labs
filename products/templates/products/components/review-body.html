@@ -1,6 +1,8 @@
 <div class="row mb-4 review__wrapper">
 	<div class="col-10 offset-1 review-body__shadow">
-		{% if review.user_profile.default_full_name|length > 0 %}
+		{% if not review.user_profile %}
+		<p>Deleted User -</p>
+		{% elif review.user_profile.default_full_name|length > 0 %}
 		<p>{{ review.user_profile.default_full_name|capfirst }} -</p>
 		{% else %}
 		<p>{{ review.user_profile|capfirst }} -</p>
