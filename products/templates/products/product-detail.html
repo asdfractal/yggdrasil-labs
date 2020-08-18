@@ -14,14 +14,20 @@
 			<div class="col-12 col-lg-6">
 				<p>{{ product.description }}</p>
 			</div>
-			<div class="col-6 text-capitalize d-lg-none mt-3">
+			<div class="col-12 text-capitalize d-lg-none mt-3">
 				<p class="card-text text-left text-capitalize ml-1">Type: {{ product.category }}</p>
+			</div>
+			<div class="col-6 text-capitalize d-lg-none mt-3">
+				<p class="card-text text-left text-capitalize ml-1">Booking required:
+					{% if product.booking_required %}Yes{% else %}No{% endif %}</p>
 			</div>
 			<div class="col-6 text-capitalize d-lg-none mt-3">
 				<p class="card-text text-right mr-3">${{ product.price }}</p>
 			</div>
 			<div class="col-lg-4 offset-1 d-none d-lg-block product-details-specs__box">
-				<p class="card-text text-capitalize ">Type: {{ product.category }}</p>
+				<p class="card-text text-capitalize">Type: {{ product.category }}</p>
+				<p class="card-text">Booking required:
+					{% if product.booking_required %}Yes{% else %}No{% endif %}</p>
 				<p class="card-text">${{ product.price }}</p>
 			</div>
 		</div>
