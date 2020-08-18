@@ -67,7 +67,7 @@
 					<table class="w-100 mt-3">
 						<p>Order number - {{ order.order_number }}</p>
 						<p>Order date - {{ order.date }}</p>
-						{% for item in cart_items %}
+						{% for item in order.lineitems.all %}
 						<tr>
 							<td>{{ item.product.name }}</td>
 							<td>${{ item.product.price }}</td>
@@ -75,7 +75,7 @@
 						{% endfor %}
 						<tr class="border-top border-dark">
 							<td><strong>Total</strong></td>
-							<td><strong>${{ cart_total }}</strong></td>
+							<td><strong>${{ order.total_price }}</strong></td>
 						</tr>
 					</table>
 				</div>
