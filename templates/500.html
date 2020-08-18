@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block content %}
-<div class="div">
-	404
+<div class="card">
+	<div class="card-body">
+		<p>Error: 500 | Server error. If the problem continues please <a href="{% url 'contact' %}">contact us</a> for
+			assistance.</p>
+	</div>
 </div>
-
 {% endblock content %}
