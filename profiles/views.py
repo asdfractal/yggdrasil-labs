@@ -18,7 +18,7 @@ def profile(request):
     form_profile = UserProfileForm(instance=user_profile)
     orders = Order.objects.filter(user_profile=user_profile)
     form_tech = TechSupportForm()
-    is_client = user_profile.is_client
+    user_profile.check_personal_key()
     if request.method == "POST":
         if UserProfileForm().prefix in request.POST:
             form_profile = UserProfileForm(request.POST, instance=user_profile)
@@ -62,7 +62,6 @@ def profile(request):
     context = {
         "profile": user_profile,
         "form_profile": form_profile,
-        "is_client": is_client,
         "form_tech": form_tech,
         "orders": orders,
         "page_title": "Dashboard",
