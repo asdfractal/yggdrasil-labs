@@ -43,7 +43,7 @@ def add_to_cart(request, product_id):
         return redirect("product_detail", product_id)
 
     except Exception as e:
-        messages.error(request, f"Error removing item: {e}")
+        messages.error(request, f"Error adding item: {e}")
         return HttpResponse(status=500)
 
 
