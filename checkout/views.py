@@ -2,6 +2,7 @@ import json
 import stripe
 from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.decorators.http import require_POST
 
@@ -33,6 +34,18 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+def checkout_login_check(request):
+    """
+    Checks if the user is authenticated before rendering the checkout view in order
+    to display a message informing them that login is required and utilize allauth
+    next url parameter.
+    """
+    if not request.user.is_authenticated:
+        messages.warning(request, "You must be logged in to checkout.")
+    return checkout(request)
+
+
+@login_required
 def checkout(request):
     """
     Display a view to purchase items in cart.
@@ -40,7 +53,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get("cart", {})
-    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = UserProfile.objects.get(user=request.user)
     form = OrderForm()
 
     if request.method == "POST":
@@ -108,6 +121,7 @@ def checkout(request):
     return render(request, "checkout/checkout.html", context)
 
 
+@login_required
 def checkout_success(request, order_number):
     """
     A view confirming successful checkout.
