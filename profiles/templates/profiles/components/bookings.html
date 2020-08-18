@@ -10,10 +10,14 @@
 				{% endfor %}
 				{% for booking in bookings %}
 				{% if booking.time_in_future == None %}
-				<p class="my-1">You have not made a booking for product</p>
+				{% for item in booking.order.lineitems.all %}
+				{% if item.product.booking_required %}
+				<p class="my-1">You have not made a booking for {{ item.product.name }}</p>
 				<a href="{% url 'create_booking' booking.order %}"><button
 						class="btn button-secondary-outline button__small my-1">Make
 						Booking</button></a>
+				{% endif %}
+				{% endfor %}
 				{% endif %}
 				{% endfor %}
 			</div>
