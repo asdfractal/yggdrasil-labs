@@ -13,36 +13,39 @@
 		</button>
 		<div class="collapse navbar-collapse flex-row-reverse" id="navbarToggler">
 			<ul class="navbar-nav text-center text-uppercase mr-lg-4">
-				<li class="nav-item {% if request.path == '/' %}nav-link-active{% endif %}">
+				<li class="nav-item my-auto {% if request.path == '/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="{% url 'index' %}">Home{% if request.path == '/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item {% if request.path == '/products/' %}nav-link-active{% endif %}">
+				<li class="nav-item my-auto {% if request.path == '/products/' %}nav-link-active{% endif %}">
 					<a class="nav-link" href="{% url 'products' %}">Products{% if request.path == '/products/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item {% if request.path == '/about/' %}nav-link-active{% endif %}">
-					<a class="nav-link" href="#">About{% if request.path == '/about/' %}<span
+				<li class="nav-item my-auto {% if request.path == '/about/' %}nav-link-active{% endif %}">
+					<a class="nav-link" href="{% url 'about' %}">About{% if request.path == '/about/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
-				<li class="nav-item {% if request.path == '/contact/' %}nav-link-active{% endif %}">
-					<a class="nav-link" href="#">Contact{% if request.path == '/contact/' %}<span
+				<li class="nav-item my-auto {% if request.path == '/contact/' %}nav-link-active{% endif %}">
+					<a class="nav-link" href="{% url 'contact' %}">Contact{% if request.path == '/contact/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% if request.user.is_authenticated %}
 				<li
-					class="nav-item dropdown d-none d-lg-block {% if request.path == '/profile/' %}nav-link-active{% endif %}">
-					<a class="nav-link dropdown-toggle" href="{% url 'profile' %}" id="navbarDropdown" role="button"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					class="nav-item my-auto dropdown d-none d-lg-block {% if request.path == '/profile/' %}nav-link-active{% endif %}">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
 						{% if request.path == '/profile/' %}<span class="sr-only">(current)</span>{% endif %}Account
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+						<a class="dropdown-item" href="{% url 'profile' %}">Dashboard</a>
+						<a class="dropdown-item" href="{% url 'profile' %}#support">Tech Support</a>
+						<a class="dropdown-item" href="{% url 'profile' %}#bookings">Bookings</a>
+						<a class="dropdown-item" href="{% url 'profile' %}#orders">Order History</a>
 						<a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
 					</div>
 				</li>
 				<li class="nav-item d-lg-none">
-					<a class="nav-link" href="{% url 'profile' %}">Profile{% if request.path == '/profile/' %}<span
+					<a class="nav-link" href="{% url 'profile' %}">Dashboard{% if request.path == '/profile/' %}<span
 							class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				<li class="nav-item d-lg-none">
