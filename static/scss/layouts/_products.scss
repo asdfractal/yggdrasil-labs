@@ -43,6 +43,16 @@
   font-size: 3.2rem;
 }
 
+.product-card-img {
+  @include breakpoint(md) {
+    width: 75%;
+  }
+
+  @include breakpoint(lg) {
+    width: 100%;
+  }
+}
+
 .product-details-specs__box {
   text-align: right;
   border: 1px solid $primary-color;
@@ -50,7 +60,7 @@
   margin-top: auto;
   margin-bottom: auto;
   box-shadow: $box-shadow-black;
-  height: 100px;
+  height: 160px;
 
   p {
     &:first-child {
