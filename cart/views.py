@@ -31,6 +31,16 @@ def add_to_cart(request, product_id):
         messages.info(request, "That item is already in your cart.")
         return redirect("product_detail", product_id)
 
+    for cart_id in list(cart.keys()):
+        cart_product = get_object_or_404(Product, pk=cart_id)
+        if cart_product.booking_required:
+            if product.booking_required:
+                messages.info(
+                    request,
+                    "You can only have one product that requires a booking per order.",
+                )
+                return redirect("products")
+
     try:
         cart[product_id] = 1
         messages.success(
