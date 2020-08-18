@@ -1,5 +1,6 @@
 import datetime
 from django.contrib import messages
+from django.utils.safestring import mark_safe
 
 from profiles.models import UserProfile
 from .models import Booking
@@ -25,7 +26,9 @@ def check_booking_status(request):
                 if not booking.booking_time:
                     messages.info(
                         request,
-                        "You have an available booking to create. Please visit your profile page to confirm.",
+                        mark_safe(
+                            "You have an available booking to create. Please visit your <a href='/profile/#bookings'>bookings page</a> to confirm."
+                        ),
                     )
                     request.session["booking_notification"] = {
                         "value": True,
