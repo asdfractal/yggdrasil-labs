@@ -18,13 +18,16 @@
 			{% if user_review == "" %}
 			{% include 'products/components/review-form.html' with new='True' %}
 			{% endif %}
-			<div class="row mt-5">
-				<div class="col-6 col-md-3 offset-md-1">
-					<a href="{% url 'product_detail' product.id %}"><button class="btn button-primary-outline"
-							type="button"><i class="fas fa-angle-double-left"></i></button></a>
+		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col-6 col-lg-4">
+					<a href="{% url 'products' %}"><button class="btn button-primary-outline" type="button"><i
+								class="fas fa-angle-double-left"></i></button></a>
 				</div>
-				<div class="col-6 col-md-3 offset-md-4 text-right">
-					<a href=""></a><button class="btn button-secondary-outline" type="button">Buy</button></a>
+				<div class="col-6 col-lg-4 offset-lg-3 pr-lg-0 text-right">
+					<a href="{% url 'add_to_cart' product.id %}"><button class="btn button-secondary-outline"
+							type="button">Buy</button></a>
 				</div>
 			</div>
 		</div>
