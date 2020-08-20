@@ -37,10 +37,10 @@
 			{% endfor %}
 			{% if cart_items|length != 0 %}
 			<div class="row">
-				<div class="col-12 col-lg-11 text-right mb-2">
+				<div class="col-12 col-lg-11 text-right mb-2 pr-lg-0">
 					<p>Total - ${{ cart_total }}</p>
 				</div>
-				<div class="col-12 col-sm-10 offset-sm-2 col-lg-6 offset-lg-5 text-right">
+				<div class="col-12 col-sm-10 offset-sm-2 col-lg-6 offset-lg-5 text-right pr-lg-0">
 					<a href="{% url 'checkout' %}">
 						<button class="btn button-secondary" type="button">Checkout</button>
 					</a>
