@@ -3,6 +3,7 @@ from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.contrib import messages
 
+from products.models import Product
 from .forms import ContactForm
 
 
@@ -10,7 +11,11 @@ def index(request):
     """
     Renders the index view.
     """
-    return render(request, "pages/index.html")
+    products = Product.objects.filter(featured=True)
+    context = {
+        "products": products,
+    }
+    return render(request, "pages/index.html", context)
 
 
 def contact(request):
