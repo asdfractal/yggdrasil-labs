@@ -14,14 +14,16 @@
 		</div>
 		<div class="col-8 offset-2 col-sm-4 text-center">
 			{% if request.user.is_authenticated %}
-			<a href="{% url 'profile' %}"><button class="btn button-primary button__large mb-4">Dashboard</button></a>
+			<a href="{% url 'profile' %}"><button class="btn button-primary button__large mb-4"
+					type="button">Dashboard</button></a>
 			{% else %}
-			<a href="{% url 'account_login' %}"><button class="btn button-primary button__large mb-4">Login</button></a>
+			<a href="{% url 'account_login' %}"><button class="btn button-primary button__large mb-4"
+					type="button">Login</button></a>
 			{% endif %}
 		</div>
 		<div class="col-8 offset-2 col-sm-4 offset-sm-0 text-center">
-			<a href="{% url 'products' %}"><button
-					class="btn button-secondary-outline button__large">Products</button></a>
+			<a href="{% url 'products' %}"><button class="btn button-secondary-outline button__large"
+					type="button">Products</button></a>
 		</div>
 	</div>
 </main>
