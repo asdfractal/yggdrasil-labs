@@ -76,6 +76,12 @@ class Order(models.Model):
 
                 Booking.objects.create(*args, **kwargs)
 
+    def get_booking_item(self):
+        for item in self.lineitems.all():
+            if item.product.booking_required:
+                return item.product.name
+            return None
+
     def save(self, *args, **kwargs):
         """
         Set the order number if it hasn't been set already.
