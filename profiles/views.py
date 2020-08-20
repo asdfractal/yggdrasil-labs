@@ -81,3 +81,17 @@ def profile(request):
     }
 
     return render(request, "profiles/dashboard.html", context)
+
+
+@login_required
+def order_details(request, order_number):
+    """
+    A view displaying full details of a completed order.
+    """
+    order = get_object_or_404(Order, order_number=order_number)
+
+    context = {
+        "order": order,
+        "page_title": "Orders",
+    }
+    return render(request, "profiles/order-details.html", context)

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="container-fliud main__wrapper">
+	<div class="card">
+		<div class="card-header">
+			<h3>Order details</h3>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="border-dark p-2 mb-3 border">
+						<div class="mb-3 border-bottom border-dark">
+							<h5 class="mb-2">Personal Details</h5>
+							<p>{{ order.full_name }}</p>
+							<p>{{ order.phone_number }}</p>
+							<p>{{ order.email }}</p>
+							<p>{{ order.street_address1 }}</p>
+							{% if order.street_address2 %}
+							<p>{{ order.street_address2 }}</p>
+							{% endif %}
+							<p>{{ order.city }}</p>
+							<p>{{ order.postcode }}</p>
+							<p>{{ order.state }}</p>
+							<p>{{ order.country }}</p>
+						</div>
+						<h5 class="mb-2">Order Details</h5>
+						<table class="w-100 mt-3">
+							<p>Order number - {{ order.order_number }}</p>
+							<p>Order date - {{ order.date }}</p>
+							{% for item in order.lineitems.all %}
+							<tr>
+								<td><a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a>
+								</td>
+								<td>${{ item.product.price }}</td>
+							</tr>
+							{% endfor %}
+							<tr class="border-top border-dark">
+								<td><strong>Total</strong></td>
+								<td><strong>${{ order.total_price }}</strong></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-6 text-center d-none d-lg-block">
+					<img src="/static/images/circuittree.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock content %}
+{% block extra_scripts %}
+<script src="{% static 'checkout/js/scripts.js' %}"></script>
+{% endblock extra_scripts %}
