@@ -9,15 +9,15 @@
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-12">
+				<div class="col-12 col-lg-8 offset-lg-2">
 					<h4 class="mb-3">Booking for {{ booking_item }}</h4>
 					{% if booking.booking_time %}
-					<p>Your booking is at {{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
+					<p>Your booking is at {{ booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
 					{% else %}
 					<p>Please make a selection</p>
 					{% endif %}
 				</div>
-				<div class="col-12 mt-3">
+				<div class="col-12 col-lg-8 offset-lg-2 mt-3">
 					<form action="{% url 'create_booking' booking.order %}" method="POST"
 						class="{% if booking.booking_time %}d-none{% endif %}" id="bookingForm">
 						{% csrf_token %}

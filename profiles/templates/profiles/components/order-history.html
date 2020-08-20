@@ -8,7 +8,7 @@
 				{% for order in orders %}
 				<li>#{{ order.order_number}}</li>
 				<li>{{ order.date }}</li>
-				<div class="text-right border-top border-bottom border-dark">
+				<div class="text-right border-top border-bottom border-dark py-1">
 					{% for item in order.lineitems.all %}
 					<li>{{ item.product }} - ${{ item.total }}</li>
 					{% endfor %}
@@ -17,7 +17,7 @@
 					<li><strong>Total</strong></li>
 					<li><strong>${{ order.total_price }}</strong></;>
 				</div>
-				<div class="mt-1 mb-4 pb-3 border-bottom border-dark">
+				<div class="mt-2 mb-4 pb-3 {% if order.length > 1 %}border-bottom border-dark{% endif %}">
 					<a href="{% url 'order_details' order %}"><button
 							class="btn button-secondary-outline button__small my-1" type="button">Full
 							Details</button></a>

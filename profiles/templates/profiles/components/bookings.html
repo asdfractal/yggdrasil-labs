@@ -1,38 +1,52 @@
 <div class="row">
 	<div class="col-12 col-lg-11 offset-lg-1">
+		{% if orders|length == 0 %}
+		<p>You must place an order before before making a booking.</p>
+		{% else %}
 		<div class="row">
-			<div class="col-12 col-lg-6">
-				<h5>Upcoming Bookings</h5>
-				{% for booking in bookings %}
-				{% if booking.time_in_future == True %}
-				<p class="my-1">{{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
-				{% endif %}
-				{% endfor %}
-				{% for booking in bookings %}
-				{% if booking.time_in_future == None %}
-				{% for item in booking.order.lineitems.all %}
-				{% if item.product.booking_required %}
-				<p class="my-1">You have not made a booking for {{ item.product.name }}</p>
-				<a href="{% url 'create_booking' booking.order %}"><button
-						class="btn button-secondary-outline button__small my-1" type="button">Make
-						Booking</button></a>
-				{% endif %}
-				{% endfor %}
-				{% endif %}
-				{% endfor %}
+			<div class="col-12 col-lg-6 mb-5">
+				<h5 class="border-bottom border-dark mb-3">Upcoming Bookings</h5>
+				<div class="border-bottom border-dark">
+					{% for booking in bookings %}
+					{% if booking.time_in_future == True %}
+					<p class="my-1">{{ booking.booking_time|date:"D, d M, Y - h:ia" }} for
+						{{ booking.order.get_booking_item }}</p>
+					<div class="row">
+						<div class="col-12 col-md-8 offset-md-4 text-right mb-2">
+							<a href="{% url 'create_booking' booking.order %}"><button
+									class="btn button-secondary-outline button__small my-1" type="button">Change
+									Booking</button></a>
+						</div>
+					</div>
+					{% elif booking.time_in_future == None %}
+					<p class="my-1">You have not made a booking for {{ booking.order.get_booking_item }}</p>
+					<div class="row">
+						<div class="col-12 col-md-8 offset-md-4 text-right mb-2">
+							<a href="{% url 'create_booking' booking.order %}"><button
+									class="btn button-secondary-outline button__small my-1" type="button">Make
+									Booking</button></a>
+						</div>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+
+
 			</div>
 			<div class="col-12 col-lg-6">
-				<h5>Past Bookings</h5>
+				<h5 class="border-bottom border-dark mb-3">Past Bookings</h5>
 				{% for booking in bookings %}
 				{% if booking.time_in_future == False %}
-				<p>{{ booking.booking_time|date:"D, d M, Y - h:ia"  }}</p>
+				<p>{{ booking.booking_time|date:"D, d M, Y - h:ia" }} for {{ booking.order.get_booking_item }}</p>
 				{% endif %}
 				{% endfor %}
+
 			</div>
 
 		</div>
 		<div class="">
 
 		</div>
+		{% endif %}
 	</div>
 </div>
