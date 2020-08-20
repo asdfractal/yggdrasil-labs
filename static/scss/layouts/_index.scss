@@ -6,14 +6,35 @@
   background-size: cover;
 }
 
-.index-title__wrapper {
-  height: 50vh;
+.index-main__wrapper {
+  padding: 15vh 15px 0;
+  min-height: 85vh;
+}
 
+.index-title__wrapper {
   img {
     content: url('/static/images/mobile/index-title.png');
 
     @include breakpoint(lg) {
       content: url('/static/images/desktop/index-title.png');
     }
+  }
+}
+
+.index-featured {
+  img {
+    max-width: 80%;
+
+    @include breakpoint(sm) {
+      max-width: 100%;
+    }
+  }
+}
+
+.index-social-proof {
+  min-height: 80px;
+
+  span {
+    color: $tertiary-color;
   }
 }

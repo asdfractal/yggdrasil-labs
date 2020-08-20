@@ -1,0 +1,27 @@
+<a href="{% url 'product_detail' product.id %}">
+	<img class="img-fluid d-block mx-auto" src="{{ product.image_url }}" class="mx-auto d-block img-fluid"
+		alt="{{ product.name }}"></a>
+<h3 class="card-title product-card__title text-center mt-3">{{ product.name }}</h3>
+<div class="row mb-2">
+	<div class="col-12">
+		<p class="card-text text-center text-capitalize">{{ product.category }}</p>
+	</div>
+</div>
+<!-- <div class="row justify-content-between">
+	<div class="col-12 text-center">
+		<a href="{% url 'product_detail' product.id %}"><button class="btn button-secondary-outline button__small mb-2"
+				type="button">Details</button></a>
+	</div>
+</div> -->
+
+<!-- <div class="card product-card mx-auto">
+	
+	<div class="card-body">
+
+		
+
+	</div>
+	<div class="card-footer">
+		
+	</div>
+</div>  -->

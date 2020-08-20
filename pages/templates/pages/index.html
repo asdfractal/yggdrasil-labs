@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<main class="container-fluid">
+<main class="container-fluid index-main__wrapper">
 	<div class="row index-title__wrapper">
 		<div class="col-12 mt-auto">
 			<img class="mx-auto d-block" alt="Yggdrasil">
@@ -12,19 +12,47 @@
 		<div class="col-12 text-center">
 			<h1>Transhuman Solutions</h1>
 		</div>
-		<div class="col-8 offset-2 col-sm-4 text-center">
-			{% if request.user.is_authenticated %}
-			<a href="{% url 'profile' %}"><button class="btn button-primary button__large mb-4"
-					type="button">Dashboard</button></a>
-			{% else %}
-			<a href="{% url 'account_login' %}"><button class="btn button-primary button__large mb-4"
-					type="button">Login</button></a>
-			{% endif %}
+	</div>
+	<div class="row mt-5">
+		<div class="col-10 col-sm-6 col-lg-5 col-xl-4 offset-sm-0 d-flex mx-auto mb-4">
+			<div class="text-center my-auto">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eaque quasi itaque impedit, non
+					dolores ex velit iure modi obcaecati maiores, iste totam et similique ab dolorem voluptatem?</p>
+			</div>
 		</div>
-		<div class="col-8 offset-2 col-sm-4 offset-sm-0 text-center">
-			<a href="{% url 'products' %}"><button class="btn button-secondary-outline button__large"
-					type="button">Products</button></a>
+		<div class="d-none d-xl-block col-xl-1"></div>
+		<div class="col-12 col-sm-6 col-lg-7 mx-auto mt-3 order-sm-first">
+			<div class="index-featured">
+				{% for product in products %}
+				<div>
+					{% include 'pages/components/featured-product.html' %}
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="row my-5 py-3">
+		<div class="col-12">
+			<h4 class="text-center">What people are saying...</h4>
+		</div>
+		<div class="col-10 col-md-7 pt-3 mx-auto">
+			<div class="index-social-proof">
+				<div>
+					<p>Great products, reliable company. What more could you ask for? <span class="font-italic">- Evil
+							Corp.</span></p>
+				</div>
+				<div>
+					<p>We have worked closely with Yggdrasil Labs for some time and plan to continue our partnership
+						<span class="font-italic">- Kiroshi Optics</span></p>
+				</div>
+				<div>
+					<p>Our company upgraded our whole workforce with Yggdrasil's products and we have seen a major
+						increase in productivity! <span class="font-italic">- Delos Incorporated</span></p>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>
 {% endblock content %}
+
+<!-- slider single-item slick-initialized slick-slider slick-dotted -->
