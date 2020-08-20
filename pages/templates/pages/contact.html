@@ -8,7 +8,21 @@
 			<h3>Contact Us</h3>
 		</div>
 		<div class="card-body">
-			<p>form will go here</p>
+			<div class="row">
+				<div class="col-12 col-lg-8 offset-lg-2">
+					<p class="mb-5">
+						If you would like further info or have any questions please
+						get in touch. We will do our best to assist you.
+					</p>
+					<form method="POST">
+						{% csrf_token %} {{ form|crispy }}
+						<button class="btn button-primary-outline button__small col-6 float-right"
+							name="{{ form_tech.prefix }}" type="submit">
+							Submit
+						</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>
