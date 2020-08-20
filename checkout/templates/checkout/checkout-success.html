@@ -2,90 +2,92 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-	<div class="card-header">
-		<h3>Order confirmed</h3>
-	</div>
-	<div class="card-body">
-		<div class="row">
-			<div class="col-12 col-lg-6">
-				{% if order.booking_required %}
-				{% if order.booking.booking_time == None %}
-				<div class="row mb-4">
-					<div class="col-12 mb-1">
-						<p>Your order requires a booking, please create one.</p>
+<main class="container-fliud main__wrapper">
+	<div class="card">
+		<div class="card-header">
+			<h3>Order confirmed</h3>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					{% if order.booking_required %}
+					{% if order.booking.booking_time == None %}
+					<div class="row mb-4">
+						<div class="col-12 mb-1">
+							<p>Your order requires a booking, please create one.</p>
+						</div>
+						<div class="col-10 offset-2 text-right">
+							<a href="{% url 'create_booking' order.order_number %}"><button
+									class="btn button-secondary-outline button__small">Create
+									Booking</button></a>
+						</div>
 					</div>
-					<div class="col-10 offset-2 text-right">
-						<a href="{% url 'create_booking' order.order_number %}"><button
-								class="btn button-secondary-outline button__small">Create
-								Booking</button></a>
+					{% elif order.booking.time_in_future == True %}
+					<div class="row mb-4">
+						<div class="col-12 mb-1">
+							<p>Your booking is on {{ order.booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
+						</div>
+						<div class="col-10 offset-2 text-right">
+							<a href="{% url 'create_booking' order.order_number %}"><button
+									class="btn button-secondary-outline button__small">Change
+									Booking</button></a>
+						</div>
 					</div>
+					{% elif order.booking.time_in_future == False %}
+					<div class="row mb-4">
+						<div class="col-12 mb-1">
+							<p>Your booking was completed on {{ order.booking.booking_time }}</p>
+						</div>
+					</div>
+					{% endif %}
+					{% endif %}
 				</div>
-				{% elif order.booking.time_in_future == True %}
-				<div class="row mb-4">
-					<div class="col-12 mb-1">
-						<p>Your booking is on {{ order.booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
-					</div>
-					<div class="col-10 offset-2 text-right">
-						<a href="{% url 'create_booking' order.order_number %}"><button
-								class="btn button-secondary-outline button__small">Change
-								Booking</button></a>
-					</div>
+				<div class="mb-3 mb-lg-0 col-lg-6">
+					<h4>Thank you for your order</h4>
 				</div>
-				{% elif order.booking.time_in_future == False %}
-				<div class="row mb-4">
-					<div class="col-12 mb-1">
-						<p>Your booking was completed on {{ order.booking.booking_time }}</p>
-					</div>
-				</div>
-				{% endif %}
-				{% endif %}
 			</div>
-			<div class="mb-3 mb-lg-0 col-lg-6">
-				<h4>Thank you for your order</h4>
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="border-dark p-2 mb-3 border">
+						<div class="mb-3 border-bottom border-dark">
+							<h5 class="mb-2">Personal Details</h5>
+							<p>{{ order.full_name }}</p>
+							<p>{{ order.phone_number }}</p>
+							<p>{{ order.email }}</p>
+							<p>{{ order.street_address1 }}</p>
+							{% if order.street_address2 %}
+							<p>{{ order.street_address2 }}</p>
+							{% endif %}
+							<p>{{ order.city }}</p>
+							<p>{{ order.postcode }}</p>
+							<p>{{ order.state }}</p>
+							<p>{{ order.country }}</p>
+						</div>
+						<h5 class="mb-2">Order Details</h5>
+						<table class="w-100 mt-3">
+							<p>Order number - {{ order.order_number }}</p>
+							<p>Order date - {{ order.date }}</p>
+							{% for item in order.lineitems.all %}
+							<tr>
+								<td>{{ item.product.name }}</td>
+								<td>${{ item.product.price }}</td>
+							</tr>
+							{% endfor %}
+							<tr class="border-top border-dark">
+								<td><strong>Total</strong></td>
+								<td><strong>${{ order.total_price }}</strong></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-6 text-center d-none d-lg-block">
+					<img src="/static/images/circuittree.png" alt="">
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12 col-lg-6">
-				<div class="border-dark p-2 mb-3 border">
-					<div class="mb-3 border-bottom border-dark">
-						<h5 class="mb-2">Personal Details</h5>
-						<p>{{ order.full_name }}</p>
-						<p>{{ order.phone_number }}</p>
-						<p>{{ order.email }}</p>
-						<p>{{ order.street_address1 }}</p>
-						{% if order.street_address2 %}
-						<p>{{ order.street_address2 }}</p>
-						{% endif %}
-						<p>{{ order.city }}</p>
-						<p>{{ order.postcode }}</p>
-						<p>{{ order.state }}</p>
-						<p>{{ order.country }}</p>
-					</div>
+	</div>
+</main>
 
-					<h5 class="mb-2">Order Details</h5>
-					<table class="w-100 mt-3">
-						<p>Order number - {{ order.order_number }}</p>
-						<p>Order date - {{ order.date }}</p>
-						{% for item in order.lineitems.all %}
-						<tr>
-							<td>{{ item.product.name }}</td>
-							<td>${{ item.product.price }}</td>
-						</tr>
-						{% endfor %}
-						<tr class="border-top border-dark">
-							<td><strong>Total</strong></td>
-							<td><strong>${{ order.total_price }}</strong></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="col-6 text-center d-none d-lg-block">
-				<img src="/static/images/circuittree.png" alt="">
-			</div>
-		</div>
-	</div>
-</div>
 {% endblock content %}
 {% block extra_scripts %}
 <script src="{% static 'checkout/js/scripts.js' %}"></script>

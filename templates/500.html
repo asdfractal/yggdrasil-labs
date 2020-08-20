@@ -2,10 +2,13 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-	<div class="card-body">
-		<p>Error: 500 | Server error. If the problem continues please <a href="{% url 'contact' %}">contact us</a> for
-			assistance.</p>
+<main class="container-fliud main__wrapper">
+	<div class="card">
+		<div class="card-body">
+			<p>Error: 500 | Server error. If the problem continues please <a href="{% url 'contact' %}">contact us</a>
+				for
+				assistance.</p>
+		</div>
 	</div>
-</div>
+</main>
 {% endblock content %}

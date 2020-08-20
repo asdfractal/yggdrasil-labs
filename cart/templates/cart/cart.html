@@ -2,53 +2,57 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-	<div class="card-header">
-		<h3>Shopping Cart</h3>
-	</div>
-	<div class="card-body">
-		{% for item in cart_items %}
-		<div class="row mb-4 border-bottom border-dark">
-			<div class="col-12 col-lg-6 mb-3">
-				<a href="{% url 'product_detail' item.product.id %}"><img src="{{ item.product.image_url }}" alt=""
-						class="img-fluid"></a>
-			</div>
-			<div class="col-12 d-lg-none mb-2">
-				<h3>{{ item.product.name }}</h3>
-			</div>
-			<div class="col-6 d-lg-none mb-2">
-				<p>{{ item.product.category|capfirst }}</p>
-				<p>${{ item.product.price }}</p>
-			</div>
-			<div class="col-4 offset-2 text-center d-lg-none">
-				<a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color"><i
-						class="fas fa-times icon-size"></i></a>
-			</div>
-			<div class="col-lg-4 offset-1 d-none d-lg-block cart-specs__box">
-				<h4>{{ item.product.name }}</h4>
-				<p>{{ item.product.category|capfirst }}</p>
-				<p>${{ item.product.price }}</p>
-				<p class="mt-3"><a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color">Remove from
-						cart</a></p>
-			</div>
+<main class="container-fliud main__wrapper">
+	<div class="card">
+		<div class="card-header">
+			<h3>Shopping Cart</h3>
 		</div>
-		{% endfor %}
-		{% if cart_items|length != 0 %}
-		<div class="row">
-			<div class="col-12 col-lg-11 text-right mb-2">
-				<p>Total - ${{ cart_total }}</p>
+		<div class="card-body">
+			{% for item in cart_items %}
+			<div class="row mb-4 border-bottom border-dark">
+				<div class="col-12 col-lg-6 mb-3">
+					<a href="{% url 'product_detail' item.product.id %}"><img src="{{ item.product.image_url }}" alt=""
+							class="img-fluid"></a>
+				</div>
+				<div class="col-12 d-lg-none mb-2">
+					<h3>{{ item.product.name }}</h3>
+				</div>
+				<div class="col-6 d-lg-none mb-2">
+					<p>{{ item.product.category|capfirst }}</p>
+					<p>${{ item.product.price }}</p>
+				</div>
+				<div class="col-4 offset-2 text-center d-lg-none">
+					<a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color"><i
+							class="fas fa-times icon-size"></i></a>
+				</div>
+				<div class="col-lg-4 offset-1 d-none d-lg-block cart-specs__box">
+					<h4>{{ item.product.name }}</h4>
+					<p>{{ item.product.category|capfirst }}</p>
+					<p>${{ item.product.price }}</p>
+					<p class="mt-3"><a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color">Remove
+							from
+							cart</a></p>
+				</div>
 			</div>
-			<div class="col-12 col-sm-10 offset-sm-2 col-lg-6 offset-lg-5 text-right">
-				<a href="{% url 'checkout' %}">
-					<button class="btn button-secondary" id="reviewSubmitButton">Checkout</button>
-				</a>
+			{% endfor %}
+			{% if cart_items|length != 0 %}
+			<div class="row">
+				<div class="col-12 col-lg-11 text-right mb-2">
+					<p>Total - ${{ cart_total }}</p>
+				</div>
+				<div class="col-12 col-sm-10 offset-sm-2 col-lg-6 offset-lg-5 text-right">
+					<a href="{% url 'checkout' %}">
+						<button class="btn button-secondary" id="reviewSubmitButton">Checkout</button>
+					</a>
+				</div>
 			</div>
+			{% endif %}
+			{% if cart_items|length == 0 %}
+			<p>Your cart is empty! Please visit our <a href="{% url 'products' %}">products</a> page to view our
+				selection.
+			</p>
+			{% endif %}
 		</div>
-		{% endif %}
-		{% if cart_items|length == 0 %}
-		<p>Your cart is empty! Please visit our <a href="{% url 'products' %}">products</a> page to view our selection.
-		</p>
-		{% endif %}
 	</div>
-</div>
+</main>
 {% endblock content %}

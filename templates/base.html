@@ -11,10 +11,8 @@
 <body {% if request.path == '/' %}class="body-index" {% endif %}>
 	{% include 'components/header.html' %}
 
-	<main class="container-fluid {% if request.path != '/' %}main__wrapper{% endif %}">
-		{% block content %}
-		{% endblock content %}
-	</main>
+	{% block content %}
+	{% endblock content %}
 
 	{% if messages %}
 	{% for message in messages %}
@@ -29,7 +27,6 @@
 	{% include 'components/toasts/toast-info.html' %}
 	{% endif %}
 	{% endwith %}
-
 	{% endfor %}
 	{% endif %}
 

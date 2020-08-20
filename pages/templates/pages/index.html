@@ -2,27 +2,27 @@
 {% load static %}
 
 {% block content %}
-<div class="row index-title__wrapper">
-	<div class="col-12 mt-auto">
-		<img class="mx-auto d-block" alt="Yggdrasil">
+<main class="container-fluid">
+	<div class="row index-title__wrapper">
+		<div class="col-12 mt-auto">
+			<img class="mx-auto d-block" alt="Yggdrasil">
+		</div>
 	</div>
-</div>
-<div class="row mt-4">
-	<div class="col-12 text-center">
-		<h1>Transhuman Solutions</h1>
+	<div class="row mt-4">
+		<div class="col-12 text-center">
+			<h1>Transhuman Solutions</h1>
+		</div>
+		<div class="col-8 offset-2 col-sm-4 text-center">
+			{% if request.user.is_authenticated %}
+			<a href="{% url 'profile' %}"><button class="btn button-primary button__large mb-4">Dashboard</button></a>
+			{% else %}
+			<a href="{% url 'account_login' %}"><button class="btn button-primary button__large mb-4">Login</button></a>
+			{% endif %}
+		</div>
+		<div class="col-8 offset-2 col-sm-4 offset-sm-0 text-center">
+			<a href="{% url 'products' %}"><button
+					class="btn button-secondary-outline button__large">Products</button></a>
+		</div>
 	</div>
-	<div class="col-8 offset-2 col-sm-4 text-center">
-		{% if request.user.is_authenticated %}
-		<a href="{% url 'profile' %}"><button class="btn button-primary button__large mb-4">Dashboard</button></a>
-		{% else %}
-		<a href="{% url 'account_login' %}"><button class="btn button-primary button__large mb-4">Login</button></a>
-		{% endif %}
-
-
-	</div>
-	<div class="col-8 offset-2 col-sm-4 offset-sm-0 text-center">
-		<a href="{% url 'products' %}"><button class="btn button-secondary-outline button__large">Products</button></a>
-	</div>
-</div>
-
+</main>
 {% endblock content %}

@@ -2,27 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div class="profile__wrapper position-relative">
-	<div class="card">
-		<div class="card-header profiles-card-header position-absolute w-100">
-			{% include 'profiles/components/navbar.html' %}
-		</div>
-		<div class="card-body">
-			<div class="profile-section__wrapper" id="profile_personal">
-				{% include 'profiles/components/personal-info.html' %}
+<main class="container-fliud main__wrapper">
+	<div class="profile__wrapper position-relative">
+		<div class="card">
+			<div class="card-header profiles-card-header position-absolute w-100">
+				{% include 'profiles/components/navbar.html' %}
 			</div>
-			<div class="profile-section__wrapper d-none" id="profile_support">
-				{% include 'profiles/components/tech-support.html' %}
-			</div>
-			<div class="profile-section__wrapper d-none" id="profile_bookings">
-				{% include 'profiles/components/bookings.html' %}
-			</div>
-			<div class="profile-section__wrapper d-none" id="profile_orders">
-				{% include 'profiles/components/order-history.html' %}
+			<div class="card-body">
+				<div class="profile-section__wrapper" id="profile_personal">
+					{% include 'profiles/components/personal-info.html' %}
+				</div>
+				<div class="profile-section__wrapper d-none" id="profile_support">
+					{% include 'profiles/components/tech-support.html' %}
+				</div>
+				<div class="profile-section__wrapper d-none" id="profile_bookings">
+					{% include 'profiles/components/bookings.html' %}
+				</div>
+				<div class="profile-section__wrapper d-none" id="profile_orders">
+					{% include 'profiles/components/order-history.html' %}
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</main>
 {% endblock content %}
 {% block extra_scripts %}
 <script src="{% static 'profiles/js/scripts.js' %}"></script>

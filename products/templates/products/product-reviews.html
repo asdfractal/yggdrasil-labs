@@ -2,32 +2,34 @@
 {% load static %}
 
 {% block content %}
-<div class="card">
-	<div class="card-header">
-		<h4 class="text-uppercase text-center">{{ product.name }} reviews</h4>
-	</div>
-	<div class="card-body">
-		{% for review in reviews %}
-		{% if review.user_profile.user == request.user %}
-		{% include 'products/components/review-form.html' with edit='True' %}
-		{% else %}
-		{% include 'products/components/review-body.html' %}
-		{% endif %}
-		{% endfor %}
-		{% if user_review == "" %}
-		{% include 'products/components/review-form.html' with new='True' %}
-		{% endif %}
-		<div class="row mt-5">
-			<div class="col-6 col-md-3 offset-md-1">
-				<a href="{% url 'product_detail' product.id %}"><button class="btn button-primary-outline"><i
-							class="fas fa-angle-double-left"></i></button></a>
-			</div>
-			<div class="col-6 col-md-3 offset-md-4 text-right">
-				<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
+<main class="container-fliud main__wrapper">
+	<div class="card">
+		<div class="card-header">
+			<h4 class="text-uppercase text-center">{{ product.name }} reviews</h4>
+		</div>
+		<div class="card-body">
+			{% for review in reviews %}
+			{% if review.user_profile.user == request.user %}
+			{% include 'products/components/review-form.html' with edit='True' %}
+			{% else %}
+			{% include 'products/components/review-body.html' %}
+			{% endif %}
+			{% endfor %}
+			{% if user_review == "" %}
+			{% include 'products/components/review-form.html' with new='True' %}
+			{% endif %}
+			<div class="row mt-5">
+				<div class="col-6 col-md-3 offset-md-1">
+					<a href="{% url 'product_detail' product.id %}"><button class="btn button-primary-outline"><i
+								class="fas fa-angle-double-left"></i></button></a>
+				</div>
+				<div class="col-6 col-md-3 offset-md-4 text-right">
+					<a href=""></a><button class="btn button-secondary-outline">Buy</button></a>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</main>
 {% include 'products/components/delete-review-modal.html' %}
 {% endblock content %}
 {% block extra_scripts %}
