@@ -8,6 +8,8 @@ from django.contrib import messages
 from django.utils.safestring import mark_safe
 
 from products.models import Product
+from checkout.models import Order
+from profiles.models import UserProfile
 
 
 def view_cart(request):
@@ -17,6 +19,7 @@ def view_cart(request):
     context = {
         "page_title": "Cart",
     }
+
     return render(request, "cart/cart.html", context)
 
 
@@ -26,6 +29,8 @@ def add_to_cart(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     cart = request.session.get("cart", {})
+    user_profile = UserProfile.objects.get(user=request.user)
+    user_orders = Order.objects.filter(user_profile=user_profile)
 
     if product_id in list(cart.keys()):
         messages.info(request, "That item is already in your cart.")
@@ -38,6 +43,14 @@ def add_to_cart(request, product_id):
                 messages.info(
                     request,
                     "You can only have one product that requires a booking per order.",
+                )
+                return redirect("products")
+
+    for order in user_orders:
+        for item in order.lineitems.all():
+            if item.product == product:
+                messages.info(
+                    request, "You have already purchased that product from us."
                 )
                 return redirect("products")
 
