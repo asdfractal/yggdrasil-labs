@@ -2,32 +2,33 @@
 {% load static %}
 
 {% block content %}
-<div class="row product-filter mb-4">
-	<div class="col-3 text-center">
-		<button class="btn product-filter-button" id="implant">Implant</button>
+<main class="container-fluid product-main_wrapper">
+	<div class="row product-filter mb-4">
+		<div class="col-3 text-center">
+			<button class="btn product-filter-button" id="implant">Implant</button>
+		</div>
+		<div class="col-3 text-center">
+			<button class="btn product-filter-button" id="app">App</button>
+		</div>
+		<div class="col-3 text-center">
+			<button class="btn product-filter-button" id="upgrade">Upgrade</button>
+		</div>
+		<div class="col-1 offset-lg-1">
+			<i class="fas fa-times text-muted" id="clearFilter"></i>
+		</div>
 	</div>
-	<div class="col-3 text-center">
-		<button class="btn product-filter-button" id="app">App</button>
+	<div class="row">
+		{% for category in categories %}
+		{% for product in products %}
+		{% if product.category.name == category.name %}
+		<div class="col-12 col-md-6 col-lg-4 mb-4 js-filter-{{ category.name }}">
+			{% include 'products/components/product-card.html' %}
+		</div>
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
 	</div>
-	<div class="col-3 text-center">
-		<button class="btn product-filter-button" id="upgrade">Upgrade</button>
-	</div>
-	<div class="col-1 offset-lg-1">
-		<i class="fas fa-times text-muted" id="clearFilter"></i>
-	</div>
-</div>
-
-<div class="row">
-	{% for category in categories %}
-	{% for product in products %}
-	{% if product.category.name == category.name %}
-	<div class="col-12 col-lg-6 js-filter-{{ category.name }}">
-		{% include 'products/components/product-card.html' %}
-	</div>
-	{% endif %}
-	{% endfor %}
-	{% endfor %}
-</div>
+</main>
 {% endblock content %}
 
 {% block extra_scripts %}

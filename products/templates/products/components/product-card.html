@@ -1,22 +1,27 @@
-<div class="card">
+<div class="card product-card mx-auto">
 	<a href="{% url 'product_detail' product.id %}">
 		<img class="card-img-top" src="{{ product.image_url }}" class="mx-auto d-block img-fluid"
 			alt="{{ product.name }}"></a>
+	<div class="card-header">
+		<h3 class="card-title product-card__title">{{ product.name }}</h3>
+	</div>
 	<div class="card-body">
-		<h3 class="card-title product__title">{{ product.name }}</h3>
+
 		<div class="row mb-2">
 			<div class="col-12">
 				<p class="card-text text-left text-capitalize ml-1">Type: {{ product.category }}</p>
 			</div>
 			<div class="col-6">
-				<p class="card-text text-left text-capitalize ml-1">Booking required:
-					{% if product.booking_required %}Yes{% else %}No{% endif %}
+				<p class="card-text text-left ml-1">Booking: {% if product.booking_required %}Yes{% else %}No{% endif %}
 				</p>
 			</div>
 			<div class="col-6">
 				<p class="card-text text-right mr-3">${{ product.price }}</p>
 			</div>
 		</div>
+
+	</div>
+	<div class="card-footer">
 		<div class="row justify-content-between">
 			<div class="col-6">
 				<a href="{% url 'product_detail' product.id %}"><button
