@@ -3,6 +3,9 @@ from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Form linked to review model to create or edit a review.
+    """
     class Meta:
         model = Review
         fields = ["review_content"]
