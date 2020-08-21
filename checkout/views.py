@@ -15,6 +15,9 @@ from .forms import OrderForm
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Save cart and user data in case of processing error.
+    """
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY

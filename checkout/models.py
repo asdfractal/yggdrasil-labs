@@ -9,6 +9,9 @@ from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    """
+    Model to create orders placed by users.
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile,
@@ -50,6 +53,9 @@ class Order(models.Model):
         self.save()
 
     def set_booking_required(self):
+        """
+        Check order lineitems and set booking required.
+        """
         for item in self.lineitems.all():
             if item.product.booking_required:
                 self.booking_required = True
@@ -60,6 +66,9 @@ class Order(models.Model):
             self.save()
 
     def set_shipping_required(self):
+        """
+        Check order lineitems and set shipping required.
+        """
         for item in self.lineitems.all():
             if item.product.shipping_required:
                 self.shipping_required = True
@@ -70,6 +79,9 @@ class Order(models.Model):
             self.save()
 
     def check_complete_create_booking(self, *args, **kwargs):
+        """
+        Check if the order is complete and create related booking.
+        """
         if self.stripe_pid:
             if self.booking_required:
                 from bookings.models import Booking
@@ -77,6 +89,9 @@ class Order(models.Model):
                 Booking.objects.create(*args, **kwargs)
 
     def get_booking_item(self):
+        """
+        Get the name of the item in the order that the booking is for.
+        """
         for item in self.lineitems.all():
             if item.product.booking_required:
                 return item.product.name
@@ -95,6 +110,9 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    Individual products in the related order.
+    """
     order = models.ForeignKey(
         Order,
         null=False,
