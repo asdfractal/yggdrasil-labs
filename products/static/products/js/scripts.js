@@ -28,10 +28,17 @@ const disableReviewForm = () => {
 	$('#cancelEditReview').attr('id', 'editReview').removeClass('fas fa-times').addClass('far fa-edit')
 }
 
+/**
+ * Gets id to be filtered.
+ * @returns {string} id of element
+ */
 const getFilterId = () => {
 	return _this.attr('id')
 }
 
+/**
+ * Clears filter to display all products.
+ */
 const clearFilter = () => {
 	categories.forEach(cat => {
 		$(`.js-filter-${cat}`).removeClass('d-none')
@@ -40,6 +47,10 @@ const clearFilter = () => {
 	})
 }
 
+/**
+ * Filters by matching id
+ * @param {string} id the id of the elements to be filtered
+ */
 const filterById = id => {
 	categories.forEach(cat => {
 		if (cat == id) {
@@ -53,6 +64,7 @@ const filterById = id => {
 	$('#clearFilter').removeClass('text-muted')
 }
 
+// Adds a click event to all matching buttons
 document.querySelectorAll('.product-filter-button').forEach(element => {
 	element.addEventListener('click', function (e) {
 		e.preventDefault()
