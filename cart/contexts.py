@@ -3,6 +3,9 @@ from products.models import Product
 
 
 def get_cart_items(request):
+    """
+    Makes session cart data available site wide.
+    """
     cart_items = []
     cart_total = 0
     cart = request.session.get("cart", {})
