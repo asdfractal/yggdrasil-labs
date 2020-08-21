@@ -3,6 +3,10 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form linked to user profile to update default information.
+    """
+
     class Meta:
         model = UserProfile
         fields = [
@@ -17,6 +21,9 @@ class UserProfileForm(forms.ModelForm):
         ]
 
     def __init__(self, *args, **kwargs):
+        """
+        Set form placeholders and customize display.
+        """
         super().__init__(*args, **kwargs)
         self.prefix = "form_profile"
         placeholders = {
@@ -36,10 +43,17 @@ class UserProfileForm(forms.ModelForm):
 
 
 class TechSupportForm(forms.Form):
+    """
+    Form for users that are clients to get technical support.
+    """
+
     subject = forms.CharField(max_length=100, required=True)
     content = forms.CharField(required=True, widget=forms.Textarea)
 
     def __init__(self, *args, **kwargs):
+        """
+        Set form placeholders and customize display.
+        """
         super().__init__(*args, **kwargs)
         self.prefix = "form_tech"
         placeholders = {
