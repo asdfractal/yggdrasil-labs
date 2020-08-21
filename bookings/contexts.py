@@ -7,6 +7,11 @@ from .models import Booking
 
 
 def check_booking_status(request):
+    """
+    Checks if the user has a booking that needs to be set and notifies them via
+    messages. Sets a cookie with a 10 minute expiry and checks this before sending
+    message and setting it again.
+    """
     user_profile = None
     bookings = None
     if request.user.is_authenticated:
