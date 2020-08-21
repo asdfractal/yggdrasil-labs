@@ -1,6 +1,7 @@
 from random import randint
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+
 from reviews.models import Review
 from reviews.forms import ReviewForm
 from profiles.models import UserProfile
@@ -18,7 +19,6 @@ def products(request):
         "categories": categories,
         "page_title": "Products",
     }
-
     return render(request, "products/products.html", context)
 
 
