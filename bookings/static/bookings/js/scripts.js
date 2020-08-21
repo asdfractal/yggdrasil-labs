@@ -1,6 +1,8 @@
 /*jshint esversion: 10 */
 /*jshint -W033 */
 
+/* Dynamically displays and hides booking creation form */
+
 bookingForm = $('#bookingForm')
 changeBookingButton = $('#changeBookingButton')
 cancelChangeBookingButton = $('#cancelChangeBookingButton')
