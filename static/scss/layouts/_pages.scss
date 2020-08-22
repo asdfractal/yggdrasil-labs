@@ -44,3 +44,15 @@
     font-size: 4rem;
   }
 }
+
+.body-about {
+  background: url('/static/images/about-bg.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .card {
+    background-color: $grey-alpha-half;
+  }
+}
