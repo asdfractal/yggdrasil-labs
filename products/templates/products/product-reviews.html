@@ -15,15 +15,15 @@
 			{% include 'products/components/review-body.html' %}
 			{% endif %}
 			{% endfor %}
-			{% if user_review == "" %}
+			{% if user_review == "" and user_purchased %}
 			{% include 'products/components/review-form.html' with new='True' %}
 			{% endif %}
 		</div>
 		<div class="card-footer">
 			<div class="row">
 				<div class="col-6 col-lg-4">
-					<a href="{% url 'products' %}"><button class="btn button-primary-outline" type="button"><i
-								class="fas fa-angle-double-left"></i></button></a>
+					<a href="{% url 'product_detail' product.id %}"><button class="btn button-primary-outline"
+							type="button"><i class="fas fa-angle-double-left"></i></button></a>
 				</div>
 				<div class="col-6 col-lg-4 offset-lg-3 pr-lg-0 text-right">
 					<a href="{% url 'add_to_cart' product.id %}"><button class="btn button-secondary-outline"

@@ -5,6 +5,7 @@ from django.contrib import messages
 from reviews.models import Review
 from reviews.forms import ReviewForm
 from profiles.models import UserProfile
+from checkout.models import Order
 from .models import Product, Category
 
 
@@ -50,12 +51,19 @@ def product_reviews(request, product_id):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
+    user_orders = Order.objects.filter(user_profile=user_profile)
     form = ReviewForm
     user_review = ""
+    user_purchased = False
     for review in reviews:
         if review.user_profile == user_profile:
             user_review = review
             form = ReviewForm(instance=user_review)
+
+    for order in user_orders:
+        for item in order.lineitems.all():
+            if item.product == product:
+                user_purchased = True
 
     if request.method == "POST":
         if user_review != "":
@@ -87,6 +95,7 @@ def product_reviews(request, product_id):
         "reviews": reviews,
         "form": form,
         "user_review": user_review,
+        "user_purchased": user_purchased,
         "page_title": f"{product.name} reviews",
     }
 

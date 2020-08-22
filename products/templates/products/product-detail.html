@@ -53,7 +53,7 @@
 			{% else %}
 			<div class="row mb-4">
 				<div class="col-10 offset-1">
-					<p>No reviews yet {% if request.user.is_authenticated %}- <a
+					<p>No one has left a review {% if request.user.is_authenticated and user_purchased %}- <a
 							href="{% url 'product_reviews' product.id %}">create one</a></p>
 					{% endif %}
 				</div>
