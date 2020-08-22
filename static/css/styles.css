@@ -8,359 +8,6 @@ Files in this folder have no output, they provide variables, mixins, etc.
   font-weight: normal;
   font-style: normal;
 }
-/* Modal */
-.datepicker-modal {
-  max-width: 325px;
-  min-width: 300px;
-  max-height: none;
-}
-
-.datepicker-container.modal-content {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-
-.datepicker-controls {
-  display: flex;
-  justify-content: space-between;
-  width: 280px;
-  margin: 0 auto;
-}
-.datepicker-controls .selects-container {
-  display: flex;
-}
-.datepicker-controls .select-wrapper input {
-  border-bottom: none;
-  text-align: center;
-  margin: 0;
-}
-.datepicker-controls .select-wrapper input:focus {
-  border-bottom: none;
-}
-.datepicker-controls .select-wrapper .caret {
-  display: none;
-}
-.datepicker-controls .select-year input {
-  width: 50px;
-}
-.datepicker-controls .select-month input {
-  width: 70px;
-}
-
-.month-prev,
-.month-next {
-  margin-top: 4px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-}
-
-/* Date Display */
-.datepicker-date-display {
-  flex: 1 auto;
-  background-color: #D76EE5;
-  color: #fff;
-  padding: 20px 22px;
-  font-weight: 500;
-}
-.datepicker-date-display .year-text {
-  display: block;
-  font-size: 1.5rem;
-  line-height: 25px;
-  color: rgba(255, 255, 255, 0.7);
-}
-.datepicker-date-display .date-text {
-  display: block;
-  font-size: 2.8rem;
-  line-height: 47px;
-  font-weight: 500;
-}
-
-/* Calendar */
-.datepicker-calendar-container {
-  flex: 2.5 auto;
-}
-
-.datepicker-table {
-  width: 280px;
-  font-size: 1rem;
-  margin: 0 auto;
-}
-.datepicker-table thead {
-  border-bottom: none;
-}
-.datepicker-table th {
-  padding: 10px 5px;
-  text-align: center;
-}
-.datepicker-table tr {
-  border: none;
-}
-.datepicker-table abbr {
-  text-decoration: none;
-  color: #999;
-}
-.datepicker-table td {
-  border-radius: 50%;
-  padding: 0;
-}
-.datepicker-table td.is-today {
-  color: #D76EE5;
-}
-.datepicker-table td.is-selected {
-  background-color: #D76EE5;
-  color: #fff;
-}
-.datepicker-table td.is-outside-current-month, .datepicker-table td.is-disabled {
-  color: rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-}
-
-.datepicker-day-button {
-  background-color: transparent;
-  border: none;
-  line-height: 38px;
-  display: block;
-  width: 100%;
-  border-radius: 50%;
-  padding: 0 5px;
-  cursor: pointer;
-  color: inherit;
-}
-.datepicker-day-button:focus {
-  background-color: rgba(212, 114, 225, 0.25);
-}
-
-/* Footer */
-.datepicker-footer {
-  width: 280px;
-  margin: 0 auto;
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.datepicker-cancel,
-.datepicker-clear,
-.datepicker-today,
-.datepicker-done {
-  color: #D76EE5;
-  padding: 0 1rem;
-}
-
-.datepicker-clear {
-  color: #FF0033;
-}
-
-/* Media Queries */
-@media only screen and (min-width: 768px) {
-  .datepicker-modal {
-    max-width: 625px;
-  }
-
-  .datepicker-container.modal-content {
-    flex-direction: row;
-  }
-
-  .datepicker-date-display {
-    flex: 0 1 270px;
-  }
-
-  .datepicker-controls,
-.datepicker-table,
-.datepicker-footer {
-    width: 320px;
-  }
-
-  .datepicker-day-button {
-    line-height: 44px;
-  }
-}
-/* Timepicker Containers */
-.timepicker-modal {
-  max-width: 325px;
-  max-height: none;
-}
-
-.timepicker-container.modal-content {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-
-.text-primary {
-  color: white;
-}
-
-/* Clock Digital Display */
-.timepicker-digital-display {
-  flex: 1 auto;
-  background-color: #D76EE5;
-  padding: 10px;
-  font-weight: 300;
-}
-
-.timepicker-text-container {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
-  position: relative;
-  user-select: none;
-}
-
-.timepicker-span-hours,
-.timepicker-span-minutes,
-.timepicker-span-am-pm div {
-  cursor: pointer;
-}
-
-.timepicker-span-hours {
-  margin-right: 3px;
-}
-
-.timepicker-span-minutes {
-  margin-left: 3px;
-}
-
-.timepicker-display-am-pm {
-  font-size: 1.3rem;
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  font-weight: 400;
-}
-
-/* Analog Clock Display */
-.timepicker-analog-display {
-  flex: 2.5 auto;
-}
-
-.timepicker-plate {
-  background-color: #eee;
-  border-radius: 50%;
-  width: 270px;
-  height: 270px;
-  overflow: visible;
-  position: relative;
-  margin: auto;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  user-select: none;
-}
-
-.timepicker-canvas,
-.timepicker-dial {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.timepicker-minutes {
-  visibility: hidden;
-}
-
-.timepicker-tick {
-  border-radius: 50%;
-  color: rgba(0, 0, 0, 0.87);
-  line-height: 40px;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.timepicker-tick.active,
-.timepicker-tick:hover {
-  background-color: rgba(215, 110, 229, 0.25);
-}
-
-.timepicker-dial {
-  transition: transform 350ms, opacity 350ms;
-}
-
-.timepicker-dial-out {
-  opacity: 0;
-}
-.timepicker-dial-out.timepicker-hours {
-  transform: scale(1.1, 1.1);
-}
-.timepicker-dial-out.timepicker-minutes {
-  transform: scale(0.8, 0.8);
-}
-
-.timepicker-canvas {
-  transition: opacity 175ms;
-}
-.timepicker-canvas line {
-  stroke: #D76EE5;
-  stroke-width: 4;
-  stroke-linecap: round;
-}
-
-.timepicker-canvas-out {
-  opacity: 0.25;
-}
-
-.timepicker-canvas-bearing {
-  stroke: none;
-  fill: #D76EE5;
-}
-
-.timepicker-canvas-bg {
-  stroke: none;
-  fill: #D76EE5;
-}
-
-/* Footer */
-.timepicker-footer {
-  margin: 0 auto;
-  padding: 5px 1rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.timepicker-clear {
-  color: #FF0033;
-}
-
-.timepicker-close {
-  color: #D76EE5;
-}
-
-.timepicker-clear,
-.timepicker-close {
-  padding: 0 20px;
-}
-
-/* Media Queries */
-@media only screen and (min-width: 768px) {
-  .timepicker-modal {
-    max-width: 600px;
-  }
-
-  .timepicker-container.modal-content {
-    flex-direction: row;
-  }
-
-  .timepicker-text-container {
-    top: 32%;
-  }
-
-  .timepicker-display-am-pm {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    text-align: center;
-    margin-top: 1.2rem;
-  }
-}
 /*
 Files in this folder have the global base settings and utility classes for the project.
 */
@@ -486,76 +133,71 @@ h5 {
 }
 
 .bg-grey-alpha-half {
-  background-color: rgba(61, 61, 61, 0.5);
+  background-color: rgba(61, 61, 61, 0.5) !important;
 }
 
 .bgc-light {
-  background-color: #474747;
+  background-color: #474747 !important;
 }
 
 .bgc-grey {
-  background-color: #3D3D3D;
+  background-color: #3D3D3D !important;
+}
+
+.bgc-dark {
+  background-color: #1F1F1F !important;
 }
 
 .warning-color {
-  color: #FC440F;
+  color: #FC440F !important;
 }
 
 .warning-bg {
-  background: #FC440F;
+  background: #FC440F !important;
 }
 
 .warning-border {
-  border: 1px solid #FC440F;
+  border: 1px solid #FC440F !important;
 }
 
 .error-color {
-  color: #FF0033;
+  color: #FF0033 !important;
 }
 
 .error-bg {
-  background: #FF0033;
+  background: #FF0033 !important;
 }
 
 .error-border {
-  border: 1px solid #FF0033;
+  border: 1px solid #FF0033 !important;
 }
 
 .success-color {
-  color: #00FF00;
+  color: #00FF00 !important;
 }
 
 .success-bg {
-  background: #00FF00;
+  background: #00FF00 !important;
 }
 
 .success-border {
-  border: 1px solid #00FF00;
+  border-color: #00FF00 !important;
 }
 
 .info-color {
-  color: #F2EA02;
+  color: #F2EA02 !important;
 }
 
 .info-bg {
-  background: #F2EA02;
+  background: #F2EA02 !important;
 }
 
 .info-border {
-  border: 1px solid #F2EA02;
-}
-
-.border-bottom-after::after {
-  content: "";
-  display: block;
-  margin: 0 auto;
-  width: 90%;
-  padding-top: 1rem;
-  border-bottom: 1px solid #00C2CE;
+  border: 1px solid #F2EA02 !important;
 }
 
 .icon-size {
-  font-size: 3.5rem;
+  font-size: 3.5rem !important;
 }
 
 /*
@@ -644,9 +286,8 @@ Files in this folder have base styles for resuable components.
 .footer a:hover {
   color: #FFFFFF !important;
 }
-.footer .position-absolute {
-  right: 1.2rem;
-  bottom: 0.3rem;
+.footer p {
+  font-size: 1.5rem;
 }
 
 .toast {
@@ -664,7 +305,18 @@ Files in this folder have base styles for resuable components.
 }
 
 .toast-close {
-  font-size: 2.3rem;
+  font-size: 2.7rem;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+}
+
+.toast-header {
+  background-color: #474747;
+  border: 0;
+}
+.toast-header img {
+  max-width: 310px;
 }
 
 .toast-body {
@@ -676,6 +328,10 @@ Files in this folder have base styles for resuable components.
   .toast-body {
     font-size: 2rem;
   }
+}
+
+.toast-decorator {
+  height: 2px;
 }
 
 .modal-content {
@@ -764,9 +420,9 @@ django module templates and pages the user will view.
 */
 .main__wrapper {
   padding: 15vh 15px 0;
-  min-height: 92vh;
+  min-height: 90vh;
 }
-@media only screen and (min-width: 321px) {
+@media only screen and (min-width: 400px) {
   .main__wrapper {
     padding: 13vh 7vw 0;
   }
@@ -778,7 +434,7 @@ django module templates and pages the user will view.
 }
 @media only screen and (min-width: 768px) {
   .main__wrapper {
-    padding: 13vh 20vw 0;
+    padding: 13vh 17vw 0;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -796,12 +452,6 @@ django module templates and pages the user will view.
   font-weight: 500;
 }
 
-@media only screen and (min-width: 992px) {
-  .img-fluid {
-    max-width: 80%;
-  }
-}
-
 .body-index {
   background: url("/static/images/background.jpg") no-repeat center center fixed;
   -moz-background-size: cover;
@@ -810,15 +460,70 @@ django module templates and pages the user will view.
   background-size: cover;
 }
 
-.index-title__wrapper {
-  height: 50vh;
+.index-main__wrapper {
+  padding: 15vh 15px 0;
+  min-height: 85vh;
 }
+
 .index-title__wrapper img {
   content: url("/static/images/mobile/index-title.png");
+}
+@media only screen and (min-width: 768px) {
+  .index-title__wrapper img {
+    content: url("/static/images/tablet/index-title.png");
+  }
 }
 @media only screen and (min-width: 992px) {
   .index-title__wrapper img {
     content: url("/static/images/desktop/index-title.png");
+  }
+}
+
+.index-featured img {
+  max-width: 80%;
+}
+@media only screen and (min-width: 576px) {
+  .index-featured img {
+    max-width: 100%;
+  }
+}
+
+.index-social-proof {
+  min-height: 80px;
+}
+.index-social-proof span {
+  color: #F22CA6;
+}
+
+.index-social-links i {
+  font-size: 4rem;
+}
+
+.body-about {
+  background: url("/static/images/about-bg.jpg") no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.product-main_wrapper {
+  padding: 13vh 7vw 0;
+  min-height: 92vh;
+}
+@media only screen and (min-width: 576px) {
+  .product-main_wrapper {
+    padding: 13vh 15vw 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .product-main_wrapper {
+    padding: 13vh 3vw 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .product-main_wrapper {
+    padding: 18vh 3vw 0;
   }
 }
 
@@ -863,6 +568,24 @@ django module templates and pages the user will view.
   font-size: 3.2rem;
 }
 
+.product-card {
+  height: 100%;
+}
+@media only screen and (min-width: 400px) {
+  .product-card {
+    max-width: 80%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .product-card {
+    max-width: 100%;
+  }
+}
+.product-card .card-body {
+  height: 4rem;
+  padding: 1rem 1.5rem;
+}
+
 @media only screen and (min-width: 768px) {
   .product-card-img {
     width: 75%;
@@ -872,6 +595,10 @@ django module templates and pages the user will view.
   .product-card-img {
     width: 100%;
   }
+}
+
+.product-card__title {
+  font-weight: 500;
 }
 
 .product-details-specs__box {
@@ -996,42 +723,17 @@ django module templates and pages the user will view.
   color: #FF0033;
 }
 
-.datepicker-modal.open {
-  z-index: 1050 !important;
-  top: 15% !important;
+.button-booking-time {
+  width: 100%;
+  height: 40px;
+}
+.button-booking-time:active, .button-booking-time:focus {
+  border: 1px solid #000000;
 }
 
-.select-wrapper input {
-  display: none !important;
-}
-
-.datepicker-day-button {
-  border-radius: 0 !important;
-  font-size: 1.8rem !important;
-  font-family: "Raleway", sans-serif !important;
-}
-
-.datepicker-cancel,
-.datepicker-done,
-.timepicker-close {
-  width: 100px !important;
-  margin: 1.5rem 0 0 0.5rem !important;
-  background: #1F1F1F !important;
-  color: #FFFFFF !important;
-  border: 1px solid #00C2CE !important;
-}
-
-.datepicker-date-display,
-.timepicker-digital-display {
-  background: #7a7a7a !important;
-}
-
-.timepicker-text-container {
-  color: #FFFFFF !important;
-}
-
-.text-primary {
-  color: #00C2CE !important;
+#bookingErrors {
+  font-size: 1.4rem;
+  color: #FC440F;
 }
 
 /*# sourceMappingURL=styles.css.map */
