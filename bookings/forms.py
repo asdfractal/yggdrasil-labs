@@ -11,4 +11,4 @@ class BookingForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["booking_date"].widget.attrs["class"] = "datepicker"
+        self.fields["booking_time"].widget = forms.HiddenInput()
