@@ -14,6 +14,7 @@ def index(request):
     products = Product.objects.filter(featured=True)
     context = {
         "products": products,
+        "body_class": "body-index",
     }
     return render(request, "pages/index.html", context)
 
@@ -62,5 +63,6 @@ def about(request):
     """
     context = {
         "page_title": "About Us",
+        "body_class": "body-about",
     }
     return render(request, "pages/about.html", context)

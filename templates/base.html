@@ -8,7 +8,7 @@
 	<title>{% if request.path != '/' %}{{ page_title }} | {% endif %}Yggdrasil Labs</title>
 </head>
 
-<body {% if request.path == '/' %}class="body-index" {% endif %}>
+<body class="{{ body_class }}">
 	{% include 'components/header.html' %}
 
 	{% block content %}
@@ -30,9 +30,7 @@
 	{% endfor %}
 	{% endif %}
 
-	{% if request.path != '/' %}
 	{% include 'components/footer.html' %}
-	{% endif %}
 	{% include 'components/scripts.html' %}
 	{% block extra_scripts %}
 	{% endblock extra_scripts %}
