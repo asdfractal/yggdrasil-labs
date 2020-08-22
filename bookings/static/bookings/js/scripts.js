@@ -5,6 +5,8 @@
 bookingForm = $('#bookingForm')
 changeBookingButton = $('#changeBookingButton')
 cancelChangeBookingButton = $('#cancelChangeBookingButton')
+bookingDateInput = $("#id_booking_date")
+bookingTimeInput = $('#id_booking_time')
 
 changeBookingButton.click((e) => {
 	e.preventDefault()
@@ -20,8 +22,17 @@ cancelChangeBookingButton.click((e) => {
 	cancelChangeBookingButton.addClass('d-none')
 })
 
+document.querySelectorAll('.button-booking-time').forEach(el => {
+	el.addEventListener('click', function (e) {
+		e.preventDefault()
+		bookingTimeInput.attr({ 'value': $(this).text() })
+		$('#bookingSubmitButton').removeAttr('disabled')
+	})
+})
+
+
 $(document).ready(function () {
-	$("#id_booking_date").datepicker({ minDate: 0, maxDate: "+1M", showButtonPanel: true, dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends });
+	bookingDateInput.datepicker({ minDate: 0, maxDate: "+1M", showButtonPanel: true, dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends });
 })
 
 
