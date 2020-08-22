@@ -9,7 +9,8 @@
 				<div class="border-bottom border-dark">
 					{% for booking in bookings %}
 					{% if booking.time_in_future == True %}
-					<p class="my-1">{{ booking.booking_time|date:"D, d M, Y - h:ia" }} for
+					<p class="my-1">{{ booking.booking_time|date:"H:i" }} on
+						{{ booking.booking_date|date:"D, d M, Y" }} for
 						{{ booking.order.get_booking_item }}</p>
 					<div class="row">
 						<div class="col-12 col-md-8 offset-md-4 text-right mb-2">
@@ -37,7 +38,8 @@
 				<h5 class="border-bottom border-dark mb-3">Past Bookings</h5>
 				{% for booking in bookings %}
 				{% if booking.time_in_future == False %}
-				<p>{{ booking.booking_time|date:"D, d M, Y - h:ia" }} for {{ booking.order.get_booking_item }}</p>
+				<p>{{ booking.booking_time|date:"H:i" }} on
+					{{ booking.booking_date|date:"D, d M, Y" }} for {{ booking.order.get_booking_item }}</p>
 				{% endif %}
 				{% endfor %}
 
