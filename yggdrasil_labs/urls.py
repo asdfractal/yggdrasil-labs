@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api.resources import BookingResource
+
+booking_resource = BookingResource()
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,4 +28,5 @@ urlpatterns = [
     path("cart/", include("cart.urls")),
     path("checkout/", include("checkout.urls")),
     path("booking/", include("bookings.urls")),
+    path("api/", include(booking_resource.urls)),
 ]
