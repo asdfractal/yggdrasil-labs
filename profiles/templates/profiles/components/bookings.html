@@ -31,8 +31,6 @@
 					{% endif %}
 					{% endfor %}
 				</div>
-
-
 			</div>
 			<div class="col-12 col-lg-6">
 				<h5 class="border-bottom border-dark mb-3">Past Bookings</h5>
@@ -42,12 +40,7 @@
 					{{ booking.booking_date|date:"D, d M, Y" }} for {{ booking.order.get_booking_item }}</p>
 				{% endif %}
 				{% endfor %}
-
 			</div>
-
-		</div>
-		<div class="">
-
 		</div>
 		{% endif %}
 	</div>

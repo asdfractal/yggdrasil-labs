@@ -5,7 +5,7 @@
 
 <head>
 	{% include 'components/head.html' %}
-	<title>{% if request.path != '/' %}{{ page_title }} | {% endif %}Yggdrasil Labs</title>
+	<title>{% if page_title %}{{ page_title }} | {% endif %}Yggdrasil Labs</title>
 </head>
 
 <body class="{{ body_class }}">
