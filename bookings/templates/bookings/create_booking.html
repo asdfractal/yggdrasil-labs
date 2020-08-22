@@ -11,6 +11,9 @@
 			<div class="row">
 				<div class="col-12 col-lg-8 offset-lg-2">
 					<h4 class="mb-3">Booking for {{ booking_item }}</h4>
+					<p class="mb-3">We offer bookings up to one month in advance. Our available times are between 09:00
+						and 15:00
+						every weekday.</p>
 					{% if booking.booking_time %}
 					<p>Your booking is at {{ booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
 					{% else %}
@@ -23,7 +26,7 @@
 						{% csrf_token %}
 						{{ form.booking_date | as_crispy_field }}
 						{{ form.booking_time | as_crispy_field }}
-						<div class="row booking-times__wrapper mb-5">
+						<div class="row booking-times__wrapper mb-5 d-none">
 							<div class="col-4 text-center">
 								<button class="btn button-primary button-booking-time" id="09" type="button"
 									disabled>09:00</button>
@@ -35,6 +38,9 @@
 							<div class="col-4 text-center">
 								<button class="btn button-primary button-booking-time" id="15" type="button"
 									disabled>15:00</button>
+							</div>
+							<div class="col-12 pt-3">
+								<p id="bookingErrors"></p>
 							</div>
 						</div>
 						<div class="row">
