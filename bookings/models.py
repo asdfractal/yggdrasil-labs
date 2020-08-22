@@ -20,7 +20,8 @@ class Booking(models.Model):
         blank=True,
         related_name="bookings",
     )
-    booking_time = models.DateTimeField(auto_now_add=False, null=True, blank=True)
+    booking_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    booking_time = models.TimeField(auto_now_add=False, null=True, blank=True)
 
     @property
     def time_in_future(self):

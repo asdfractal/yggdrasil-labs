@@ -3,17 +3,12 @@ from .models import Booking
 
 
 class BookingAdmin(admin.ModelAdmin):
-    readonly_fields = ("order",)
-
-    fields = (
-        "order",
-        "user_profile",
-        "booking_time",
-    )
+    # readonly_fields = ("order",)
 
     list_display = (
         "order",
         "user_profile",
+        "booking_date",
         "booking_time",
     )
 
