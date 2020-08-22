@@ -1,5 +1,7 @@
+from datetime import datetime
 from django.db import models
 from django.utils import timezone
+from django.utils.timezone import make_aware
 
 from profiles.models import UserProfile
 from checkout.models import Order
@@ -29,7 +31,9 @@ class Booking(models.Model):
         A property to check if the booking is in the past or future.
         """
         if self.booking_time:
-            return timezone.now() < self.booking_time
+            combined_booking = datetime.combine(self.booking_date, self.booking_time)
+            aware_time = make_aware(combined_booking)
+            return timezone.now() < aware_time
         return None
 
     def __str__(self):
