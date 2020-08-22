@@ -32,23 +32,62 @@ document.querySelectorAll('.button-booking-time').forEach(el => {
 	})
 })
 
+/**
+ * Query server for bookings on the selected date
+ * @param {string} url base api url to append to
+ * @param {string} date date to query
+ * @returns {object} JSON data from api
+ */
 const checkDates = async (url, date) => {
 	let query = date.getFullYear() + '-' + '0' + (date.getMonth() + 1) + '-' + date.getDate()
-	console.log(query)
 	queryUrl = url + query
 	const res = await fetch(queryUrl)
 	data = await res.json()
-	console.log(data)
+	return data
+}
+
+/**
+ * Process the api response and update the dom
+ * @param {string} url base api url to append to
+ * @param {string} date date to query
+ */
+const processDates = async (url, date) => {
+	const data = await checkDates(url, date)
+	const bookingQuery = data.objects
+	if (bookingQuery.length === 3) {
+		console.log('full today');
+	} else if (bookingQuery.length === 0) {
+		console.log('no bookings');
+		document.querySelectorAll('.button-booking-time').forEach(el => {
+			el.disabled = false
+		})
+	} else {
+		bookingQuery.forEach(booking => {
+			time = booking.booking_time.slice(0, -6)
+			document.querySelectorAll('.button-booking-time').forEach(el => {
+				if (el.id != time) {
+					el.disabled = false
+				}
+			})
+		})
+	}
+}
+
+/**
+ * Disables the time selection buttons before api response
+ */
+const disableTimes = () => {
+	document.querySelectorAll('.button-booking-time').forEach(el => {
+		el.disabled = true
+	})
 }
 
 $(document).ready(function () {
 	bookingDateInput.datepicker({
 		minDate: 0, maxDate: "+1M", dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends, onSelect: (dateText) => {
-			// console.log(dateText);
-			// bookingDateInput.attr({ 'value': dateText })
 			selectedDate = new Date(dateText)
-			// console.log(selectedDate);
-			checkDates(baseUrl, selectedDate)
+			disableTimes()
+			processDates(baseUrl, selectedDate)
 		}
 	})
 })
