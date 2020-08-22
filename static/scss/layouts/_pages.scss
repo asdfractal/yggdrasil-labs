@@ -15,6 +15,10 @@
   img {
     content: url('/static/images/mobile/index-title.png');
 
+    @include breakpoint(md) {
+      content: url('/static/images/tablet/index-title.png');
+    }
+
     @include breakpoint(lg) {
       content: url('/static/images/desktop/index-title.png');
     }
