@@ -1,4 +1,16 @@
 .footer {
   background: $grey;
-  min-height: 8vh;
+  min-height: 10vh;
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $white !important;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
 }
