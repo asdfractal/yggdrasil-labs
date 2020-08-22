@@ -68,6 +68,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "yggdrasil_labs.urls"
 
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
+
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 TEMPLATES = [
