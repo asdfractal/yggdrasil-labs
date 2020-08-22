@@ -2,7 +2,6 @@
 /*jshint -W033 */
 
 /* Dynamically displays and hides booking creation form */
-
 bookingForm = $('#bookingForm')
 changeBookingButton = $('#changeBookingButton')
 cancelChangeBookingButton = $('#cancelChangeBookingButton')
@@ -22,6 +21,13 @@ cancelChangeBookingButton.click((e) => {
 })
 
 $(document).ready(function () {
-	$('.datepicker').datepicker();
-	$('.timepicker').timepicker();
+	$("#id_booking_date").datepicker({ minDate: 0, maxDate: "+1M", showButtonPanel: true, dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends });
 })
+
+
+// booking api
+// let baseUrl = "http://127.0.0.1:8000/api/booking/"
+
+// fetch(baseUrl)
+// 	.then(res => res.json())
+// 	.then(data => console.log(data))
