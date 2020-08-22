@@ -35,13 +35,18 @@ document.querySelectorAll('.button-booking-time').forEach(button => {
 })
 
 /**
- * Query server for bookings on the selected date
+ * Query server for bookings on the selected date. Appends a 0 to single digit months.
  * @param {string} url base api url to append to
  * @param {string} date date to query
  * @returns {object} JSON data from api
  */
 const checkDates = async (url, date) => {
-	let query = date.getFullYear() + '-' + '0' + (date.getMonth() + 1) + '-' + date.getDate()
+	monthInt = (date.getMonth() + 1)
+	monthStr = monthInt.toString()
+	if (monthStr.length === 1) {
+		monthStr = '0' + monthStr
+	}
+	let query = date.getFullYear() + '-' + monthStr + '-' + date.getDate()
 	queryUrl = url + query
 	const res = await fetch(queryUrl)
 	data = await res.json()
