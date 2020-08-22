@@ -1,13 +1,15 @@
 /*jshint esversion: 10 */
 /*jshint -W033 */
 
-/* Dynamically displays and hides booking creation form */
-bookingForm = $('#bookingForm')
-changeBookingButton = $('#changeBookingButton')
-cancelChangeBookingButton = $('#cancelChangeBookingButton')
-bookingDateInput = $("#id_booking_date")
-bookingTimeInput = $('#id_booking_time')
+const bookingForm = $('#bookingForm')
+const changeBookingButton = $('#changeBookingButton')
+const cancelChangeBookingButton = $('#cancelChangeBookingButton')
+const bookingDateInput = $("#id_booking_date")
+const bookingTimeInput = $('#id_booking_time')
+const baseUrl = "/api/booking/?booking_date__contains="
+let selectedDate = new Date()
 
+/* Dynamically displays and hides booking creation form */
 changeBookingButton.click((e) => {
 	e.preventDefault()
 	bookingForm.removeClass('d-none')
@@ -30,15 +32,23 @@ document.querySelectorAll('.button-booking-time').forEach(el => {
 	})
 })
 
+const checkDates = async (url, date) => {
+	let query = date.getFullYear() + '-' + '0' + (date.getMonth() + 1) + '-' + date.getDate()
+	console.log(query)
+	queryUrl = url + query
+	const res = await fetch(queryUrl)
+	data = await res.json()
+	console.log(data)
+}
 
 $(document).ready(function () {
-	bookingDateInput.datepicker({ minDate: 0, maxDate: "+1M", showButtonPanel: true, dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends });
+	bookingDateInput.datepicker({
+		minDate: 0, maxDate: "+1M", dateFormat: "dd M, yy", beforeShowDay: $.datepicker.noWeekends, onSelect: (dateText) => {
+			// console.log(dateText);
+			// bookingDateInput.attr({ 'value': dateText })
+			selectedDate = new Date(dateText)
+			// console.log(selectedDate);
+			checkDates(baseUrl, selectedDate)
+		}
+	})
 })
-
-
-// booking api
-// let baseUrl = "http://127.0.0.1:8000/api/booking/"
-
-// fetch(baseUrl)
-// 	.then(res => res.json())
-// 	.then(data => console.log(data))
