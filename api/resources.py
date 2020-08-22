@@ -8,5 +8,5 @@ class BookingResource(ModelResource):
         queryset = Booking.objects.all()
         resource_name = "booking"
         filtering = {
-            "booking_time": ALL,
+            "booking_date": ALL,
         }
