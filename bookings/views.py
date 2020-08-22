@@ -1,11 +1,10 @@
 from datetime import datetime
-from django.utils.timezone import make_aware
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 
 from checkout.models import Order, OrderLineItem
 from .models import Booking
-from .forms import BookingForm, BookingValidationForm
+from .forms import BookingForm
 
 
 def create_booking(request, order_number):
@@ -25,19 +24,22 @@ def create_booking(request, order_number):
     if request.method == "POST":
         date_str = request.POST.get("booking_date", "")
         time_str = request.POST.get("booking_time", "")
-        datetime_str = f"{date_str} {time_str}"
         try:
-            datetime_obj = datetime.strptime(datetime_str, "%b %d, %Y %I:%M %p")
+            date_obj = datetime.strptime(date_str, "%d %b, %Y").date()
+            time_obj = datetime.strptime(time_str, "%H:%M").time()
         except ValueError:
             messages.error(
                 request, "There was a problem with your selection, please try again.",
             )
             return redirect(reverse("create_booking", args=[order_number]))
-
-        form_validation = BookingValidationForm({"date_time": datetime_obj})
-        if form_validation.is_valid():
-            aware_datetime = make_aware(datetime_obj)
-            booking.booking_time = aware_datetime
+        form_data = {
+            "booking_date": date_obj,
+            "booking_time": time_obj,
+        }
+        form = BookingForm(form_data)
+        if form.is_valid():
+            booking.booking_date = date_obj
+            booking.booking_time = time_obj
             booking.save()
             messages.success(
                 request, f"Booking created at {time_str} on {date_str}.",
