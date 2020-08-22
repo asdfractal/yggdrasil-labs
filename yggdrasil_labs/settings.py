@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "cart",
     "checkout",
     "bookings",
+    "api",
     "crispy_forms",
 ]
 
@@ -167,7 +168,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 if "DEVELOPMENT" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = "support@yggdrasillabs.com"
+    DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST")
 else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = "smtp.gmail.com"
