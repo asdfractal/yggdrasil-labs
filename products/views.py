@@ -2,6 +2,7 @@ from random import randint
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 
+from yggdrasil_labs.utils.verify_purchase import verify_purchase
 from reviews.models import Review
 from reviews.forms import ReviewForm
 from profiles.models import UserProfile
@@ -48,22 +49,17 @@ def product_reviews(request, product_id):
     Returns a view with all the reviews for a specific product. If current user
     has a review, get that and allow them to update.
     """
-    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = UserProfile.objects.get(user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
-    user_orders = Order.objects.filter(user_profile=user_profile)
     form = ReviewForm
+    user_purchased = verify_purchase(user_profile, Order, product)
     user_review = ""
-    user_purchased = False
+
     for review in reviews:
         if review.user_profile == user_profile:
             user_review = review
             form = ReviewForm(instance=user_review)
-
-    for order in user_orders:
-        for item in order.lineitems.all():
-            if item.product == product:
-                user_purchased = True
 
     if request.method == "POST":
         if user_review != "":
