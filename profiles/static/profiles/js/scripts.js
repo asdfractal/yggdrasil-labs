@@ -2,12 +2,12 @@
 /*jshint -W033 */
 
 const profileNavItems = {
-	'profile_personal': 'Personal info',
-	'profile_support': 'Tech support',
-	'profile_bookings': 'Bookings',
-	'profile_orders': 'Order History'
+	profile_personal: "Personal info",
+	profile_support: "Tech support",
+	profile_bookings: "Bookings",
+	profile_orders: "Order History",
 }
-const profileTitle = $('.profiles-card-title')
+const profileTitle = $(".profiles-card-title")
 let windowUrl = document.location.href
 
 /**
@@ -27,7 +27,7 @@ const getNavId = (el) => {
  * @param {string} navId takes the value returned from checkNavClicked
  */
 const showPage = (navId, titleText) => {
-	$(`#${navId}`).removeClass('d-none').addClass('d-block')
+	$(`#${navId}`).removeClass("d-none").addClass("d-block")
 	profileTitle.text(titleText)
 }
 
@@ -38,7 +38,7 @@ const showPage = (navId, titleText) => {
 const hidePages = (navId) => {
 	for (const key of Object.keys(profileNavItems)) {
 		if (navId != key) {
-			$(`#${key}`).addClass('d-none').removeClass('d-block')
+			$(`#${key}`).addClass("d-none").removeClass("d-block")
 		}
 	}
 }
@@ -54,18 +54,18 @@ const updateUrl = (url) => {
 /**
  * Adds a click event listener to all profile nav links
  */
-document.querySelectorAll('.profile-nav-link').forEach(element => {
-	element.addEventListener('click', function (e) {
+document.querySelectorAll(".profile-nav-link").forEach((element) => {
+	element.addEventListener("click", function (e) {
 		e.preventDefault()
 		_this = $(this)
 		navId = getNavId(_this.children().text())
 		title = _this.text()
-		_this.addClass('nav-link-active')
-		_this.siblings().removeClass('nav-link-active')
+		_this.addClass("nav-link-active")
+		_this.siblings().removeClass("nav-link-active")
 		// showPage(navId, title)
 		// hidePages(navId)
-		$('#dashboardNavbarToggler').collapse('hide')
-		splitId = navId.split('_')
+		$("#dashboardNavbarToggler").collapse("hide")
+		splitId = navId.split("_")
 		updateUrl(splitId[1])
 	})
 })
@@ -104,8 +104,8 @@ const compareUrl = (url) => {
  * @return {string} the value of the page to be loaded
  */
 const checkProfileRoot = (windowUrl, currentUrl) => {
-	if (windowUrl.includes('#') === false) {
-		return 'personal'
+	if (windowUrl.includes("#") === false) {
+		return "personal"
 	} else {
 		return currentUrl
 	}
@@ -117,7 +117,7 @@ const checkProfileRoot = (windowUrl, currentUrl) => {
 const hashUpdate = () => {
 	let hash = window.location.hash
 	windowUrl = document.location.href
-	splitHash = hash.split('#')
+	splitHash = hash.split("#")
 	currentHash = checkProfileRoot(windowUrl, splitHash[1])
 	currentPage = compareUrl(currentHash)
 	showPage(currentPage[0], currentPage[1])
@@ -136,9 +136,8 @@ const loadByUrl = () => {
 	windowUrl = document.location.href
 }
 
-$(window).on('hashchange', hashUpdate)
+$(window).on("hashchange", hashUpdate)
 
 $(document).ready(function () {
 	loadByUrl()
 })
-
