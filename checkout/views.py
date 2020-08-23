@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.views.decorators.http import require_POST
 
+from yggdrasil_labs.utils.verify_purchase import verify_purchase
 from cart.contexts import get_cart_items
 from products.models import Product
 from profiles.models import UserProfile
@@ -51,13 +52,36 @@ def checkout_login_check(request):
 @login_required
 def checkout(request):
     """
-    Display a view to purchase items in cart.
+    Display a view to purchase items in cart. Checks user has no duplicate products and processes Stripe payment.
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get("cart", {})
     user_profile = UserProfile.objects.get(user=request.user)
     form = OrderForm()
+    duplicate_products = []
+
+    for key in list(cart.keys()):
+        product = get_object_or_404(Product, pk=key)
+        if verify_purchase(user_profile, Order, product):
+            duplicate_products.append(key)
+
+    if len(duplicate_products) != 0:
+        for key in duplicate_products:
+            if key in list(cart.keys()):
+                try:
+                    del cart[key]
+                    request.session["cart"] = cart
+                except KeyError:
+                    messages.error(
+                        request, "There was an error with an item in your cart.",
+                    )
+                    return redirect("view_cart")
+        messages.info(
+            request,
+            "You had an item in your cart that you have already purchased. It was removed.",
+        )
+        return redirect("view_cart")
 
     if request.method == "POST":
         form = OrderForm(request.POST)
@@ -83,7 +107,7 @@ def checkout(request):
             request,
             "There is a problem with your form. Please confirm details and submit again.",
         )
-        return redirect(reverse("checkout_success", args=[order.order_number]))
+        return redirect(reverse("checkout"))
 
     if not cart:
         messages.error(request, "Your cart is empty.")
