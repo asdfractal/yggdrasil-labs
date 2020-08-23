@@ -25,11 +25,13 @@ def contact(request):
     """
     form = ContactForm()
     user = request.user
+    if request.user.is_authenticated:
+        form = ContactForm(initial={"email": user.email})
 
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            user_email = user.email
+            reply_email = request.POST.get("email", "")
             content = request.POST.get("content", "")
             email_template = get_template("pages/contact-email.txt")
             email_content = email_template.render({"content": content})
@@ -37,7 +39,7 @@ def contact(request):
                 "Contact Form",
                 email_content,
                 to=["contact@yggdrasillabs.com"],
-                headers={"Reply-to": user_email},
+                headers={"Reply-to": reply_email},
             )
             try:
                 email.send()
