@@ -1,8 +1,10 @@
 <div class="row">
-	<div class="col-12 col-lg-11 offset-lg-1">
-		{% if orders|length == 0 %}
+	{% if orders|length == 0 %}
+	<div class="col-12 col-lg-8 offset-lg-2">
 		<p>You must place an order before before making a booking.</p>
-		{% else %}
+	</div>
+	{% else %}
+	<div class="col-12 col-lg-11 offset-lg-1">
 		<div class="row">
 			<div class="col-12 col-lg-6 mb-5">
 				<h5 class="border-bottom border-dark mb-3">Upcoming Bookings</h5>
@@ -42,6 +44,6 @@
 				{% endfor %}
 			</div>
 		</div>
-		{% endif %}
 	</div>
+	{% endif %}
 </div>
