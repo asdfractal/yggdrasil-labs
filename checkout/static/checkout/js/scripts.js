@@ -6,6 +6,7 @@ const stripePublicKey = $("#id_stripe_public_key").text().slice(1, -1)
 const clientSecret = $("#id_client_secret").text().slice(1, -1)
 const stripe = Stripe(stripePublicKey)
 const elements = stripe.elements()
+const loadingSpinner = $("#loadingOverlay")
 const style = {
 	base: {
 		color: "#1F1F1F",
@@ -49,6 +50,7 @@ form.addEventListener("submit", (e) => {
 	e.preventDefault()
 	card.update({ disabled: true })
 	$("#paymentSubmit").attr("disabled", true)
+	loadingSpinner.fadeToggle(100)
 
 	const csrfToken = $('input[name="csrfmiddlewaretoken"]').val()
 	const postData = {
@@ -99,6 +101,7 @@ form.addEventListener("submit", (e) => {
 						<span>${result.error.message}</span>
 					`
 						$(errorElement).html(html)
+						loadingSpinner.fadeToggle(100)
 						card.update({ disabled: false })
 						$("#paymentSubmit").attr("disabled", false)
 					} else {
