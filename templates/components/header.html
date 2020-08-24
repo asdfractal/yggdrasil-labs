@@ -1,12 +1,12 @@
 <header>
 	<nav class="navbar navbar-expand-lg fixed-top navbar-top__wrapper">
-		<a class="navbar-brand" href="{% url 'index' %}">
+		<a class="navbar-brand" href="{% url 'index' %}" aria-label="logo (home)">
 			<img src="/static/images/mobile/nav-logo.png" class="nav-logo__sm d-lg-none" alt="Yggdrasil">
 			<img src="/static/images/desktop/nav-logo.png" class="nav-logo__lg d-none d-lg-inline-block"
 				alt="Yggdrasil">
 		</a>
 		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}"><i
-					class="fas fa-shopping-cart position-relative"><span
+					class="fas fa-shopping-cart position-relative" aria-label="view cart"><span
 						class="badge-custom {% if cart_number == 0 %}d-none{% endif %}">{% if cart_number > 0 %}{{ cart_number }}{% endif %}</span></i></a>
 		</div>
 		<button class="navbar-toggler mt-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -61,8 +61,8 @@
 				</li>
 				{% endif %}
 				<li class="nav-item d-none d-lg-flex">
-					<div class="nav-icon-cart"><a class="nav-link" href="{% url 'view_cart' %}"><i
-								class="fas fa-shopping-cart position-relative"><span
+					<div class="nav-icon-cart"><a class="nav-link" href="{% url 'view_cart' %}"
+							aria-label="view cart"><i class="fas fa-shopping-cart position-relative"><span
 									class="badge-custom {% if cart_number == 0 %}d-none{% endif %}">{% if cart_number > 0 %}{{ cart_number }}{% endif %}</span></i></a>
 					</div>
 				</li>
