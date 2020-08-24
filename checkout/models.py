@@ -12,6 +12,7 @@ class Order(models.Model):
     """
     Model to create orders placed by users.
     """
+
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
         UserProfile,
@@ -113,6 +114,7 @@ class OrderLineItem(models.Model):
     """
     Individual products in the related order.
     """
+
     order = models.ForeignKey(
         Order,
         null=False,
