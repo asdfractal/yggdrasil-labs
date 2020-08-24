@@ -43,10 +43,15 @@ document.querySelectorAll(".button-booking-time").forEach((button) => {
 const checkDates = async (url, date) => {
 	monthInt = date.getMonth() + 1
 	monthStr = monthInt.toString()
+	dayInt = date.getDate()
+	dayStr = dayInt.toString()
 	if (monthStr.length === 1) {
 		monthStr = "0" + monthStr
 	}
-	let query = date.getFullYear() + "-" + monthStr + "-" + date.getDate()
+	if (dayStr.length === 1) {
+		dayStr = "0" + dayStr
+	}
+	let query = date.getFullYear() + "-" + monthStr + "-" + dayStr
 	queryUrl = url + query
 	const res = await fetch(queryUrl)
 	data = await res.json()
