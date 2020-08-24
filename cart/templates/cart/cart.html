@@ -11,8 +11,8 @@
 			{% for item in cart_items %}
 			<div class="row mb-4 border-bottom border-dark">
 				<div class="col-12 col-lg-6 mb-3">
-					<a href="{% url 'product_detail' item.product.id %}"><img src="{{ item.product.image_url }}" alt=""
-							class="img-fluid"></a>
+					<a href="{% url 'product_detail' item.product.id %}" aria-label="{{ item.product.name }}"><img
+							src="{{ item.product.image_url }}" alt="{{ item.product.name }}" class="img-fluid"></a>
 				</div>
 				<div class="col-12 d-lg-none mb-2">
 					<h3>{{ item.product.name }}</h3>
@@ -22,14 +22,14 @@
 					<p>${{ item.product.price }}</p>
 				</div>
 				<div class="col-4 offset-2 text-center d-lg-none">
-					<a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color"><i
-							class="fas fa-times icon-size"></i></a>
+					<a href="{% url 'remove_from_cart' item.product.id %}" class="text-white"
+						aria-label="remove from cart"><i class="fas fa-times icon-size"></i></a>
 				</div>
 				<div class="col-lg-4 offset-1 d-none d-lg-block cart-specs__box">
 					<h4>{{ item.product.name }}</h4>
 					<p>{{ item.product.category|capfirst }}</p>
 					<p>${{ item.product.price }}</p>
-					<p class="mt-3"><a href="{% url 'remove_from_cart' item.product.id %}" class="warning-color">Remove
+					<p class="mt-3"><a href="{% url 'remove_from_cart' item.product.id %}" class="text-white">Remove
 							from
 							cart</a></p>
 				</div>

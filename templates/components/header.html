@@ -5,8 +5,8 @@
 			<img src="/static/images/desktop/nav-logo.png" class="nav-logo__lg d-none d-lg-inline-block"
 				alt="Yggdrasil">
 		</a>
-		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}"><i
-					class="fas fa-shopping-cart position-relative" aria-label="view cart"><span
+		<div class="nav-icon-cart d-lg-none"><a href="{% url 'view_cart' %}" aria-label="view cart"><i
+					class="fas fa-shopping-cart position-relative"><span
 						class="badge-custom {% if cart_number == 0 %}d-none{% endif %}">{% if cart_number > 0 %}{{ cart_number }}{% endif %}</span></i></a>
 		</div>
 		<button class="navbar-toggler mt-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"

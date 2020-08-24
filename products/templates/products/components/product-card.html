@@ -1,5 +1,5 @@
 <div class="card product-card mx-auto">
-	<a href="{% url 'product_detail' product.id %}">
+	<a href="{% url 'product_detail' product.id %}" aria-label="{{ product.name }}">
 		<img class="card-img-top" src="{{ product.image_url }}" alt="{{ product.name }}"></a>
 	<div class="card-header">
 		<h3 class="card-title product-card__title">{{ product.name }}</h3>

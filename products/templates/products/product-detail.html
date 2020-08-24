@@ -45,7 +45,7 @@
 			{% include 'products/components/review-body.html' %}
 			<div class="row mb-4">
 				<div class="col-11 text-right">
-					<a href="{% url 'product_reviews' product.id %}">All reviews</a>
+					<a href="{% url 'product_reviews' product.id %}" class="primary-color__lighten">All reviews</a>
 				</div>
 			</div>
 			{% else %}
