@@ -46,8 +46,10 @@
 						</div>
 						<div class="row">
 							<div class="col-4">
-								<button class="btn button-primary-outline button__small" type="button"
-									id="cancelChangeBookingButton"><i class="fas fa-angle-double-left"></i></button>
+								<button
+									class="btn button-primary-outline button__small {% if not booking.booking_time %}d-none{% endif %}"
+									type="button" id="cancelChangeBookingButton"><i
+										class="fas fa-angle-double-left"></i></button>
 							</div>
 							<div class="col-8 text-right">
 								<button class="btn button-secondary-outline button__small" id="bookingSubmitButton"
