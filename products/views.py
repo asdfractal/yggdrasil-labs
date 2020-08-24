@@ -31,14 +31,22 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
     review = ""
+    user_purchased = False
+
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        user_purchased = verify_purchase(user_profile, Order, product)
+
     if len(reviews) > 0:
         pks = reviews.values_list("pk", flat=True)
         random = randint(0, len(pks) - 1)
         review = Review.objects.get(pk=pks[random])
+
     context = {
         "product": product,
         "review": review,
         "page_title": product.name,
+        "user_purchased": user_purchased,
     }
 
     return render(request, "products/product-detail.html", context)
@@ -49,17 +57,19 @@ def product_reviews(request, product_id):
     Returns a view with all the reviews for a specific product. If current user
     has a review, get that and allow them to update.
     """
-    user_profile = UserProfile.objects.get(user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
     form = ReviewForm
-    user_purchased = verify_purchase(user_profile, Order, product)
     user_review = ""
+    user_purchased = False
 
-    for review in reviews:
-        if review.user_profile == user_profile:
-            user_review = review
-            form = ReviewForm(instance=user_review)
+    if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
+        user_purchased = verify_purchase(user_profile, Order, product)
+        for review in reviews:
+            if review.user_profile == user_profile:
+                user_review = review
+                form = ReviewForm(instance=user_review)
 
     if request.method == "POST":
         if user_review != "":
