@@ -59,7 +59,7 @@ def product_reviews(request, product_id):
     """
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
-    form = ReviewForm
+    form = ReviewForm()
     user_review = ""
     user_purchased = False
 
