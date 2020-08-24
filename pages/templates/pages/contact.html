@@ -16,8 +16,7 @@
 					</p>
 					<form method="POST">
 						{% csrf_token %} {{ form|crispy }}
-						<button class="btn button-primary-outline button__small col-6 float-right"
-							name="{{ form_tech.prefix }}" type="submit">
+						<button class="btn button-primary-outline button__small col-6 float-right" type="submit">
 							Submit
 						</button>
 					</form>
