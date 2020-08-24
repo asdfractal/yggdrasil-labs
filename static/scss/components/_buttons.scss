@@ -41,19 +41,18 @@
   border: 1px solid $primary-color;
 
   &:hover {
-    background-color: lighten($darkgrey, 5%);
-    color: $primary-color;
+    color: $primary-color !important;
   }
 }
 
 .button-secondary {
   @extend %button;
-  background-color: $secondary-color;
-  color: $black;
+  background-color: darken($secondary-color, 20%);
+  font-weight: 500;
 
   &:hover {
     background-color: darken($secondary-color, 10%);
-    color: $white;
+    color: $white !important;
   }
 }
 
@@ -63,7 +62,6 @@
   border: 1px solid $secondary-color;
 
   &:hover {
-    background-color: lighten($darkgrey, 5%);
-    color: $secondary-color;
+    color: $secondary-color !important;
   }
 }
