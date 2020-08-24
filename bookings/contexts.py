@@ -32,7 +32,8 @@ def check_booking_status(request):
                     messages.info(
                         request,
                         mark_safe(
-                            "You have an available booking to create. Please visit your <a href='/profile/#bookings'>bookings page</a> to confirm."
+                            "You have an available booking to create. Please visit your \
+                             <a href='/profile/#bookings'>bookings page</a> to confirm."
                         ),
                     )
                     request.session["booking_notification"] = {

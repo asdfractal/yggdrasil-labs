@@ -1,7 +1,8 @@
 # Yggdrasil Labs
 
 Yggdrasil Labs is a cybernetics and bioware company providing implants and other transhuman upgrades. Site visitors can browse the range of products and add to their cart. Due to the nature of the business it is required to register before checking out, as it is possible a booking must be created. Also the business offers technical support to it's clients.
-This is a full stack website developed for Code Institute milestone project 4.
+
+This is a full stack website developed for Code Institute milestone project 4. Since this website is for educational purposes, email verification is not required.
 
 ## Contents:
 * User Experience
@@ -16,9 +17,9 @@ This is a full stack website developed for Code Institute milestone project 4.
     * Fonts
     * Icons
     * Styles
-        * Folder structure
     * Images
     * Wireframes
+    * Code Styling
 * Information Architecture
     * Data models
         * User
@@ -37,6 +38,8 @@ This is a full stack website developed for Code Institute milestone project 4.
 * Features
     * Implemented Features
     * Planned Features
+* Technologies Used
+
 
 ## User Experience
 
@@ -97,7 +100,7 @@ The overwhelming colour aesthetic in the aformentioned inspirations are blues, p
 * Grey - #3D3D3D - A lighter shade of the dark grey
 * Dark Grey - #1F1F1F - A dark grey not far off black
 
-I am also using the following colour for message alerts
+I am also using the following colours for message alerts
 * Warning colour - #FC440F
 * Error colour - #FF0033
 * Success colour - #00FF00
@@ -127,6 +130,21 @@ Credits
 
 ### Wireframes
 Using the program Pencil I designed wireframes for desktop and mobile/tablet. The mobile/tablet are combined because there will be minimal differences in the design. The wireframes can be viewed [here](/wireframes/).
+
+### Code styling
+For consistency and readable code I am using formatters and format on save option.
+* HTML - Beautify
+* SCSS - Formate
+* JavaScript - Prettier (options)
+    * "printWidth": 88,
+    * "tabWidth": 4,
+    * "trailingComma": "all",
+    * "semi": false
+* Python - Black
+
+#### Rationale
+I spent quite a bit of time reading about JavaScript and Python formatting conventions and settled on this configuration for a few reasons. For JS, I prefer the clean look without semicolons but I understand it can cause ASI errors. The 'semi: false' setting of Prettier covers this and will insert them where this could occur.
+I decided to use Black as my Python formatter because I liked what I read about it and after using it I like the code it produces. It has a line length of 88 and solid reasoning behind this choice, I chose the same number for Prettier to be consistent across the project. Using pylint-django and a vscode extension called Error Lens I am notified immediately of errors in my code and this has helped me to write functional code and learn about best practices.
 
 ## Information Architecture
 
@@ -264,8 +282,10 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 
 
 ### Planned Features
+* Improved product filter
 * Expanded client technical support to include detailed information about their installed products
 * News page with featured articles to post updates about the company's latest developments
+* Community hub for people to connect and share open source apps for cyberware
 
 
 ## Technologies Used
@@ -301,7 +321,8 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * [Git](https://git-scm.com/)
 * [Slick](https://kenwheeler.github.io/slick/)
 * [SASS/SCSS](https://sass-lang.com/)
+* [Postman](https://www.postman.com/)
 
 
 ## Testing
-A full testing write up is available [here](/testing.md)
+A full write up for testing and dealing with bugs is available [here](/testing.md)

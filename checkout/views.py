@@ -52,7 +52,8 @@ def checkout_login_check(request):
 @login_required
 def checkout(request):
     """
-    Display a view to purchase items in cart. Checks user has no duplicate products and processes Stripe payment.
+    Display a view to purchase items in cart. Checks user has no duplicate products
+    and processes Stripe payment.
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
