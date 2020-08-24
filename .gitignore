@@ -2,3 +2,5 @@
 .editorconfig
 .dev_files
 *.sqlite3
+.prettierrc
+.prettierignore
