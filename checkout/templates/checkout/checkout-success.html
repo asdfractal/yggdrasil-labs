@@ -17,9 +17,9 @@
 							<p>Your order requires a booking, please create one.</p>
 						</div>
 						<div class="col-10 offset-2 text-right">
-							<a href="{% url 'create_booking' order.order_number %}"><button
-									class="btn button-secondary-outline button__small" type="button">Create
-									Booking</button></a>
+							<a href="{% url 'create_booking' order.order_number %}"
+								class="btn button-secondary-outline button__small">Create
+								Booking</a>
 						</div>
 					</div>
 					{% elif order.booking.time_in_future == True %}
@@ -28,9 +28,9 @@
 							<p>Your booking is on {{ order.booking.booking_time|date:"D, d M, Y - h:ia" }}</p>
 						</div>
 						<div class="col-10 offset-2 text-right">
-							<a href="{% url 'create_booking' order.order_number %}"><button
-									class="btn button-secondary-outline button__small" type="button">Change
-									Booking</button></a>
+							<a href="{% url 'create_booking' order.order_number %}"
+								class="btn button-secondary-outline button__small">Change
+								Booking</a>
 						</div>
 					</div>
 					{% elif order.booking.time_in_future == False %}

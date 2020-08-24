@@ -16,12 +16,7 @@ body {
 
 button {
   outline: none !important;
-  box-shadow: $box-shadow-black;
   border: none;
-
-  &>a {
-    color: $white !important;
-  }
 }
 
 h1,
@@ -47,6 +42,7 @@ a {
   &:not([href]) {
     color: $primary-color;
   }
+
 }
 
 .btn {

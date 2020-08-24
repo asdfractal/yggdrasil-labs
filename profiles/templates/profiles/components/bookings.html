@@ -16,18 +16,17 @@
 						{{ booking.order.get_booking_item }}</p>
 					<div class="row">
 						<div class="col-12 col-md-8 offset-md-4 text-right mb-2">
-							<a href="{% url 'create_booking' booking.order %}"><button
-									class="btn button-secondary-outline button__small my-1" type="button">Change
-									Booking</button></a>
+							<a href="{% url 'create_booking' booking.order %}"
+								class="btn button-secondary-outline button__small my-1">Change Booking</a>
 						</div>
 					</div>
 					{% elif booking.time_in_future == None %}
 					<p class="my-1">You have not made a booking for {{ booking.order.get_booking_item }}</p>
 					<div class="row">
 						<div class="col-12 col-md-8 offset-md-4 text-right mb-2">
-							<a href="{% url 'create_booking' booking.order %}"><button
-									class="btn button-secondary-outline button__small my-1" type="button">Make
-									Booking</button></a>
+							<a href="{% url 'create_booking' booking.order %}"
+								class="btn button-secondary-outline button__small my-1">Make
+								Booking</a>
 						</div>
 					</div>
 					{% endif %}
