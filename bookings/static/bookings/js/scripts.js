@@ -39,7 +39,7 @@ document.querySelectorAll(".button-booking-time").forEach((button) => {
  * @param {string} str Date number in string format
  * @returns {string} returns string to be appended to query
  */
-const add_zero = (str) => {
+const addZero = (str) => {
 	if (str.length === 1) {
 		str = "0" + str
 	}
@@ -55,8 +55,8 @@ const add_zero = (str) => {
 const checkDates = async (url, date) => {
 	monthInt = date.getMonth() + 1
 	dayInt = date.getDate()
-	monthStr = add_zero(monthInt.toString())
-	dayStr = add_zero(dayInt.toString())
+	monthStr = addZero(monthInt.toString())
+	dayStr = addZero(dayInt.toString())
 	let query = date.getFullYear() + "-" + monthStr + "-" + dayStr
 	queryUrl = url + query
 	const res = await fetch(queryUrl)
