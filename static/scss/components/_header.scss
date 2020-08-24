@@ -15,14 +15,6 @@
   }
 }
 
-.nav-logo {
-  content: url('/static/images/mobile/nav-logo.png');
-
-  @include breakpoint(lg) {
-    content: url('/static/images/desktop/nav-logo.png');
-  }
-}
-
 .navbar-toggler {
   color: $white;
   font-size: 3.5rem;

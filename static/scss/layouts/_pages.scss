@@ -11,20 +11,6 @@
   min-height: 85vh;
 }
 
-.index-title__wrapper {
-  img {
-    content: url('/static/images/mobile/index-title.png');
-
-    @include breakpoint(md) {
-      content: url('/static/images/tablet/index-title.png');
-    }
-
-    @include breakpoint(lg) {
-      content: url('/static/images/desktop/index-title.png');
-    }
-  }
-}
-
 .index-featured {
   img {
     max-width: 80%;
