@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% include 'components/head.html' %}
+	<title>{% if page_title %}{{ page_title }} | {% endif %}Yggdrasil Labs</title>
+</head>
+
+<body>
+	<main class="container-fluid index-main__wrapper">
+		<div class="row index-title__wrapper text-center">
+			<div class="col-6 mx-auto">
+				<p>You are using an unsupported browser, please upgrade to use this website. We recommend <a
+						href="https://www.google.com/intl/en_au/chrome/">Google
+						Chrome.</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mx-auto">
+				<img src="/static/images/desktop/index-title.png" class="mx-auto d-none d-lg-block index-title__lg"
+					alt="Yggdrasil">
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -3,6 +3,7 @@ from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.contrib import messages
 
+from yggdrasil_labs.utils.check_internet_explorer import check_internet_explorer
 from products.models import Product
 from .forms import ContactForm
 
@@ -12,6 +13,8 @@ def index(request):
     Renders the index view.
     """
     products = Product.objects.filter(featured=True)
+    if check_internet_explorer(request):
+        return render(request, "pages/internet-explorer.html")
     context = {
         "products": products,
         "body_class": "body-index",
