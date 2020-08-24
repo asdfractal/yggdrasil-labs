@@ -65,3 +65,7 @@
 .icon-size {
   font-size: 3.5rem !important;
 }
+
+.primary-color__lighten {
+  color: lighten($primary-color, 10%) !important;
+}
