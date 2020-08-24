@@ -1,12 +1,14 @@
 from datetime import datetime
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from checkout.models import Order, OrderLineItem
 from .models import Booking
 from .forms import BookingForm
 
 
+@login_required
 def create_booking(request, order_number):
     """
     View to create a booking if required.
