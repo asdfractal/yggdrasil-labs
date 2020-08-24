@@ -16,6 +16,7 @@
 
 	{% if messages %}
 	{% for message in messages %}
+	{% if not "cart_remove" in message.tags  %}
 	{% with message.level as level %}
 	{% if level == 40 %}
 	{% include 'components/toasts/toast-error.html' %}
@@ -27,6 +28,7 @@
 	{% include 'components/toasts/toast-info.html' %}
 	{% endif %}
 	{% endwith %}
+	{% endif %}
 	{% endfor %}
 	{% endif %}
 

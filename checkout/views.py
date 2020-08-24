@@ -77,9 +77,10 @@ def checkout(request):
                         request, "There was an error with an item in your cart.",
                     )
                     return redirect("view_cart")
-        messages.info(
+        messages.warning(
             request,
             "You had an item in your cart that you have already purchased. It was removed.",
+            extra_tags="cart_remove",
         )
         return redirect("view_cart")
 
