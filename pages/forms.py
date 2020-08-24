@@ -17,3 +17,5 @@ class ContactForm(forms.Form):
         ] = "How can we help you? (required)"
         self.fields["email"].label = False
         self.fields["content"].label = False
+        self.fields["email"].widget.attrs["aria-label"] = "email address"
+        self.fields["content"].widget.attrs["aria-label"] = "message content"

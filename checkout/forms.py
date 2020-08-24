@@ -35,9 +35,10 @@ class OrderForm(forms.ModelForm):
             "street_address2": "Street Address 2",
             "city": "City",
             "postcode": "Postcode",
-            "state": "State",
+            "state": "State or locality",
         }
         self.fields["full_name"].widget.attrs["autofocus"] = True
+        self.fields["country"].widget.attrs["aria-label"] = "country (required)"
         for field in self.fields:
             if field != "country":
                 if self.fields[field].required:
@@ -45,4 +46,5 @@ class OrderForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
+                self.fields[field].widget.attrs["aria-label"] = placeholder
             self.fields[field].label = False

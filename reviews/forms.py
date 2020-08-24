@@ -6,6 +6,7 @@ class ReviewForm(forms.ModelForm):
     """
     Form linked to review model to create or edit a review.
     """
+
     class Meta:
         model = Review
         fields = ["review_content"]
@@ -22,4 +23,5 @@ class ReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["review_content"].label = "Write your review"
+        self.fields["review_content"].label = False
+        self.fields["review_content"].widget.attrs["aria-label"] = "review content"

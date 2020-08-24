@@ -35,10 +35,12 @@ class UserProfileForm(forms.ModelForm):
             "default_postcode": "Postcode",
             "default_state": "State or locality",
         }
+        self.fields["default_country"].widget.attrs["aria-label"] = "country"
         for field in self.fields:
             if field != "default_country":
                 placeholder = placeholders[field]
                 self.fields[field].widget.attrs["placeholder"] = placeholder
+                self.fields[field].widget.attrs["aria-label"] = placeholder
             self.fields[field].label = False
 
 
@@ -60,6 +62,8 @@ class TechSupportForm(forms.Form):
             "subject": "Subject",
             "content": "How can we help you?",
         }
+        self.fields["subject"].widget.attrs["aria-label"] = "subject"
+        self.fields["content"].widget.attrs["aria-label"] = "message content"
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f"{placeholders[field]} (required)"
