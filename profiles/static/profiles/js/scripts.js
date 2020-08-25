@@ -1,6 +1,3 @@
-/*jshint esversion: 10 */
-/*jshint -W033 */
-
 const profileNavItems = {
 	profile_personal: "Personal info",
 	profile_support: "Tech support",

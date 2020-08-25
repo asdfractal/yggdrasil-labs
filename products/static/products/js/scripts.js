@@ -1,6 +1,3 @@
-/*jshint esversion: 10 */
-/*jshint -W033 */
-
 const newReviewForm = $("#newUserReview > form")
 const reviewContent = $("#id_review_content")
 const reviewSubmit = $("#reviewSubmitButton")

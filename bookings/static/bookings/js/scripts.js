@@ -1,6 +1,3 @@
-/*jshint esversion: 10 */
-/*jshint -W033 */
-
 const bookingForm = $("#bookingForm")
 const changeBookingButton = $("#changeBookingButton")
 const cancelChangeBookingButton = $("#cancelChangeBookingButton")
