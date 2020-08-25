@@ -33,9 +33,7 @@ class StripeWebhookHandler:
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
         total_price = round(intent.charges.data[0].amount / 100, 2)
-        user_profile = get_object_or_404(
-            UserProfile, user__username=intent.metadata.username
-        )
+        user_profile = UserProfile.objects.get(user__username=intent.metadata.username)
 
         if shipping_details:
             for key, value in shipping_details.address.items():

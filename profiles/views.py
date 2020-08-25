@@ -27,7 +27,7 @@ def profile(request):
     user information and submission of tech support form.
     """
     user = request.user
-    user_profile = get_object_or_404(UserProfile, user=user)
+    user_profile = UserProfile.objects.get(user=user)
     form_profile = UserProfileForm(instance=user_profile)
     orders = Order.objects.filter(user_profile=user_profile)
     form_tech = TechSupportForm()
