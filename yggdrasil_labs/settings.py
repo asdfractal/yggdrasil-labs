@@ -124,15 +124,15 @@ WSGI_APPLICATION = "yggdrasil_labs.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# Local
-# DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.sqlite3",
-#             "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#         }
-#     }
-
-DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
+if "DATABASE_URL" in os.environ:
+    DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
+    }
 
 
 # Password validation
