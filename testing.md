@@ -253,7 +253,7 @@ Using this validator I tested every page and dealt with any issues that came up,
 Using this validator I tested all the css, the only errors are from third party libraries
 
 #### JavaScript
-Using the VSCode extensions ESLint and Error Lens I am notified in real time of any errors and use this system to validate the code
+Using the VSCode extensions JShint and Error Lens I am notified in real time of any errors and use this system to validate the code
 
 #### Python
 Using the python packages Black, Pylint and Pylint-Django in conjunction with VScode extension Error Lens I am notified in real time of any errors and use this system to validate the code

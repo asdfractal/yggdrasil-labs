@@ -336,6 +336,10 @@ I was on a very tight schedule for this project, and to manage it I created a pl
 * [Slick](https://kenwheeler.github.io/slick/)
 * [SASS/SCSS](https://sass-lang.com/)
 * [Postman](https://www.postman.com/)
+* [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+* [Formate](https://marketplace.visualstudio.com/items?itemName=MikeBovenlander.formate)
+* [JShint](https://jshint.com/)
+* [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
 
 ## Testing & Bugs
