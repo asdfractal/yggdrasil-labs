@@ -1,0 +1,217 @@
+[{
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "name": "Cortical Stack",
+            "category": 1,
+            "sku": "0001",
+            "description": "Our keystone product and your passport to the cybernetic experience. Back-up your life. Full implant installation available.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": false,
+            "price": "1999.99",
+            "image_url": "/static/images/products/implant/cortical-stack.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "name": "Netdeck",
+            "category": 1,
+            "sku": "0002",
+            "description": "Connect directly to the internet anytime, anywhere� no external devices required.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": false,
+            "price": "499.99",
+            "image_url": "/static/images/products/implant/netdeck.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "name": "Cyberoptics",
+            "category": 1,
+            "sku": "0003",
+            "description": "A visual implant that delivers real-time information directly to the brain for enhanced sight.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": true,
+            "price": "2299.99",
+            "image_url": "/static/images/products/implant/cyberoptics.png"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "name": "Neural Network",
+            "category": 1,
+            "sku": "0004",
+            "description": "It�s the internet, but better. Connect, communicate and collaborate with other network users.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": false,
+            "price": "1449.99",
+            "image_url": "/static/images/products/implant/neural-network.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+            "name": "Augmented",
+            "category": 2,
+            "sku": "0005",
+            "description": "An augmented reality app designed to work with cyberoptics for an elevated everyday experience.",
+            "booking_required": false,
+            "shipping_required": false,
+            "featured": false,
+            "price": "49.99",
+            "image_url": "/static/images/products/app/augment.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "name": "Immerse",
+            "category": 2,
+            "sku": "0006",
+            "description": "Take an adventure into the unknown with a virtual reality app for your cyberoptic implant.",
+            "booking_required": false,
+            "shipping_required": false,
+            "featured": false,
+            "price": "69.99",
+            "image_url": "/static/images/products/app/immerse.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "name": "SecureMe",
+            "category": 2,
+            "sku": "0007",
+            "description": "Safeguard yourself against hacking with our premiere security app.",
+            "booking_required": false,
+            "shipping_required": false,
+            "featured": false,
+            "price": "34.99",
+            "image_url": "/static/images/products/app/secure-me.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "name": "Synapse",
+            "category": 2,
+            "sku": "0008",
+            "description": "Explore the full capability of the Neural Network using advanced functionality and features.",
+            "booking_required": false,
+            "shipping_required": false,
+            "featured": true,
+            "price": "49.99",
+            "image_url": "/static/images/products/app/synapse.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "name": "Cortical Dose",
+            "category": 3,
+            "sku": "0009",
+            "description": "A fast and powerful upgrade injected directly into the Cortical Stack for increased functionality.",
+            "booking_required": false,
+            "shipping_required": true,
+            "featured": false,
+            "price": "129.99",
+            "image_url": "/static/images/products/upgrade/cortical-dose.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "name": "Clock Upgrade",
+            "category": 3,
+            "sku": "0010",
+            "description": "Speed up your Netdeck connection in an instant.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": false,
+            "price": "99.99",
+            "image_url": "/static/images/products/upgrade/clock-upgrade.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "name": "Haptic Feedback",
+            "category": 3,
+            "sku": "0011",
+            "description": "Get real-time sensory feedback when interacting with objects through Immerse or Augment.",
+            "booking_required": true,
+            "shipping_required": false,
+            "featured": true,
+            "price": "74.99",
+            "image_url": "/static/images/products/upgrade/haptic-feedback.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "name": "Stack Capacity",
+            "category": 3,
+            "sku": "0012",
+            "description": "Need more storage? Upgrade your Cortical Stack capacity in an instant.",
+            "booking_required": false,
+            "shipping_required": true,
+            "featured": false,
+            "price": "34.99",
+            "image_url": "/static/images/products/upgrade/stack-capacity.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 13,
+        "fields": {
+            "name": "Neuron Capacity",
+            "category": 3,
+            "sku": "0013",
+            "description": "Gain more processing power for your Neural Network.",
+            "booking_required": false,
+            "shipping_required": true,
+            "featured": false,
+            "price": "79.99",
+            "image_url": "/static/images/products/upgrade/neuron-capacity.jpg"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "name": "implant"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 2,
+        "fields": {
+            "name": "app"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "name": "upgrade"
+        }
+    }
+]
