@@ -38,7 +38,18 @@ This is a full stack website developed for Code Institute milestone project 4. S
 * Features
     * Implemented Features
     * Planned Features
+    * Extra comments
 * Technologies Used
+    * Languages
+    * Tools & Libraries
+* Testing & Bugs
+* Deployment
+    * Local Deployment
+    * Heroku Deployment
+* Credits
+    * Images
+* Acknowledgements
+* Disclaimer
 
 
 ## User Experience
@@ -126,7 +137,7 @@ I have wanted to use scss for some time and this project I have decided to imple
     * vendor - any third party imports
 
 ### Images
-Credits
+I created the logo and index page title using the Elianto Font. The rest of the images are taken from the internet and credited in the credits section of the readme
 
 ### Wireframes
 Using the program Pencil I designed wireframes for desktop and mobile/tablet. The mobile/tablet are combined because there will be minimal differences in the design. The wireframes can be viewed [here](/wireframes/).
@@ -287,6 +298,9 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * News page with featured articles to post updates about the company's latest developments
 * Community hub for people to connect and share open source apps for cyberware
 
+### Extra comments
+I was on a very tight schedule for this project, and to manage it I created a plan of development based on the MVP (minimum viable product) concept. To do this I worked in an iterative process where I created the whole project at a functional level and then improved features with the remaining time I had. I think this taught me valuable lessons in planning and time management while developing a project. It also made me decide what were the most important things to focus on to have a project ready in time, which I believe is relevant to real-world situations
+
 
 ## Technologies Used
 ### Languages
@@ -295,7 +309,7 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * [JavaScript](https://www.w3schools.com/js/)
 * [Python](https://www.python.org/)
 
-### Tools and Libraries
+### Tools & Libraries
 * [Django](https://www.djangoproject.com/)
 * [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 * [PostgreSQL](https://www.postgresql.org/)
@@ -324,5 +338,161 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * [Postman](https://www.postman.com/)
 
 
-## Testing
-A full write up for testing and dealing with bugs is available [here](/testing.md)
+## Testing & Bugs
+A full write up for testing and dealing with bugs is [here](/testing.md)
+
+
+## Deployment
+
+Note: These instructions are applicable to Windows and VSCode, and will be using the tool [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/). A requirements.txt file is also available if you are not using Pipenv.
+Install Pipenv with this command
+
+    `pip install --user pipenv`
+
+### Local Deployment
+Requirements to run locally:
+* An IDE such as [VSCode](https://code.visualstudio.com/)
+* You have have installed -
+* [Python 3](https://www.python.org/downloads/)
+* [PIP](https://pip.pypa.io/en/stable/installing/)
+* [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+* You have a free account with -
+* [Stripe](https://dashboard.stripe.com/register)
+
+#### Instructions
+
+1. Clone the repository with this command
+
+    `git clone https://github.com/asdfractal/yggdrasil-labs`
+
+2. In your IDE terminal, navigate to this folder
+3. Install the required packages and start your virtual environment with these commands
+
+    `pipenv install`
+
+    `pipenv shell`
+
+4. Set up your environment variables
+    * create a folder in project root called `.vscode`, inside this folder create a file called `settings.json` and create this json object
+
+    ```json
+        "terminal.integrated.env.windows": {
+            "DEVELOPMENT": "1",
+            "STRIPE_PUBLIC_KEY": "<your key>",
+            "STRIPE_SECRET_KEY": "<your key>",
+            "STRIPE_WH_SECRET": "<your key>",
+            "SECRET_KEY": "<your key>",
+            "EMAIL_PASSWORD": "<your password>",
+            "EMAIL_HOST": "<your email>"
+        }
+    ```
+
+    * Restart VSCode to activate the variables, and restart your environment with `pipenv shell`
+    * Create a `.gitignore` file and add `.vscode` to ensure the security of your environment variables
+
+5. Migrate the database models with this command
+
+    `python manage.py migrate`
+
+6. Load the data into the database with this command
+
+    `python manage.py loaddata products.json`
+
+7. Create a superuser with this command
+
+    `python manage.py createsuperuser`
+
+8. Run the app with this command
+
+    `python manage.py runserver`
+
+    * The address to access the website is displayed in the termianl
+    * add `/admin` to the end to access the admin panel with your superuser credentials
+
+### Heroku Deployment
+It is recommended to have the project in a github repository to deploy to Heroku
+
+1. On the [Heroku](https://www.heroku.com/) website, create an account or login
+2. Create a new app from your dashboard by clicking **New** and then **Create new app**
+3. Enter a name, select a region and then click **Create app**
+4. On the app page, click on **Resources**
+5. In the add-ons section of the page, type `postgres` and select Heroku Postgres
+6. Select the **Hobby Dev — Free** option from the dropdown and click **Provision**
+7. Click on **Reveal Config Vars** in the Convig Vars section
+8. Set the following Config Vars
+
+    | Key | Value |
+    --- | ---
+    STRIPE_PUBLIC_KEY | <"your key here">
+    STRIPE_SECRET_KEY | <"your key here">
+    STRIPE_WH_SECRET | <"your key here">
+    SECRET_KEY | <"your key here">
+    EMAIL_HOST_PASS | <"your email/app password">
+    EMAIL_HOST_USER | <"your email">
+    * Note - If you use a different email service than gmail, you will need to change the `EMAIL_HOST` setting in settings.py
+
+9. From this screen, copy the value of DATABASE_URL
+10. Add a new entry to the settings.json `"terminal.integrated.env.windows"` setting
+
+    ```json
+    "DATABASE_URL": "<Value copied from Heroku>"
+    ```
+    * Restart VSCode to activate the variables, and restart your environment with `pipenv shell`
+
+11. Migrate the models to the database with this command
+
+    `python manage.py migrate`
+
+12. Load the data into the database with this command
+
+    `python manage.py loaddata products.json`
+
+13. Create a superuser with this command
+
+    `python manage.py createsuperuser`
+
+14. In the project settings.py add your heroku app url to the allowed hosts setting
+
+    `ALLOWED_HOSTS = ["<url>"]`
+    * You will need to push this change to a github repository
+
+15. In Heroku, click on **Deploy** in the navigation bar
+16. In the **Deployment** section, select **GitHub** as the deployment method
+17. Connect to the github repository for the project
+18. Click Deploy Branch
+    * Optionally enable automatic deploys to deploy every time a the repository is updated
+19. Click on **Activity** tab to see the build log
+21. When build has succeeded, click on **Open App** to view the deployed site
+
+## Credits
+Chris Zielinski and the Boutique Ado project
+
+### Images
+* [Index Background](https://www.wallpaperflare.com/)
+* [About Background](https://wallpapersafari.com/)
+* Order page tree - [adoomer](https://www.deviantart.com/adoomer)
+* [Augment](https://www.facebook.com/Techsupportnow/)
+* [Immerse](https://visualmodo.com/keep-up-tech-trends/)
+* [SecureMe](https://www.vectorstock.com/)
+* [Synanpse](https://www.shutterstock.com/)
+* [Cortical Stack](https://www.gamespot.com/articles/altered-carbon-review-netflix-spins-up-a-new-cyber/1100-6456241/)
+* [Cyberoptics](https://www.polygon.com/2020/3/15/21180442/westworld-incite-ai-rehoboam-season-3-explained)
+* [Netdeck](https://www.redbubble.com/i/t-shirt/CPU-Computer-Heart-White-by-UnitedsWorld/11402131.FB110#&gid=1&pid=3)
+* [Neural Network](https://www.shutterstock.com/)
+* [Clock Upgrade](https://www.wallpaperize.cc/)
+* Cortical Dose - [Jie Liou](https://www.artstation.com/jie8241)
+* [Haptic Feedback](https://pngtree.com/)
+* [Neuron Capacity](https://vironit.com/neural-network-why-it-is-so-necessary-to-use-it-in-it-development/)
+* [Stack Capacity](https://no.pinterest.com/pin/731975745677155963/)
+
+
+## Acknowledgements
+
+Huge thanks to Simen Daehlin for being an incredible mentor and teacher, and for helping me stay on top of everything when I was struggling.
+
+Thanks to Chris Zielinski for being very active on slack and answering questions and personal messages, as well as the amazing Boutique Ado mini project.
+
+Code Institue for this great course and network that I am grateful to be a part of.
+
+### Disclaimer
+This site is part of a course project and is intended for educational purposes only
