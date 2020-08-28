@@ -164,4 +164,5 @@ def checkout_success(request, order_number):
         "order": order,
         "page_title": "Success",
     }
+    messages.success(request, "Order placed successfully")
     return render(request, "checkout/checkout-success.html", context)
