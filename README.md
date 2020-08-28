@@ -3,6 +3,7 @@
 Yggdrasil Labs is a cybernetics and bioware company providing implants and other transhuman upgrades. Site visitors can browse the range of products and add to their cart. Due to the nature of the business it is required to register before checking out, as it is possible a booking must be created. Also the business offers technical support to it's clients.
 
 This is a full stack website developed for Code Institute milestone project 4. Since this website is for educational purposes, email verification is not required.
+If you want to use the full functionality of this website, Stripe test payments are enabled with the card number `4242 4242 4242 4242` and any CVC, future expiry date, and postcode.
 
 ## Contents:
 * User Experience
@@ -63,7 +64,6 @@ To offer users a service for purchasing and installing cybernetic implants. User
 * Book appointments and receive technical support
 * Post reviews and feedback about the products and the service
 * Intuitive and visually appealing website design
-
 * Website can be used on all devices
 
 ### Site Owner Goals
@@ -119,14 +119,16 @@ I am also using the following colours for message alerts
 
 ### Fonts
 * Title/Logo - [Elianto](https://www.behance.net/gallery/33808280/Elianto-Free-Font) - A unique font used for the business title and logo
-* Display - [Orbitron](https://fonts.google.com/specimen/Orbitron) - This font is perfect for the desired feel of the website. Bold, solid, and professional with a unique character
+* Headers - [Orbitron](https://fonts.google.com/specimen/Orbitron) - This font is perfect for the desired feel of the website. Bold, solid, and professional with a unique character
 * Body font - [Raleway](https://fonts.google.com/specimen/Raleway) - Easy to read and well spaced, compliments the display font
 
 ### Icons
 I have used a range of font awesome icons across the website to aid in displaying content and navigation options instead of using only text.
 
 ### Styles
-I have wanted to use scss for some time and this project I have decided to implement it for the first time. I have used [this](https://matthewelsom.com/blog/simple-scss-playbook.html) resource as a guide for the architechture.
+I have wanted to use scss for some time and this project I have decided to implement it for the first time. I have used [this](https://matthewelsom.com/blog/simple-scss-playbook.html) resource as a guide for the architechture. I am using the [BEM](http://getbem.com/) naming convention for my CSS classes to create modular, reusable components.
+
+Note on CSS: I have chosen to use vw/vh on padding and margins in a lot of cases as I believe this allows for an even more responsive experience than using solely rem. My decision was influenced by my own experimentation as well as researching, particularly [this](https://www.elegantthemes.com/blog/divi-resources/better-mobile-website-design-how-to-use-vw-vh-and-rem-to-create-fluid-divi-pages) article.
 
 #### Folder structure
 * scss
@@ -134,7 +136,6 @@ I have wanted to use scss for some time and this project I have decided to imple
     * base - top of the document resets, utility classes, etc.
     * components - reusable components with general styles
     * layout - specific styles for individual pages or components
-    * vendor - any third party imports
 
 ### Images
 I created the logo and index page title using the Elianto Font. The rest of the images are taken from the internet and credited in the credits section of the readme
@@ -147,10 +148,14 @@ For consistency and readable code I am using formatters and format on save optio
 * HTML - Beautify
 * SCSS - Formate
 * JavaScript - Prettier (options)
-    * "printWidth": 88,
-    * "tabWidth": 4,
-    * "trailingComma": "all",
-    * "semi": false
+
+    ```json
+    "printWidth": 88,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "semi": false
+    ```
+
 * Python - Black
 
 #### Rationale
@@ -233,7 +238,7 @@ Stripe PID|stripe_pid|CharField|max_length=254, null=False, blank=False, default
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Order|order|ForeignKey|Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'
-Product|product|ForeignKey|Product, null=False, blank=False, on_delete=models.CASCADE
+Product|product|ForeignKey|Product, null=False, blank=False, on_delete=models.PROTECT
 Total|total|DecimalField|max_digits=6, decimal_places=2, null=False, blank=False, editable=False, default=0,
 
 
@@ -263,7 +268,6 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * Toasts to display messages as popups on every page using django messages module, with messages for most actions across the website
 * Featured product and social proof carousel on the index page
 * Custom error page templates that extend the base template and keep the user experience consistant
-* Manually set timed cookie to notify the user if they have a booking waiting to be placed
 * Contact Form for general enquiries
 
 #### User Profile
@@ -273,6 +277,7 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 #### Products & Reviews
 * Products card display with a detailed page on clicking. Buttons to buy on all products for ease of adding to cart
 * Featured review on the product details, with a full page for all reviews. Clients can leave a review about products they have purchased
+* Verification system to ensure reviews are only from clients who have purchased the product
 
 #### Cart & Checkout
 * Cart in the session that stores selection of products and has checks to stop unintended behaviour such as multiple items requiring bookings per order
@@ -285,6 +290,7 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * A booking system for orders with products that require a booking
 * After successfully placing an order that requires a booking, a related booking model is created and the user is notified they need to set the time
 * Datepicker calendar using JQuery UI and buttons to select from a range of times
+* Manually set timed session variable to notify via toast messages the user if they have a booking waiting to be placed
 
 #### API
 * An internal API to handle dynamic updating of the booking system

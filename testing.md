@@ -22,14 +22,13 @@
         * JavaScript
         * Python
     * Chrome devtools Lighthouse
-
 * Bugs
 
 
 ## Testing
 The whole project was testing thorougly throughout the development process using Chrome Dev Tools and personally using the features.
 
-#### Authentication
+### Authentication
 
 ##### Expectation
 There are certain parts of the website not accessable to unregistered users
@@ -53,7 +52,9 @@ This test has passed
 ### Feature Tests
 Doing these feature tests I have ensured that I cover all requirements and expectations of the user stories, as well as adding additional functionality and user experience through testing initial implementation and improving on the experience.
 
-#### User Profile
+----
+
+### User Profile
 
 ##### Expectation
 Users can register, login and have a personal profile. If they want they can store their billing information, access order history and manage other aspects of their use of the site
@@ -71,7 +72,7 @@ Users can sign up and a profile will automatically be created. There is a functi
 ##### Verdict
 This test has passed
 
-#### Products
+### Products
 
 ##### Expectation
 View a list of products, view detailed information about specific product
@@ -86,7 +87,7 @@ All products are displaying, filtering works and products have their own page wi
 ##### Verdict
 This test has passed
 
-#### Reviews
+### Reviews
 
 ##### Expectation
 Users can leave a review informing other potential clients of their experience
@@ -102,7 +103,7 @@ Users can write a review about products they are confirmed to have purchased, en
 ##### Verdict
 This test has passed
 
-#### Cart & Checkout
+### Cart & Checkout
 
 ##### Expectation
 Select products and add them to cart, remove products, purchase selection through a secure checkout and book an appointment if required
@@ -122,7 +123,7 @@ It is simple to add products to cart and view the contents before checkout. User
 ##### Verdict
 This test has passed
 
-#### Booking system
+### Booking system
 
 ##### Expectation
 Users can make a booking if they purchase a product that it is required for
@@ -142,7 +143,7 @@ The booking system works in conjunction with the checkout process and takes into
 ##### Verdict
 This test has passed
 
-#### API
+### API
 
 ##### Expectation
 A system that queries existing bookings in the database and returns the objects to ensure only available times can be selected
@@ -161,7 +162,7 @@ The API handles requests and provides the expected response and the booking syst
 ##### Verdict
 This test has passed
 
-#### Toast Messages
+### Toast Messages
 
 ##### Expectation
 Users are notified of actions or errors via a popup message
@@ -176,7 +177,7 @@ Toast messages are displayed for most actions and all errors across the site, en
 ##### Verdict
 This test has passed
 
-#### Contact Form
+### Contact Form
 
 ##### Expectation
 Users can submit a contact form to ask questions or otherwise contact the business. Should be available to unregistered users
@@ -266,7 +267,7 @@ I tested every page using Lighthouse and fixed any issues to do with accessibili
 
 ### Development bugs
 
-#### Booking notification toast message
+### Booking notification toast message
 
 ##### Bug
 There is a toast message that pops up informing the user of an open booking they have to make, using a contxt processor to make it available across the whole site. On first implementation it was showing every time the page was reloaded or changed to a different view, becoming very annoying
@@ -276,7 +277,7 @@ Using datetime create a session variable with a value of 10 minutes from current
 This bug was fixed and the user isn't overloaded with toast notifications
 
 
-#### Booking time button not enabling or disabling properly
+### Booking time button not enabling or disabling properly
 
 ##### Bug
 When there were 0, 1 or 3 bookings it was working as intended, but with 2 it would not enable correct buttons. This is because my initial implementation was looping through the response objects and enabling buttons that did not match the time. But when there were 2 bookings it would match a time on the first booking and then match a different time on the second, therefore enabling the first time button
@@ -285,7 +286,7 @@ I created the permanentTimes array, which has the slots the business has made pr
 ##### Verdict
 This bug was fixed and the correct times are made available to the user
 
-#### Booking query not working on single digit days
+### Booking query not working on single digit days
 
 ##### Bug
 I tried to make a booking on days in early September and confirmed there were bookings in the database, but all times were made available. I realised while I had accounted for single digit months I had not done so for the days, so the query to the database was incorrect
@@ -295,7 +296,7 @@ Add the same process to the month by converting the date to a string and adding 
 This bug was fixed and the correct queries are sent to the database
 
 
-#### Checkout caused crash when not logged in
+### Checkout caused crash when not logged in
 
 ##### Bug
 When created a cart while not logged in, clicking checkout caused a server crash because it was not set up to handle anonymous checkouts
@@ -305,7 +306,7 @@ I added a login required decorator to the checkout view. While this worked fine,
 This bug was fixed and the checkout does not crash
 
 
-#### Deleting repeat items from the cart
+### Deleting repeat items from the cart
 
 ##### Bug
 If a user has made purchases before and creates a cart when logged out, and then logs in through the checkout redirect, there is a system to remove products they have already purchased. It was working but would return after the first item found, even if they had multiple repeat items
@@ -314,7 +315,7 @@ To fix this I created a list called duplicate products and appended any id of a 
 ##### Verdict
 This bug is fixed and the user is unable to add repeat purchases to their cart
 
-#### Microsoft Edge css 'content: url' property
+### Microsoft Edge css 'content: url' property
 
 ##### Bug
 Images on the navbar and index page were not displayed properly because Edge does not recognise this property
