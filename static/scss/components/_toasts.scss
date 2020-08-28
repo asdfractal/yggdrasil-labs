@@ -1,7 +1,5 @@
-.toast {
+.messages__wrapper {
   z-index: 1020;
-  border: 0;
-  border-radius: 0;
   position: fixed;
   top: 65px;
   right: 5px;
@@ -11,20 +9,20 @@
   }
 }
 
+.toast {
+  border: 0;
+  border-radius: 0;
+}
+
 .toast-close {
   font-size: 2.7rem;
   position: absolute;
   right: 1px;
-  bottom: 1px;
-}
-
-.toast-header {
-  background-color: $lightgrey;
-  border: 0;
-
-  img {
-    max-width: 310px;
-  }
+  bottom: -10px;
+  background: transparent;
+  color: $white;
+  padding: 0;
+  margin: 0;
 }
 
 .toast-body {
@@ -33,7 +31,7 @@
   font-size: 1.6rem;
 
   @include breakpoint(lg) {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 

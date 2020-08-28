@@ -1,9 +1,5 @@
 $(".toast").toast("show")
 
-$(".toast-close").click(() => {
-	$(".toast").toast("hide")
-})
-
 $(document).ready(function () {
 	$(".index-featured").slick({
 		infinite: true,

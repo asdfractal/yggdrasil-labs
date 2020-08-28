@@ -1,7 +1,14 @@
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="8000">
 	<div class="toast-body">
-		<span class="mr-4">{{ message }}</span>
-		<i class="fas fa-times toast-close"></i>
+		<div class="row no-gutters">
+			<div class="col-11">
+				<p>{{ message }}</p>
+			</div>
+			<div class="col-1">
+				<button class="toast-close" type="button" data-dismiss="toast" aria-label="Close"><i
+						class="fas fa-times"></i></button>
+			</div>
+		</div>
 	</div>
 	<div class="toast-decorator error-bg"></div>
 </div>
