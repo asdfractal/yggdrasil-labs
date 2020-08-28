@@ -38,8 +38,10 @@ def profile(request):
             if form_profile.is_valid():
                 form_profile.save()
                 messages.success(request, "Profile updated.")
+                return redirect("profile")
             else:
                 messages.error(request, "Error updating profile.")
+                return redirect("profile")
 
         elif TechSupportForm().prefix in request.POST:
             form_tech = TechSupportForm(request.POST)
