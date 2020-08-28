@@ -44,8 +44,8 @@ If you want to use the full functionality of this website, Stripe test payments 
     * Languages
     * Tools & Libraries
 * Testing & Bugs
-* Deployment
-    * Local Deployment
+* Development & Deployment
+    * Local Development and Set-Up
     * Heroku Deployment
 * Credits
     * Images
@@ -315,31 +315,32 @@ I was on a very tight schedule for this project, and to manage it I created a pl
 * [JavaScript](https://www.w3schools.com/js/)
 * [Python](https://www.python.org/)
 
-### Tools & Libraries
+### Libraries
 * [Django](https://www.djangoproject.com/)
-* [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
-* [PostgreSQL](https://www.postgresql.org/)
 * [Black](https://pypi.org/project/black/)
 * [Pylint](https://pypi.org/project/pylint/)
 * [Pylint-django](https://pypi.org/project/pylint-django/)
 * [Gunicorn](https://gunicorn.org/)
 * [Django-allauth](https://pypi.org/project/django-allauth/)
 * [Django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
-* [Pillow](https://pypi.org/project/Pillow/)
 * [Django-countries](https://pypi.org/project/django-countries/)
 * [Stripe](https://stripe.com/ie)
 * [Whitenoise](https://pypi.org/project/whitenoise/)
-* [dj-database-url](https://pypi.org/project/dj-database-url/)
-* [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+* [Dj-database-url](https://pypi.org/project/dj-database-url/)
+* [Psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
 * [Django-tastypie](https://pypi.org/project/django-tastypie/)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 * [JQuery UI](https://jqueryui.com/)
 * [Popper.JS](https://popper.js.org/)
+* [Slick](https://kenwheeler.github.io/slick/)
+
+### Tools
+* [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com)
 * [Git](https://git-scm.com/)
-* [Slick](https://kenwheeler.github.io/slick/)
 * [SASS/SCSS](https://sass-lang.com/)
 * [Postman](https://www.postman.com/)
 * [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -347,27 +348,26 @@ I was on a very tight schedule for this project, and to manage it I created a pl
 * [JShint](https://jshint.com/)
 * [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 
-
 ## Testing & Bugs
-A full write up for testing and dealing with bugs is [here](/testing.md)
+A full write up for testing and dealing with bugs is [here](/TESTING.md)
 
+## Development & Deployment
+Note: *These instructions are applicable to Windows and VSCode, and will be using the tool [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/). A requirements.txt file is also available if you are not using Pipenv. If you are not using Windows or VSCode please refer to your IDE documentation for any differences.*
 
-## Deployment
-
-Note: These instructions are applicable to Windows and VSCode, and will be using the tool [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/). A requirements.txt file is also available if you are not using Pipenv.
-Install Pipenv with this command
-
-    `pip install --user pipenv`
-
-### Local Deployment
+### Local Development and Set-Up
 Requirements to run locally:
 * An IDE such as [VSCode](https://code.visualstudio.com/)
-* You have have installed -
+
+You have have installed
 * [Python 3](https://www.python.org/downloads/)
 * [PIP](https://pip.pypa.io/en/stable/installing/)
 * [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
-* You have a free account with -
-* [Stripe](https://dashboard.stripe.com/register)
+
+You have a free account with [Stripe](https://dashboard.stripe.com/register). To get your testing secret keys for Stripe and assistance in setting it up for the project, please visit the developer section of their website and follow the instructions.
+
+Install Pipenv with this command
+
+`pip install --user pipenv`
 
 #### Instructions
 
@@ -383,20 +383,24 @@ Requirements to run locally:
     `pipenv shell`
 
 4. Set up your environment variables
-    * create a folder in project root called `.vscode`, inside this folder create a file called `settings.json` and create this json object
+    * create a folder in project root called `.vscode`, inside this folder create a file called `settings.json` and create this json object. Remove the angle brackets `<>` and place your variables inside the quotes.
 
     ```json
         "terminal.integrated.env.windows": {
             "DEVELOPMENT": "1",
             "STRIPE_PUBLIC_KEY": "<your key>",
             "STRIPE_SECRET_KEY": "<your key>",
-            "STRIPE_WH_SECRET": "<your key>",
+            "STRIPE_WEBHOOK_SECRET": "<your key>",
+            "STRIPE_CURRENCY": "<payment currency>",
             "SECRET_KEY": "<your key>",
-            "EMAIL_PASSWORD": "<your password>",
-            "EMAIL_HOST": "<your email>"
+            "EMAIL_HOST": "<your email host server>",
+            "EMAIL_HOST_USER": "<your email address>",
+            "EMAIL_PASSWORD": "<your email app password>",
+            "EMAIL_PORT": "<your email host port>"
         }
     ```
 
+    * Note: `SECRET_KEY` is a long random string and can be generated [here](https://miniwebtool.com/django-secret-key-generator/)
     * Restart VSCode to activate the variables, and restart your environment with `pipenv shell`
     * Create a `.gitignore` file and add `.vscode` to ensure the security of your environment variables
 
@@ -408,7 +412,7 @@ Requirements to run locally:
 
     `python manage.py loaddata products.json`
 
-7. Create a superuser with this command
+7. Create a superuser and set up the credentials with this command
 
     `python manage.py createsuperuser`
 
@@ -416,11 +420,10 @@ Requirements to run locally:
 
     `python manage.py runserver`
 
-    * The address to access the website is displayed in the termianl
+    * The address to access the website is displayed in the terminal
     * add `/admin` to the end to access the admin panel with your superuser credentials
 
 ### Heroku Deployment
-It is recommended to have the project in a github repository to deploy to Heroku
 
 1. On the [Heroku](https://www.heroku.com/) website, create an account or login
 2. Create a new app from your dashboard by clicking **New** and then **Create new app**
@@ -433,13 +436,16 @@ It is recommended to have the project in a github repository to deploy to Heroku
 
     | Key | Value |
     --- | ---
-    STRIPE_PUBLIC_KEY | <"your key here">
-    STRIPE_SECRET_KEY | <"your key here">
-    STRIPE_WH_SECRET | <"your key here">
-    SECRET_KEY | <"your key here">
-    EMAIL_HOST_PASS | <"your email/app password">
-    EMAIL_HOST_USER | <"your email">
-    * Note - If you use a different email service than gmail, you will need to change the `EMAIL_HOST` setting in settings.py
+    `PRODUCTION` | `1`
+    `STRIPE_PUBLIC_KEY` | `your key`
+    `STRIPE_SECRET_KEY` | `your key`
+    `STRIPE_WEBHOOK_SECRET` | `your key`
+    `STRIPE_CURRENCY` | `payment currency`
+    `SECRET_KEY` | `your key`
+    `EMAIL_HOST` | `your email host server`
+    `EMAIL_PASSWORD` | `your email/app password`
+    `EMAIL_HOST_USER` | `your email address`
+    `EMAIL_PORT` | `your email host port`
 
 9. From this screen, copy the value of DATABASE_URL
 10. Add a new entry to the settings.json `"terminal.integrated.env.windows"` setting
@@ -463,15 +469,24 @@ It is recommended to have the project in a github repository to deploy to Heroku
 
 14. In the project settings.py add your heroku app url to the allowed hosts setting
 
-    `ALLOWED_HOSTS = ["<url>"]`
-    * You will need to push this change to a github repository
+    `ALLOWED_HOSTS = ["YOUR_URL"]`
 
-15. In Heroku, click on **Deploy** in the navigation bar
-16. In the **Deployment** section, select **GitHub** as the deployment method
-17. Connect to the github repository for the project
-18. Click Deploy Branch
+15. Before proceeding further you must create a new repo on github by following these steps
+    * On the [GitHub](https://github.com/) website, sign in or create an account
+    * Click on the *green* **New** button and give your repo a name, then click **Create repository**
+    * From the **Quick setup** section copy the github url to your repo
+    * In the terminal in your IDE, make sure you are in the project folder, change the remote and push with these commands
+
+    `git remote set-url origin YOUR_REPO_URL`
+
+    `git push`
+
+16. In Heroku, click on **Deploy** in the navigation bar
+17. In the **Deployment** section, select **GitHub** as the deployment method
+18. Search for your repository and click **Connect**
+19. Click Deploy Branch
     * Optionally enable automatic deploys to deploy every time a the repository is updated
-19. Click on **Activity** tab to see the build log
+20. Click on **Activity** tab to see the build log
 21. When build has succeeded, click on **Open App** to view the deployed site
 
 ## Credits
@@ -495,12 +510,11 @@ Chris Zielinski and the Boutique Ado project
 * [Neuron Capacity](https://vironit.com/neural-network-why-it-is-so-necessary-to-use-it-in-it-development/)
 * [Stack Capacity](https://no.pinterest.com/pin/731975745677155963/)
 
-
 ## Acknowledgements
 
-Huge thanks to Simen Daehlin for being an incredible mentor and teacher, and for helping me stay on top of everything when I was struggling.
+Huge thanks to [Simen Daehlin](https://github.com/Eventyret) for being an incredible mentor and teacher, and for helping me stay on top of everything when I was struggling.
 
-Thanks to Chris Zielinski for being very active on slack and answering questions and personal messages, as well as the amazing Boutique Ado mini project.
+Thanks to [Chris Zielinski](https://github.com/ckz8780) for being very active on slack and answering questions and personal messages, as well as the amazing Boutique Ado mini project.
 
 Code Institue for this great course and network that I am grateful to be a part of.
 
