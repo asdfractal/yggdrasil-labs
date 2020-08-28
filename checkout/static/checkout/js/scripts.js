@@ -57,10 +57,12 @@ form.addEventListener("submit", (e) => {
 	$("#paymentSubmit").attr("disabled", true)
 	loadingSpinner.fadeToggle(100)
 
+	const saveInfo = Boolean($("#saveInfo").attr("checked"))
 	const csrfToken = $('input[name="csrfmiddlewaretoken"]').val()
 	const postData = {
 		csrfmiddlewaretoken: csrfToken,
 		client_secret: clientSecret,
+		save_info: saveInfo,
 	}
 	const url = "/checkout/cache_checkout_data/"
 

@@ -27,6 +27,7 @@ def cache_checkout_data(request):
             metadata={
                 "cart": json.dumps(request.session.get("cart", {})),
                 "username": request.user,
+                "save_info": request.POST.get("save_info"),
             },
         )
         return HttpResponse(status=200)
@@ -104,6 +105,7 @@ def checkout(request):
             order.check_complete_create_booking(order=order, user_profile=user_profile)
             user_profile.is_client = True
             user_profile.check_personal_key()
+            request.session["save_info"] = "save-info" in request.POST
             return redirect(reverse("checkout_success", args=[order.order_number]))
         messages.error(
             request,
@@ -155,10 +157,23 @@ def checkout_success(request, order_number):
     """
     A view confirming successful checkout.
     """
+    save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
+    user_profile = UserProfile.objects.get(user=request.user)
 
     if "cart" in request.session:
         del request.session["cart"]
+
+    if save_info:
+        user_profile.default_full_name = order.full_name
+        user_profile.default_phone_number = order.phone_number
+        user_profile.default_street_address1 = order.street_address1
+        user_profile.default_street_address2 = order.street_address2
+        user_profile.default_city = order.city
+        user_profile.default_postcode = order.postcode
+        user_profile.default_state = order.state
+        user_profile.default_country = order.country
+        user_profile.save()
 
     context = {
         "order": order,
