@@ -24,7 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DEVELOPMENT" in os.environ
+if "PRODUCTION" in os.environ:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = [
     "yggdrasil-labs.herokuapp.com",
@@ -68,7 +71,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "yggdrasil_labs.urls"
 
-if not "DEVELOPMENT" in os.environ:
+if "PRODUCTION" in os.environ:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
@@ -170,19 +173,19 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-if "DEVELOPMENT" in os.environ:
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST")
-else:
+if "PRODUCTION" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_HOST = "smtp.gmail.com"
-    EMAIL_HOST_USER = os.getenv("EMAIL_HOST")
+    EMAIL_HOST = os.getenv("EMAIL_HOST")
+    EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
     EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
+    EMAIL_PORT = int(os.getenv("EMAIL_PORT"))
     DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST")
 
-STRIPE_CURRENCY = "usd"
+STRIPE_CURRENCY = os.getenv("STRIPE_CURRENCY")
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
