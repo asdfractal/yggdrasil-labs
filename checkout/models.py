@@ -123,7 +123,7 @@ class OrderLineItem(models.Model):
         related_name="lineitems",
     )
     product = models.ForeignKey(
-        Product, null=False, blank=False, on_delete=models.CASCADE
+        Product, null=False, blank=False, on_delete=models.PROTECT
     )
     total = models.DecimalField(
         max_digits=6,
