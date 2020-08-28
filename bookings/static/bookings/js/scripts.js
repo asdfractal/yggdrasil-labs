@@ -32,7 +32,7 @@ document.querySelectorAll(".button-booking-time").forEach((button) => {
 })
 
 /**
- * Adds a zero to the start of the date to send a proper query to the database
+ * Adds a zero to the start of the date to send a proper query to the database.
  * @param {string} str Date number in string format
  * @returns {string} returns string to be appended to query
  */
@@ -44,7 +44,8 @@ const addZero = (str) => {
 }
 
 /**
- * Query server for bookings on the selected date. Appends a 0 to single digit months.
+ * Query server for bookings on the selected date.
+ * @async
  * @param {string} url base api url to append to
  * @param {string} date date to query
  * @returns {object} JSON data from api
@@ -62,7 +63,8 @@ const checkDates = async (url, date) => {
 }
 
 /**
- * Process the api response and update the dom
+ * Process the api response and update the dom.
+ * @async
  * @param {string} url base api url to append to
  * @param {string} date date to query
  */
@@ -92,7 +94,7 @@ const processDates = async (url, date) => {
 
 /**
  * Disables the time selection buttons before api response and resets time input
- * value to ensure an already booked time is not selected
+ * value to ensure an already booked time is not selected.
  */
 const disableTimes = () => {
 	document.querySelectorAll(".button-booking-time").forEach((el) => {

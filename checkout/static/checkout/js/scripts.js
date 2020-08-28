@@ -25,7 +25,7 @@ const style = {
 const card = elements.create("card", { style: style })
 
 /**
- * Enables form after an error
+ * Enables form after an error.
  */
 const enableForm = () => {
 	loadingSpinner.fadeToggle(100)
