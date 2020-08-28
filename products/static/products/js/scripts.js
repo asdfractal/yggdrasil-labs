@@ -3,6 +3,7 @@ const reviewContent = $("#id_review_content")
 const reviewSubmit = $("#reviewSubmitButton")
 const editReview = $("#editReview")
 const categories = ["implant", "app", "upgrade"]
+const productFilterButton = $(".product-filter-button")
 const filterActive = "js-product-filter-button__active"
 
 /**
@@ -46,7 +47,6 @@ const clearFilter = () => {
 	categories.forEach((cat) => {
 		$(`.js-filter-${cat}`).removeClass("d-none")
 		$(`#${cat}`).removeClass(filterActive)
-		$("#clearFilter").addClass("text-muted")
 	})
 }
 
@@ -64,7 +64,6 @@ const filterById = (id) => {
 			$(`#${cat}`).removeClass(filterActive)
 		}
 	})
-	$("#clearFilter").removeClass("text-muted")
 }
 
 // Adds a click event to all matching buttons
@@ -72,14 +71,15 @@ document.querySelectorAll(".product-filter-button").forEach((element) => {
 	element.addEventListener("click", function (e) {
 		e.preventDefault()
 		_this = $(this)
-		filterId = getFilterId()
-		filterById(filterId)
+		if (this.classList.contains("js-product-filter-button__active")) {
+			clearFilter()
+		} else {
+			productFilterButton.removeClass("js-product-filter-button__active")
+			this.classList.add("js-product-filter-button__active")
+			filterId = getFilterId()
+			filterById(filterId)
+		}
 	})
-})
-
-$("#clearFilter").click((e) => {
-	e.preventDefault()
-	clearFilter()
 })
 
 $(document).ready(function () {
