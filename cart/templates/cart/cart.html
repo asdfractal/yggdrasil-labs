@@ -34,7 +34,7 @@
 					<a href="{% url 'remove_from_cart' item.product.id %}" class="text-white"
 						aria-label="remove from cart"><i class="fas fa-times icon-size"></i></a>
 				</div>
-				<div class="col-lg-4 offset-1 d-none d-lg-block cart-specs__box">
+				<div class="col-lg-4 offset-1 d-none d-lg-block cart-display-box">
 					<h4>{{ item.product.name }}</h4>
 					<p>{{ item.product.category|capfirst }}</p>
 					<p>${{ item.product.price }}</p>

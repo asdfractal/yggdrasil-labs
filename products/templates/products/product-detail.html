@@ -9,7 +9,7 @@
 				<div class="col-12 col-lg-6 mb-3">
 					<img class="card-img product-card-img" src="{{ product.image_url }}" alt="{{ product.name }}">
 				</div>
-				<div class="col-lg-4 offset-1 d-none d-lg-block product-details-specs__box">
+				<div class="col-lg-4 offset-1 d-none d-lg-block product-details-display-box">
 					<p class="card-text text-capitalize">Type: {{ product.category }}</p>
 					<p class="card-text">Booking required:
 						{% if product.booking_required %}Yes{% else %}No{% endif %}</p>
