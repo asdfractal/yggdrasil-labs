@@ -4,6 +4,8 @@ const clientSecret = $("#id_client_secret").text().slice(1, -1)
 const stripe = Stripe(stripePublicKey)
 const elements = stripe.elements()
 const loadingSpinner = $("#loadingOverlay")
+const errorElement = document.getElementById("cardErrors")
+const form = document.getElementById("paymentForm")
 const style = {
 	base: {
 		color: "#1F1F1F",
@@ -20,16 +22,24 @@ const style = {
 		iconColor: "#FF0033",
 	},
 }
-
 const card = elements.create("card", { style: style })
+
+/**
+ * Enables form after an error
+ */
+const enableForm = () => {
+	loadingSpinner.fadeToggle(100)
+	card.update({ disabled: false })
+	$("#paymentSubmit").attr("disabled", false)
+}
+
 card.mount("#cardElement")
 
 // Handle and display card form error
 card.addEventListener("change", (e) => {
-	const errorElement = document.getElementById("cardErrors")
 	if (e.error) {
 		const html = `
-                <span class="icon" role="alert">
+                <span role="alert">
                     <i class="fas fa-times"></i>
                 </span>
                 <span>${e.error.message}</span>
@@ -41,8 +51,6 @@ card.addEventListener("change", (e) => {
 })
 
 // handle form submit
-const form = document.getElementById("paymentForm")
-
 form.addEventListener("submit", (e) => {
 	e.preventDefault()
 	card.update({ disabled: true })
@@ -90,21 +98,25 @@ form.addEventListener("submit", (e) => {
 				})
 				.then((result) => {
 					if (result.error) {
-						const errorElement = document.getElementById("card-errors")
 						const html = `
-						<span class="icon" role="alert">
+						<span role="alert">
 							<i class="fas fa-times"></i>
 						</span>
 						<span>${result.error.message}</span>
 					`
 						$(errorElement).html(html)
-						loadingSpinner.fadeToggle(100)
-						card.update({ disabled: false })
-						$("#paymentSubmit").attr("disabled", false)
+						enableForm()
+					} else if (result.paymentIntent.status === "succeeded") {
+						form.submit()
 					} else {
-						if (result.paymentIntent.status === "succeeded") {
-							form.submit()
-						}
+						const html = `
+							<span role="alert">
+								<i class="fas fa-times"></i>
+							</span>
+							<span>An unexpected error has occured. Please contact us for assistance.</span>
+						`
+						$(errorElement).html(html)
+						enableForm()
 					}
 				})
 		})
