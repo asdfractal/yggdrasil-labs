@@ -40,6 +40,7 @@ def check_booking_status(request):
                         "value": True,
                         "expire_at": expire_at.timestamp(),
                     }
+                    break
 
     context = {
         "bookings": bookings,
