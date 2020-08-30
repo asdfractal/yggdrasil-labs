@@ -1,11 +1,11 @@
 .messages__wrapper {
   z-index: 1020;
   position: fixed;
-  top: 65px;
-  right: 5px;
+  top: 10vh;
+  right: 0.5vw;
 
   @include breakpoint(lg) {
-    top: 100px;
+    top: 14vh;
   }
 }
 
