@@ -57,9 +57,16 @@ const checkDates = async (url, date) => {
 	dayStr = addZero(dayInt.toString())
 	let query = date.getFullYear() + "-" + monthStr + "-" + dayStr
 	queryUrl = url + query
-	const res = await fetch(queryUrl)
-	data = await res.json()
-	return data
+	try {
+		const res = await fetch(queryUrl)
+		data = await res.json()
+		return data
+	} catch {
+		$("#errorMessage").text(
+			"There was an error contacting the server. Please try again later. If the problem persists, please contact us.",
+		)
+		return false
+	}
 }
 
 /**
@@ -70,6 +77,9 @@ const checkDates = async (url, date) => {
  */
 const processDates = async (url, date) => {
 	const data = await checkDates(url, date)
+	if (data === false) {
+		return
+	}
 	const bookingQuery = data.objects
 	const bookedTimes = []
 	bookingQuery.forEach((booking) => {
