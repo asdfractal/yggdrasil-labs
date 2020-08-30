@@ -1,0 +1,19 @@
+Hello {{ order.full_name }}!
+
+This is your order confirmation from Yggdrasil Laboratories.
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.total_price }}
+
+{% if order.shipping_required %}Your order will be shipped to {{ order.street_address1 }}, {% if order.street_address2 %}{{ order.street_address2 }},{% endif %} {{ order.city }}, {{ order.country }}.{% endif %}
+
+{% if order.booking_required %}Your order requires a booking, please make sure you set a time with us via your account dashboard.{% endif %}
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Welcome to the future!
+
+Sincerely,
+Yggdrasil Laboratories
