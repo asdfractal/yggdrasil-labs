@@ -17,6 +17,7 @@ class Product(models.Model):
     featured = models.BooleanField(default=False, null=False, blank=False)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
+    discontinued = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
