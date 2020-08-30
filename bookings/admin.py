@@ -3,7 +3,11 @@ from .models import Booking
 
 
 class BookingAdmin(admin.ModelAdmin):
-    # readonly_fields = ("order",)
+    """
+    Displays information about booking and related order in admin panel.
+    """
+
+    readonly_fields = ("order",)
 
     list_display = (
         "order",
