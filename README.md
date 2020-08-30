@@ -138,10 +138,10 @@ Note on CSS: I have chosen to use vw/vh on padding and margins in a lot of cases
     * layout - specific styles for individual pages or components
 
 ### Images
-I created the logo and index page title using the Elianto Font. The rest of the images are taken from the internet and credited in the credits section of the readme
+I created the logo and index page title using the Elianto Font. The rest of the images are taken from the internet and credited in the credits section of the readme.
 
 ### Wireframes
-Using the program Pencil I designed wireframes for desktop and mobile/tablet. The mobile/tablet are combined because there will be minimal differences in the design. The wireframes can be viewed [here](/wireframes/).
+Using the program Pencil I designed wireframes for desktop and mobile/tablet. The mobile/tablet are combined because there will be minimal differences in the design. I used them as a blueprint and then adjusted based on further testing to reach the final design. The wireframes can be viewed [here](/wireframes/).
 
 ### Code styling
 For consistency and readable code I am using formatters and format on save option.
@@ -206,6 +206,7 @@ Shipping required|shipping_required|BooleanField|default=False, null=False, blan
 Featured|featured|BooleanField|default=False, null=False, blank=False
 Price|price|DecimalField|max_digits=6, decimal_places=2
 Image URL|image_url|URLField|max_length=1024, null=True, blank=True
+Discontinued|discontinued|BooleanField|default=False
 
 ##### Category Model
 Name|Key in db|Field Type|Arguments
@@ -297,7 +298,6 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * Users will select a desired date from the range available and open times are enabled. Already existing bookings on that day will not be available
 * To plan the logic of the API I created a flowchart which can be viewed [here](/wireframes/booking-api-flowchart.jpg). This helped me understand how I needed to send requests to the backend, what to query, and how to process the response
 
-
 ### Planned Features
 * Improved product filter
 * Expanded client technical support to include detailed information about their installed products
@@ -365,6 +365,8 @@ You have have installed
 
 You have a free account with [Stripe](https://dashboard.stripe.com/register). To get your testing secret keys for Stripe and assistance in setting it up for the project, please visit the developer section of their website and follow the instructions.
 
+*All commands from this point should be entered in the terminal of your IDE*
+
 Install Pipenv with this command
 
 `pip install --user pipenv`
@@ -401,7 +403,7 @@ Install Pipenv with this command
     ```
 
     * Note: `SECRET_KEY` is a long random string and can be generated [here](https://miniwebtool.com/django-secret-key-generator/)
-    * Restart VSCode to activate the variables, and restart your environment with `pipenv shell`
+    * Close your VSCode terminal session and open a fresh terminal to activate the variables, and restart your environment with `pipenv shell`
     * Create a `.gitignore` file and add `.vscode` to ensure the security of your environment variables
 
 5. Migrate the database models with this command
@@ -431,7 +433,7 @@ Install Pipenv with this command
 4. On the app page, click on **Resources**
 5. In the add-ons section of the page, type `postgres` and select Heroku Postgres
 6. Select the **Hobby Dev — Free** option from the dropdown and click **Provision**
-7. Click on **Reveal Config Vars** in the Convig Vars section
+7. Navigate to the **Settings** page, click on **Reveal Config Vars** in the Convig Vars section
 8. Set the following Config Vars
 
     | Key | Value |
@@ -453,7 +455,7 @@ Install Pipenv with this command
     ```json
     "DATABASE_URL": "<Value copied from Heroku>"
     ```
-    * Restart VSCode to activate the variables, and restart your environment with `pipenv shell`
+    * Close your VSCode terminal session and open a fresh terminal to activate the variables, and restart your environment with `pipenv shell`
 
 11. Migrate the models to the database with this command
 
@@ -490,7 +492,12 @@ Install Pipenv with this command
 21. When build has succeeded, click on **Open App** to view the deployed site
 
 ## Credits
-Chris Zielinski and the Boutique Ado project
+* This project was developed following Chris Zielinski and the Boutique Ado project code provided by [Code Institute](https://codeinstitute.net/), but was customized and expanded on to meet my needs
+* Code for the booking session variable was aided by [Vadim Serdiuk's](https://stackoverflow.com/a/54983291/10828019) answer on Stack Overflow
+* I followed [Scott Domes](https://codeburst.io/create-a-django-api-in-under-20-minutes-2a082a60f6f3) article on setting up an API
+* The loading spinner is taken from [loading.io](https://loading.io/css/)
+* During development I constantly referred to and used code from [Django](https://docs.djangoproject.com/en/3.1/) and [Stripe](https://stripe.com/docs) documentation
+
 
 ### Images
 * [Index Background](https://www.wallpaperflare.com/)
@@ -516,7 +523,9 @@ Huge thanks to [Simen Daehlin](https://github.com/Eventyret) for being an incred
 
 Thanks to [Chris Zielinski](https://github.com/ckz8780) for being very active on slack and answering questions and personal messages, as well as the amazing Boutique Ado mini project.
 
-Code Institue for this great course and network that I am grateful to be a part of.
+Thanks to fellow students [Stephen Seagrave](https://github.com/nemixu) and [Sam Laubscher](linkedin.com/in/sam-laubscher-559a4215b) for testing the deployed website and offering feedback.
+
+[Code Institute](https://codeinstitute.net/) for this great course and network that I am grateful to be a part of.
 
 ### Disclaimer
 This site is part of a course project and is intended for educational purposes only

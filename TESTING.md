@@ -99,6 +99,8 @@ A featured review section on the product details page, which displays one review
 * If there are reviews, click 'all reviews' and confirm there is no form available to leave a review
 * Login to account, navigate to the details page of a product the account has not purchased and has reviews, click 'all reviews' and confirm there is no form available to leave a review
 * Navigate to the details page of a product the account has purchased, click 'create one' or 'all reviews', click icon to create a review, fill in form and submit. Confirm review is on the page, a toast notification is displayed and there is an option to edit or delete the review
+* Click edit, change the reviews and submit. Confirm review is updated
+* Click delete, click delete on popup, confirm review is deleted
 #### Result
 Users can write a review about products they are confirmed to have purchased, ensuring their reviews are genuine and can inform potential clients. It is not possible to leave a review if not verified to have purchased the product
 #### Verdict
@@ -187,6 +189,7 @@ A page dedicated to this, a form with email and body fields
 #### Test
 * While not logged into, navigate to contact page and fill in the form
 * Submit it and confirm the form content is processed and delivered, checking with django's console email backend
+* While logged into, navigate to contact page and confirm registered email address is automatically applied to the form field, with the option to choose a different address
 #### Result
 Users can enter their email and write in the textarea to contact the business, and it is processed successfully
 #### Verdict
@@ -264,7 +267,7 @@ Using the python packages Black, Pylint and Pylint-Django in conjunction with VS
 I tested every page using Lighthouse and fixed any issues to do with accessibility and best practice. After fixing issues every page is receiving 95+ in both of these categories
 
 ### User tests
-Two of my housemates and a fellow student have tested the website by using it and did not report any bugs. The feedback was positive and they used all the systems without any guidance required
+Two of my housemates and two fellow students have tested the website by using it and did not report any bugs. The feedback was positive and they used all the systems without any guidance required, aside from one student not knowing the Stripe testing credentials. This is why I have included them at the top of the README
 
 
 ## Bugs
