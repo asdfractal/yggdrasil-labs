@@ -6,6 +6,7 @@ const bookingTimeInput = $("#id_booking_time")
 const baseUrl = "/api/booking/?booking_date__contains="
 const bookingErrors = $("#bookingErrors")
 const permanentTimes = ["09", "12", "15"]
+const loadingSpinner = $("#loadingOverlay")
 let selectedDate = new Date()
 
 /* Dynamically displays and hides booking creation form */
@@ -57,6 +58,7 @@ const checkDates = async (url, date) => {
 	dayStr = addZero(dayInt.toString())
 	let query = date.getFullYear() + "-" + monthStr + "-" + dayStr
 	queryUrl = url + query
+	loadingSpinner.fadeToggle(100)
 	try {
 		const res = await fetch(queryUrl)
 		data = await res.json()
@@ -100,6 +102,7 @@ const processDates = async (url, date) => {
 			$(`#${time}`).removeAttr("disabled")
 		})
 	}
+	loadingSpinner.fadeToggle(100)
 }
 
 /**
