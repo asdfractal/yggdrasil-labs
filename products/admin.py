@@ -3,6 +3,10 @@ from .models import Product, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Display and modify products in admin panel.
+    """
+
     list_display = (
         "sku",
         "name",
@@ -15,6 +19,10 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Display and modify categories in admin panel.
+    """
+
     list_display = ("name",)
 
 
