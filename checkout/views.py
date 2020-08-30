@@ -106,6 +106,7 @@ def checkout(request):
             user_profile.is_client = True
             user_profile.check_personal_key()
             request.session["save_info"] = "save-info" in request.POST
+            messages.success(request, "Order placed successfully")
             return redirect(reverse("checkout_success", args=[order.order_number]))
         messages.error(
             request,
@@ -179,5 +180,4 @@ def checkout_success(request, order_number):
         "order": order,
         "page_title": "Success",
     }
-    messages.success(request, "Order placed successfully")
     return render(request, "checkout/checkout-success.html", context)
