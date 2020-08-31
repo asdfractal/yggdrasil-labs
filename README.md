@@ -220,7 +220,7 @@ Name|name|CharField|max_length=20
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 Order Number|order_number|CharField|max_length=32, null=False, editable=False
-Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='orders'
+Related User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='orders'
 Full Name|full_name|CharField|max_length=100, null=False, blank=False
 Email|email|EmailField|max_length=254, null=False, blank=False
 Phone Number|phone_number|CharField|max_length=20, null=True, blank=True
@@ -248,8 +248,8 @@ Total|total|DecimalField|max_digits=6, decimal_places=2, null=False, blank=False
 ##### Booking Model
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Associated Order|order|OneToOneField|Order, on_delete=models.SET_NULL, null=True, blank=True, related_name="booking"
-Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='bookings'
+Related Order|order|OneToOneField|Order, on_delete=models.SET_NULL, null=True, blank=True, related_name="booking"
+Related User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='bookings'
 Booking Date|booking_date|DateField|auto_now_add=False, null=True, blank=True
 Booking Time|booking_time|TimeField|auto_now_add=False, null=True, blank=True
 
@@ -258,8 +258,8 @@ Booking Time|booking_time|TimeField|auto_now_add=False, null=True, blank=True
 ##### Review Model
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
-Associated User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='reviews'
-Associated Product|product|ForeignKey|Product, blank=False, Null=False, related_name='reviews'
+Related User|user_profile|ForeignKey|UserProfile, on_delete=models.SET_NULL, null=False, blank=False, related_name='reviews'
+Related Product|product|ForeignKey|Product, blank=False, Null=False, related_name='reviews'
 Review content|review_content|TextField|null=False, blank=False, default=''
 
 
