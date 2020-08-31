@@ -69,3 +69,8 @@
 .primary-color__lighten {
   color: lighten($primary-color, 10%) !important;
 }
+
+.box-shadow-black {
+  border-radius: 0.25rem;
+  box-shadow: $box-shadow-black;
+}

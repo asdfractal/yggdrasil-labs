@@ -8,7 +8,7 @@
 		{% endif %}
 	</div>
 	<form action="{% url 'product_reviews' product.id %}" method="POST" {% if new %}class="d-none" {% endif %}>
-		<div class="col-12 col-lg-8 offset-lg-2">
+		<div class="col-11 mx-auto col-lg-10 offset-lg-1 box-shadow-black">
 			{% csrf_token %}
 			{{ form|crispy }}
 		</div>
