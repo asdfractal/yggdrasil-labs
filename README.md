@@ -207,7 +207,7 @@ Shipping required|shipping_required|BooleanField|default=False, null=False, blan
 Featured|featured|BooleanField|default=False, null=False, blank=False
 Price|price|DecimalField|max_digits=6, decimal_places=2
 Image URL|image_url|URLField|max_length=1024, null=True, blank=True
-Discontinued|discontinued|BooleanField|default=False
+Discontinued|discontinued|BooleanField|default=False, null=False, blank=False
 
 ##### Category Model
 Name|Key in db|Field Type|Arguments
