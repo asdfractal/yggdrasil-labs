@@ -17,10 +17,12 @@
 	<div class="row">
 		{% for category in categories %}
 		{% for product in products %}
+		{% if not product.discontinued %}
 		{% if product.category.name == category.name %}
 		<div class="col-12 col-md-6 col-lg-4 mb-4 js-filter-{{ category.name }}">
 			{% include 'products/components/product-card.html' %}
 		</div>
+		{% endif %}
 		{% endif %}
 		{% endfor %}
 		{% endfor %}
