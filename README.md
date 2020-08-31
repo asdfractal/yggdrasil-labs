@@ -21,7 +21,7 @@ If you want to use the full functionality of this website, Stripe test payments 
     * [Images](#images)
     * [Wireframes](#wireframes)
     * [Code Styling](#code-styling)
-* [Information Architecture](#information-architechture)
+* [Information Architecture](#information-architecture)
     * [Data models](#data-models)
         * [User](#user)
         * [Profiles App](#profiles-app)
