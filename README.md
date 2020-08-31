@@ -273,6 +273,7 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 
 #### User Profile
 * User Profile dashboard with inner navbar. Display and update personal information, access technical support, manage bookings and view order history
+* Option during checkout to save data to profile automatically
 * Auto generation of a personal key once a purchase is made that gives clients access to the business' mobile app for managing products
 
 #### Products & Reviews
@@ -299,7 +300,6 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * To plan the logic of the API I created a flowchart which can be viewed [here](/wireframes/booking-api-flowchart.jpg). This helped me understand how I needed to send requests to the backend, what to query, and how to process the response
 
 ### Planned Features
-* Improved product filter
 * Expanded client technical support to include detailed information about their installed products
 * News page with featured articles to post updates about the company's latest developments
 * Community hub for people to connect and share open source apps for cyberware
