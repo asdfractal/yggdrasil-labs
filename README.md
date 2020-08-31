@@ -6,51 +6,52 @@ This is a full stack website developed for Code Institute milestone project 4. S
 If you want to use the full functionality of this website, Stripe test payments are enabled with the card number `4242 4242 4242 4242` and any CVC, future expiry date, and postcode.
 
 ## Contents:
-* User Experience
-    * Project Goals
-    * Target Audience Goals
-    * Site Owner Goals
-    * User Stories
-    * Requirements
-    * Expectations
-* Design Choices
-    * Colours
-    * Fonts
-    * Icons
-    * Styles
-    * Images
-    * Wireframes
-    * Code Styling
-* Information Architecture
-    * Data models
-        * User
-        * Profiles App
-            * User Profile Model
-        * Products App
-            * Product Model
-            * Category Model
-        * Checkout App
-            * Order Model
-            * Order Lineitem Model
-        * Bookings App
-            * Booking Model
-        * Reviews App
-            * Review Model
-* Features
-    * Implemented Features
-    * Planned Features
-    * Extra comments
-* Technologies Used
-    * Languages
-    * Tools & Libraries
-* Testing & Bugs
-* Development & Deployment
-    * Local Development and Set-Up
-    * Heroku Deployment
-* Credits
-    * Images
-* Acknowledgements
-* Disclaimer
+* [User Experience](#user-experience)
+    * [Project Goals](#project-goals)
+    * [Target Audience Goals](#target-audience-goals)
+    * [Site Owner Goals](#site-owner-goals)
+    * [User Stories](#user-stories)
+    * [Requirements](#requirements)
+    * [Expectations](#expectations)
+* [Design Choices](#design-choices)
+    * [Colours](#colours)
+    * [Fonts](#fonts)
+    * [Icons](#icons)
+    * [Styles](#Styles)
+    * [Images](#images)
+    * [Wireframes](#wireframes)
+    * [Code Styling](#code-styling)
+* [Information Architecture](#information-architechture)
+    * [Data models](#data-models)
+        * [User](#user)
+        * [Profiles App](#profiles-app)
+            * [User Profile Model](#user-profile-model)
+        * [Products App](#products-app)
+            * [Product Model](#product-model)
+            * [Category Model](#category-model)
+        * [Checkout App](#checkout-app)
+            * [Order Model](#order-model)
+            * [Order Lineitem Model](#order-lineitem-model)
+        * [Bookings App](#bookings-app)
+            * [Booking Model](#booking-model)
+        * [Reviews App](#reviews-app)
+            * [Review Model](#review-model)
+* [Features](#features)
+    * [Implemented Features](#implemented-features)
+    * [Planned Features](#planned-features)
+    * [Extra Comments](#extra-comments)
+* [Technologies Used](#technologies-used)
+    * [Languages](#languages)
+    * [Libraries](#libraries)
+    * [Tools](#tools)
+* [Testing & Bugs](#testing--bugs)
+* [Development & Deployment](#development--deployment)
+    * [Local Development & Set-Up](#local-development--set-up)
+    * [Heroku Deployment](#heroku-deployment)
+* [Credits](#credits)
+    [Image Credits](#image-credits)
+* [Acknowledgements](#acknowledgements)
+* [Disclaimer](#disclaimer)
 
 
 ## User Experience
@@ -304,7 +305,7 @@ Review content|review_content|TextField|null=False, blank=False, default=''
 * News page with featured articles to post updates about the company's latest developments
 * Community hub for people to connect and share open source apps for cyberware
 
-### Extra comments
+### Extra Comments
 I was on a very tight schedule for this project, and to manage it I created a plan of development based on the MVP (minimum viable product) concept. To do this I worked in an iterative process where I created the whole project at a functional level and then improved features with the remaining time I had. I think this taught me valuable lessons in planning and time management while developing a project. It also made me decide what were the most important things to focus on to have a project ready in time, which I believe is relevant to real-world situations
 
 
@@ -354,7 +355,7 @@ A full write up for testing and dealing with bugs is [here](/TESTING.md)
 ## Development & Deployment
 Note: *These instructions are applicable to Windows and VSCode, and will be using the tool [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/). A requirements.txt file is also available if you are not using Pipenv. If you are not using Windows or VSCode please refer to your IDE documentation for any differences.*
 
-### Local Development and Set-Up
+### Local Development & Set-Up
 Requirements to run locally:
 * An IDE such as [VSCode](https://code.visualstudio.com/)
 
@@ -499,7 +500,7 @@ Install Pipenv with this command
 * During development I constantly referred to and used code from [Django](https://docs.djangoproject.com/en/3.1/) and [Stripe](https://stripe.com/docs) documentation
 
 
-### Images
+### Image Credits
 * [Index Background](https://www.wallpaperflare.com/)
 * [About Background](https://wallpapersafari.com/)
 * Order page tree - [adoomer](https://www.deviantart.com/adoomer)

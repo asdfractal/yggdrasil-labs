@@ -1,29 +1,29 @@
 # Testing & Bugs
 
 ## Contents:
-* Testing
-    * Authentication
-    * Feature Tests
-        * User Profile
-        * Products
-        * Reviews
-        * Cart & Checkout
-        * Booking system
-        * API
-        * Toast Messages
-        * Contact Form
-    * Stripe
-    * Responsiveness
-    * Browser Compatibility
-    * Forward and Back button navigation
-    * Code Validation
-        * W3 HTML
-        * W3 CSS
-        * JavaScript
-        * Python
-    * Chrome devtools Lighthouse
-    * User Testing
-* Bugs
+* [Testing](#testing)
+    * [Authentication](#authentication)
+    * [Feature Tests](#feature-tests)
+        * [User Profile](#user-profile)
+        * [Products](#products)
+        * [Reviews](#reviews)
+        * [Cart & Checkout](#cart--checkout)
+        * [Booking System](#booking-system)
+        * [API](#api)
+        * [Toast Messages](#toast-messages)
+        * [Contact Form](#contact-form)
+    * [Stripe](#stripe)
+    * [Responsiveness](#responsiveness)
+    * [Browser Compatibility](#browser-compatibility)
+    * [Forward & Back button navigation](#forward--back-button-navigation)
+    * [Code Verification](#code-verification)
+        * [W3 HTML](#w3-html-validator)
+        * [W3 CSS](#w3-css-validator)
+        * [JavaScript](#javascript)
+        * [Python](#python)
+    * [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse)
+    * [User Testing](#user-testing)
+* [Bugs](#Bugs)
 
 
 ## Testing
@@ -126,7 +126,7 @@ It is simple to add products to cart and view the contents before checkout. User
 #### Verdict
 This test has passed
 
-### Booking system
+### Booking System
 
 #### Expectation
 Users can make a booking if they purchase a product that it is required for
@@ -234,7 +234,7 @@ The website functions as intended on major browsers
 #### Verdict
 This test has passed
 
-### Forward and Back button navigation
+### Forward & Back button navigation
 
 #### Expectation
 The website is navigable using the forward and back buttons and does not break or have unintended actions
