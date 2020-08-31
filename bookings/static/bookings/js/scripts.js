@@ -80,6 +80,7 @@ const checkDates = async (url, date) => {
 const processDates = async (url, date) => {
 	const data = await checkDates(url, date)
 	if (data === false) {
+		loadingSpinner.fadeToggle(100)
 		return
 	}
 	const bookingQuery = data.objects
