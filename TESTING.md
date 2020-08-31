@@ -16,13 +16,13 @@
     * [Responsiveness](#responsiveness)
     * [Browser Compatibility](#browser-compatibility)
     * [Forward & Back button navigation](#forward--back-button-navigation)
-    * [Code Verification](#code-verification)
+    * [Code Validation](#code-validation)
         * [W3 HTML](#w3-html-validator)
         * [W3 CSS](#w3-css-validator)
         * [JavaScript](#javascript)
         * [Python](#python)
     * [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse)
-    * [User Testing](#user-testing)
+    * [User Tests](#user-tests)
 * [Bugs](#Bugs)
 
 
@@ -49,7 +49,7 @@ Unregistered users are not provided with options to access areas intended for re
 #### Verdict
 This test has passed
 
-
+### Feature Tests
 
 Doing these feature tests I have ensured that I cover all requirements and expectations of the user stories, as well as adding additional functionality and user experience through testing initial implementation and improving on the experience.
 
@@ -266,7 +266,7 @@ Using the python packages Black, Pylint and Pylint-Django in conjunction with VS
 ### Chrome Dev Tools Lighthouse
 I tested every page using Lighthouse and fixed any issues to do with accessibility and best practice. After fixing issues every page is receiving 95+ in both of these categories
 
-### User tests
+### User Tests
 Two of my housemates and two fellow students have tested the website by using it and did not report any bugs. The feedback was positive and they used all the systems without any guidance required, aside from one student not knowing the Stripe testing credentials. This is why I have included them at the top of the README
 
 

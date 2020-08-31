@@ -31,7 +31,7 @@ If you want to use the full functionality of this website, Stripe test payments 
             * [Category Model](#category-model)
         * [Checkout App](#checkout-app)
             * [Order Model](#order-model)
-            * [Order Lineitem Model](#order-lineitem-model)
+            * [OrderLineitem Model](#orderlineitem-model)
         * [Bookings App](#bookings-app)
             * [Booking Model](#booking-model)
         * [Reviews App](#reviews-app)
@@ -49,7 +49,7 @@ If you want to use the full functionality of this website, Stripe test payments 
     * [Local Development & Set-Up](#local-development--set-up)
     * [Heroku Deployment](#heroku-deployment)
 * [Credits](#credits)
-    [Image Credits](#image-credits)
+    * [Image Credits](#image-credits)
 * [Acknowledgements](#acknowledgements)
 * [Disclaimer](#disclaimer)
 
@@ -178,7 +178,7 @@ I am using the [default django user model](https://docs.djangoproject.com/en/3.0
 
 
 #### Profiles App
-##### User Profile
+##### User Profile Model
 Name|Key in db|Field Type|Arguments
 :-----:|:-----:|:-----:|:-----:
 User|user|OneToOneField|django.contrib.auth.get_user_model(), on_delete.models.CASCADE
