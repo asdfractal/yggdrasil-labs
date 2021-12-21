@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
 black = "==19.10b0"
 pylint = "*"
 pylint-django = "*"
@@ -19,6 +18,7 @@ whitenoise = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
 django-tastypie = "*"
+django = "==3.2.10"
 
 [requires]
 python_version = "3.8"
