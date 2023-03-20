@@ -1,0 +1,57 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Orbitron';
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+
+  @include breakpoint(md) {
+    font-size: 4rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 5rem;
+  }
+}
+
+h2 {
+  font-size: 2.8rem;
+
+  @include breakpoint(sm) {
+    font-size: 3.5rem;
+  }
+
+  @include breakpoint(md) {
+    font-size: 4rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 4.5rem;
+  }
+}
+
+h3 {
+  font-size: 2.5rem;
+
+  @include breakpoint(sm) {
+    font-size: 3.3rem;
+  }
+
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 1.8rem;
+
+  @include breakpoint(sm) {
+    font-size: 2.2rem;
+  }
+}
+
+h5 {
+  font-size: 2rem;
+}

@@ -1,0 +1,53 @@
+.profile__wrapper {
+  .card {
+    min-height: 400px;
+  }
+
+  .card-body {
+    margin-top: 8vh;
+  }
+}
+
+.profiles-card-header {
+  padding: .25rem;
+  height: 8vh;
+  background-color: inherit;
+  border: 0;
+
+
+  .navbar {
+    padding-right: .25rem;
+    padding-top: .5rem;
+    background: lighten($darkgrey, 5%);
+    z-index: 10;
+
+    .navbar-collapse {
+      flex-direction: row-reverse;
+
+      @include breakpoint(lg) {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+
+  button {
+    font-size: 3rem;
+  }
+}
+
+.profiles-card-title {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding-top: 0.3rem;
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+}
+
+.profile-nav-link {
+  &:hover {
+    cursor: pointer;
+  }
+}

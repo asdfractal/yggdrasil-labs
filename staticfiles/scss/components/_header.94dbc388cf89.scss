@@ -1,0 +1,64 @@
+.navbar-top__wrapper {
+  background: $grey;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  background-color: $grey;
+}
+
+.dropdown-item {
+  color: $primary-color;
+
+  &:hover {
+    background: lighten($grey-alpha-half, 10%);
+  }
+}
+
+.navbar-toggler {
+  color: $white;
+  font-size: 3.5rem;
+  box-shadow: none;
+}
+
+.nav-link,
+.dropdown-item {
+  font-size: 2rem;
+}
+
+.nav-icon-cart {
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  padding-top: 0.3rem;
+
+  @include breakpoint(lg) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+
+    .nav-link {
+      font-size: 3rem;
+      color: $white;
+    }
+  }
+}
+
+.badge-custom {
+  font-family: $body-font;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: white;
+  background: $warning-color;
+  border-radius: 50%;
+  position: absolute;
+  left: 2.3rem;
+  top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}

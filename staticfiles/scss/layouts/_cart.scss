@@ -1,0 +1,11 @@
+.cart-display-box {
+  @include displayBox;
+  height: 160px;
+  position: relative;
+
+  a {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+}

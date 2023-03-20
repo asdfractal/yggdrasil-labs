@@ -1,0 +1,42 @@
+// responsive breakpoints
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint==xs {
+    @media only screen and (min-width: $bp-xs) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==sm {
+    @media only screen and (min-width: $bp-sm) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==md {
+    @media only screen and (min-width: $bp-md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==lg {
+    @media only screen and (min-width: $bp-lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==xl {
+    @media only screen and (min-width: $bp-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin displayBox {
+  text-align: right;
+  padding: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  border: 1px solid $primary-color;
+  box-shadow: $box-shadow-black;
+}

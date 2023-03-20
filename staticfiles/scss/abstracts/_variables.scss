@@ -1,0 +1,32 @@
+// font
+
+$body-font: 'Raleway',
+sans-serif;
+
+// colours
+$primary-color: #00C2CE;
+$secondary-color: #D76EE5;
+$tertiary-color: #F22CA6;
+$white: #FFFFFF;
+$black: #000000;
+$darkgrey: #1F1F1F;
+$grey: #3D3D3D;
+$grey-alpha-half: rgba(61, 61, 61, 0.5);
+$lightgrey: #474747;
+$warning-color: #FC440F;
+$error-color: #FF0033;
+$success-color: #00FF00;
+$info-color: #F2EA02;
+
+$box-shadow-black: rgba(13, 22, 24, 0.15) 0px 1px 1px,
+rgba(13, 22, 24, 0.15) 0px 2px 2px,
+rgba(13, 22, 24, 0.15) 0px 4px 4px,
+rgba(13, 22, 24, 0.15) 0px 8px 8px,
+rgba(13, 22, 24, 0.15) 0px 16px 16px;
+
+// breakpoints
+$bp-xs: 400px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;

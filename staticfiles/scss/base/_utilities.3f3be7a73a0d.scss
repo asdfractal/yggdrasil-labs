@@ -1,0 +1,76 @@
+.bg-grey-alpha-half {
+  background-color: $grey-alpha-half !important;
+}
+
+.bgc-light {
+  background-color: $lightgrey !important;
+}
+
+.bgc-grey {
+  background-color: $grey !important;
+}
+
+.bgc-dark {
+  background-color: $darkgrey !important;
+}
+
+.warning-color {
+  color: $warning-color !important;
+}
+
+.warning-bg {
+  background: $warning-color !important;
+}
+
+.warning-border {
+  border: 1px solid $warning-color !important;
+}
+
+.error-color {
+  color: $error-color !important;
+}
+
+.error-bg {
+  background: $error-color !important;
+}
+
+.error-border {
+  border: 1px solid $error-color !important;
+}
+
+.success-color {
+  color: $success-color !important;
+}
+
+.success-bg {
+  background: $success-color !important;
+}
+
+.success-border {
+  border-color: $success-color !important;
+}
+
+.info-color {
+  color: $info-color !important;
+}
+
+.info-bg {
+  background: $info-color !important;
+}
+
+.info-border {
+  border: 1px solid $info-color !important;
+}
+
+.icon-size {
+  font-size: 3.5rem !important;
+}
+
+.primary-color__lighten {
+  color: lighten($primary-color, 10%) !important;
+}
+
+.box-shadow-black {
+  border-radius: 0.25rem;
+  box-shadow: $box-shadow-black;
+}

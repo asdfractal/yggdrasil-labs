@@ -1,0 +1,14 @@
+.button-booking-time {
+  width: 100%;
+  height: 40px;
+
+  &:active,
+  &:focus {
+    border: 1px solid $black;
+  }
+}
+
+#bookingErrors {
+  font-size: 1.4rem;
+  color: $warning-color;
+}

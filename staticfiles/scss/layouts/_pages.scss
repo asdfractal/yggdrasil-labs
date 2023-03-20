@@ -1,0 +1,44 @@
+.body-index {
+  background: url('/static/images/background.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.index-main__wrapper {
+  padding: 15vh 15px 0;
+  min-height: 85vh;
+}
+
+.index-featured {
+  img {
+    max-width: 80%;
+
+    @include breakpoint(sm) {
+      max-width: 100%;
+    }
+  }
+}
+
+.index-social-proof {
+  min-height: 80px;
+
+  span {
+    color: $tertiary-color;
+  }
+}
+
+.index-social-links {
+  i {
+    font-size: 4rem;
+  }
+}
+
+.body-about {
+  background: url('/static/images/about-bg.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
