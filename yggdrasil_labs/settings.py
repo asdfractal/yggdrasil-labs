@@ -29,7 +29,11 @@ if "PRODUCTION" in os.environ:
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+if "PRODUCTION" in os.environ:
+    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS.append(os.getenv("RAILWAY_STATIC_URL"))
+else:
+    ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
