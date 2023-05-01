@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "bookings",
     "api",
     "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
