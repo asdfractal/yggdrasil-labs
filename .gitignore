@@ -5,3 +5,9 @@
 .prettierrc
 .prettierignore
 .jshintrc
+.eslintrc.json
+setup.cfg
+pyproject.toml
+.venv
+__pycache__
+.env

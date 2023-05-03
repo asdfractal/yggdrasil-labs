@@ -24,12 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY", "")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if "PRODUCTION" in os.environ:
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = "DEBUG" in os.environ
 
-ALLOWED_HOSTS = ["*"]
+if "PRODUCTION" in os.environ:
+    ALLOWED_HOSTS = ["yggdrasil-labs.asdfractal.com"]
+    CSRF_TRUSTED_ORIGINS = ["https://yggdrasil-labs.asdfractal.com"]
+else:
+    ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     "bookings",
     "api",
     "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -152,7 +154,6 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

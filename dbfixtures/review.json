@@ -1,0 +1,65 @@
+[
+	{
+		"model": "reviews.review",
+		"pk": 2,
+		"fields": {
+			"user_profile": 1,
+			"product": 2,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 3,
+		"fields": {
+			"user_profile": 1,
+			"product": 2,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 48,
+		"fields": {
+			"user_profile": 1,
+			"product": 1,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 49,
+		"fields": {
+			"user_profile": 1,
+			"product": 1,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 58,
+		"fields": {
+			"user_profile": 1,
+			"product": 1,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 59,
+		"fields": {
+			"user_profile": 1,
+			"product": 1,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	},
+	{
+		"model": "reviews.review",
+		"pk": 60,
+		"fields": {
+			"user_profile": 1,
+			"product": 7,
+			"review_content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum quam, eum voluptatibus dignissimos eos ipsum perferendis?"
+		}
+	}
+]
