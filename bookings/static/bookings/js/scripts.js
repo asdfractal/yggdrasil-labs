@@ -120,7 +120,7 @@ const disableTimes = () => {
 $(document).ready(function () {
 	// Initialize datepicker and process input
 	bookingDateInput.datepicker({
-		minDate: 0,
+		minDate: 1,
 		maxDate: "+1M",
 		dateFormat: "dd M, yy",
 		beforeShowDay: $.datepicker.noWeekends,

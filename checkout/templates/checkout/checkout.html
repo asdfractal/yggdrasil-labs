@@ -34,8 +34,7 @@
 							{{ form|crispy }}
 							<div class="form-check form-check-inline float-right mr-0">
 								<label class="form-check-label" for="saveInfo">Save info to my profile</label>
-								<input class="form-check-input ml-2 mr-0" type="checkbox" id="saveInfo" name="saveInfo"
-									checked>
+								<input class="form-check-input ml-2 mr-0" type="checkbox" id="saveInfo" name="saveInfo" checked>
 							</div>
 						</fieldset>
 						<fieldset class="mt-4">
@@ -52,14 +51,16 @@
 						</fieldset>
 						<div class="row mt-4">
 							<div class="col-4">
-								<a href="{% url 'view_cart' %}" class="btn button-primary-outline"><i
-										class="fas fa-angle-double-left"></i></a>
+								<a href="{% url 'view_cart' %}" class="btn button-primary-outline"><i class="fas fa-angle-double-left"></i></a>
 							</div>
 							<div class="col-8 text-right">
 								<button class="btn button-secondary" type="submit" id="paymentSubmit">Submit</button>
 							</div>
 							<div class="col-12 text-right warning-color mt-3">
 								<p>Your card will be charged ${{ cart_total }}</p>
+							</div>
+							<div class="col-12 text-right warning-color mt-3">
+								<p>Stripe is in test mode - it will not accept or charge real cards. See <a href="https://stripe.com/docs/testing#use-test-cards">here</a> for test payment info.</p>
 							</div>
 						</div>
 					</form>

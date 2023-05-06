@@ -19,7 +19,7 @@
 					<h2 class="card-title">{{ product.name }}</h2>
 				</div>
 				<div class="col-12 col-lg-8">
-					<p>{{ product.description }}</p>
+					<span class="product-details-description-wrapper">{{ product.description|linebreaks }}</span>
 				</div>
 				<div class="col-12 text-capitalize d-lg-none mt-3">
 					<p class="card-text text-left text-capitalize ml-1">Type: {{ product.category }}</p>
@@ -34,8 +34,7 @@
 			</div>
 			<div class="row mb-4">
 				<div class="col-6 col-lg-4">
-					<a href="{% url 'products' %}" class="btn button-primary-outline" aria-label="go back"><i
-							class="fas fa-angle-double-left"></i></a>
+					<a href="{% url 'products' %}" class="btn button-primary-outline" aria-label="go back"><i class="fas fa-angle-double-left"></i></a>
 				</div>
 				<div class="col-6 col-lg-4 offset-lg-3 pr-lg-0 text-right">
 					<a href="{% url 'add_to_cart' product.id %}" class="btn button-secondary-outline">Buy</a>
@@ -51,8 +50,7 @@
 			{% else %}
 			<div class="row mb-4">
 				<div class="col-10 offset-1">
-					<p>No one has left a review {% if request.user.is_authenticated and user_purchased %}- <a
-							href="{% url 'product_reviews' product.id %}">create one</a></p>
+					<p>No one has left a review {% if request.user.is_authenticated and user_purchased %}- <a href="{% url 'product_reviews' product.id %}">create one</a></p>
 					{% endif %}
 				</div>
 			</div>
