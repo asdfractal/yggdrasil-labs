@@ -11,7 +11,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "1999.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/implant/cortical-stack.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/implant/cortical-stack.jpg",
 			"discontinued": false
 		}
 	},
@@ -27,7 +27,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "499.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/implant/netdeck.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/implant/netdeck.jpg",
 			"discontinued": false
 		}
 	},
@@ -43,7 +43,7 @@
 			"shipping_required": false,
 			"featured": true,
 			"price": "2299.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/implant/cyberoptics.png",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/implant/cyberoptics.png",
 			"discontinued": false
 		}
 	},
@@ -59,7 +59,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "1449.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/implant/neural-network.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/implant/neural-network.jpg",
 			"discontinued": false
 		}
 	},
@@ -75,7 +75,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "49.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/app/augment.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/app/augment.jpg",
 			"discontinued": false
 		}
 	},
@@ -91,7 +91,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "69.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/app/immerse.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/app/immerse.jpg",
 			"discontinued": false
 		}
 	},
@@ -107,7 +107,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "34.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/app/secure-me.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/app/secure-me.jpg",
 			"discontinued": false
 		}
 	},
@@ -123,7 +123,7 @@
 			"shipping_required": false,
 			"featured": true,
 			"price": "49.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/app/synapse.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/app/synapse.jpg",
 			"discontinued": false
 		}
 	},
@@ -139,7 +139,7 @@
 			"shipping_required": true,
 			"featured": false,
 			"price": "129.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/upgrade/cortical-dose.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/upgrade/cortical-dose.jpg",
 			"discontinued": false
 		}
 	},
@@ -155,7 +155,7 @@
 			"shipping_required": false,
 			"featured": false,
 			"price": "99.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/upgrade/clock-upgrade.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/upgrade/clock-upgrade.jpg",
 			"discontinued": false
 		}
 	},
@@ -171,7 +171,7 @@
 			"shipping_required": false,
 			"featured": true,
 			"price": "74.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/upgrade/haptic-feedback.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/upgrade/haptic-feedback.jpg",
 			"discontinued": false
 		}
 	},
@@ -187,7 +187,7 @@
 			"shipping_required": true,
 			"featured": false,
 			"price": "34.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/upgrade/stack-capacity.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/upgrade/stack-capacity.jpg",
 			"discontinued": false
 		}
 	},
@@ -203,7 +203,7 @@
 			"shipping_required": true,
 			"featured": false,
 			"price": "79.99",
-			"image_url": "http://127.0.0.1:8000/static/images/products/upgrade/neuron-capacity.jpg",
+			"image_url": "https://yggdrasil-labs.asdfractal.com/static/images/products/upgrade/neuron-capacity.jpg",
 			"discontinued": false
 		}
 	},
